@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:edushare/config/theme/theme.dart';
 
 class MessageCardView extends StatelessWidget {
   const MessageCardView({
@@ -16,33 +17,39 @@ class MessageCardView extends StatelessWidget {
       alignment: Alignment.centerLeft,
       width: screenWidth,
       height: screenHeight * 0.08,
-      decoration: const BoxDecoration(
-        //color: Colors.white,
-        border: Border.symmetric(
-          horizontal: BorderSide(
-            width: 1,
-          ),
-        ),
+      decoration: BoxDecoration(
+        color: AppColor.white,
+        borderRadius: BorderRadius.circular(15),
       ),
-      child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CircleAvatar(
+            /*----User-Image----*/
+            const CircleAvatar(
               radius: 24,
               backgroundImage: AssetImage(
                 'assets/images/panda_512x512.png',
               ),
             ),
-            SizedBox(width: 15),
+            const SizedBox(width: 20),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Kullanıcı Adı'),
-                Text('Son Mesaj'),
+                /*----User-Name----*/
+                Text(
+                  'Kullanıcı Adı',
+                  style: AppTxtStyle.h3.copyWith(fontWeight: FontWeight.w600),
+                ),
+                /*----Last-Message----*/
+                Text(
+                  'Son Mesaj',
+                  style:
+                      AppTxtStyle.caption.copyWith(fontWeight: FontWeight.w500),
+                ),
               ],
             )
           ],

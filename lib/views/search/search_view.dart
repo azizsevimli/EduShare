@@ -1,6 +1,7 @@
-import 'package:edushare/widgets/outlined_button.dart';
-import 'package:edushare/widgets/product_card.dart';
 import 'package:flutter/material.dart';
+import 'package:edushare/config/theme/theme.dart';
+import 'package:edushare/widgets/product_card.dart';
+import 'package:edushare/widgets/outlined_button.dart';
 
 class SearchView extends StatelessWidget {
   const SearchView({super.key});
@@ -11,6 +12,9 @@ class SearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
@@ -27,7 +31,7 @@ class SearchView extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  /*----Btn1----*/
+                  /*----Filter-Button----*/
                   Expanded(
                     child: SizedBox(
                       height: 32,
@@ -39,7 +43,7 @@ class SearchView extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 10),
-                  /*----Btn2----*/
+                  /*----Sort-Button----*/
                   Expanded(
                     child: SizedBox(
                       height: 32,
@@ -53,25 +57,32 @@ class SearchView extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              const Text('3 sonuç listelendi'),
+              Text(
+                '3 sonuç listelendi',
+                style: AppTxtStyle.body.copyWith(
+                  color: AppColor.darkGray,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
               const SizedBox(height: 10),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Column(
-                    children: [
-                      ProductCardView(),
-                      SizedBox(height: 10),
-                      ProductCardView(),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      ProductCardView(),
-                    ],
-                  ),
-                ],
+              /*----Product-List----*/
+              GridView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: 3,
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.7,
+                ),
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: ProductCardView(
+                      screenWidth: screenWidth,
+                      screenHeight: screenHeight,
+                    ),
+                  );
+                },
               ),
             ],
           ),
@@ -83,15 +94,15 @@ class SearchView extends StatelessWidget {
   /*----Search-Bar----*/
   TextField searchBar(BuildContext context) {
     return TextField(
-      style: const TextStyle(color: Colors.black, fontSize: 16),
+      style: const TextStyle(color: AppColor.black, fontSize: 16),
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         labelText: 'Ara',
-        labelStyle: const TextStyle(color: Colors.grey, fontSize: 16),
+        labelStyle: const TextStyle(color: AppColor.darkBrown, fontSize: 16),
         prefixIcon: const Icon(
           Icons.search_rounded,
           size: 20,
-          color: Colors.black,
+          color: AppColor.darkBrown,
         ),
         enabledBorder: _searchBarBorder(context),
         focusedBorder: _searchBarBorder(context),

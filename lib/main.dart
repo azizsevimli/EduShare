@@ -1,5 +1,5 @@
-import 'package:edushare/config/theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:edushare/config/theme/theme.dart';
 import 'package:edushare/config/route/router.dart';
 
 void main() {

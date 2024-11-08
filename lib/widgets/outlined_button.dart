@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:edushare/config/theme/theme.dart';
 
 class OutlinedBtn extends StatelessWidget {
   final VoidCallback onPressed;
@@ -18,21 +19,22 @@ class OutlinedBtn extends StatelessWidget {
       onPressed: onPressed,
       icon: Icon(
         icon,
-        //color: Colors.white,
+        color: AppColor.white,
         size: 20,
       ),
       label: Text(
         txt,
-        style: const TextStyle(
-          //color: Colors.white,
-          fontSize: 14,
+        style: AppTxtStyle.body.copyWith(
+          color: AppColor.white,
           fontWeight: FontWeight.w300,
         ),
       ),
-      style: const ButtonStyle(
-        side: WidgetStatePropertyAll(
+      style: ButtonStyle(
+        backgroundColor: WidgetStateProperty.all(AppColor.orange),
+        side: const WidgetStatePropertyAll(
           BorderSide(
-            width: 1.5,
+            width: 1,
+            color: AppColor.lightBrown,
           ),
         ),
       ),
