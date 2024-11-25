@@ -1,7 +1,10 @@
+import 'package:edushare/config/route/router.dart';
+import 'package:edushare/views/profile/pedit_view.dart';
 import 'package:edushare/widgets/outlined_button.dart';
 import 'package:flutter/material.dart';
 import 'package:edushare/config/theme/theme.dart';
 import 'package:edushare/widgets/product_card.dart';
+import 'package:go_router/go_router.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
@@ -103,7 +106,7 @@ class _ProfileViewState extends State<ProfileView> {
                       Expanded(
                         child: OutlinedBtn(
                           onPressed: () {
-                            debugPrint('Profil Düzenle');
+                            context.push('/profile/edit');
                           },
                           txt: 'Profili Düzenle',
                           icon: Icons.edit,

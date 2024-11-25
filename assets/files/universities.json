@@ -1,0 +1,626 @@
+[
+    {
+        "name": "Abdullah Gül Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Acibadem Mehmet Ali̇ Aydinlar Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Adana Alparslan Türkeş Bi̇li̇m Ve Teknoloji̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Adiyaman Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Afyon Kocatepe Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Afyonkarahi̇sar Sağlik Bi̇li̇mleri̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Ağri İbrahi̇m Çeçen Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Akdeni̇z Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Aksaray Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Alanya Alaaddi̇n Keykubat Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Alanya Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Altinbaş Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Amasya Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Anadolu Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Anka Teknoloji̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Ankara Bi̇li̇m Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Ankara Haci Bayram Veli̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Ankara Medi̇pol Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Ankara Müzi̇k Ve Güzel Sanatlar Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Ankara Sosyal Bi̇li̇mler Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Ankara Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Ankara Yildirim Beyazit Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Antalya Belek Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Antalya Bi̇li̇m Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Ardahan Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Artvi̇n Çoruh Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Ataşehi̇r Adigüzel Meslek Yüksekokulu"
+    },
+    {
+        "name": "Atatürk Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Atilim Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Avrasya Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Aydin Adnan Menderes Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Bahçeşehi̇r Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Balikesi̇r Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Bandirma Onyedi̇ Eylül Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Bartin Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Başkent Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Batman Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Bayburt Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Beykoz Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Bezm-İ Âlem Vakif Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Bi̇leci̇k Şeyh Edebali̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Bi̇ngöl Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Bi̇runi̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Bi̇tli̇s Eren Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Boğazi̇çi̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Bolu Abant İzzet Baysal Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Burdur Mehmet Aki̇f Ersoy Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Bursa Tekni̇k Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Bursa Uludağ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Çağ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Çanakkale Onseki̇z Mart Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Çankaya Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Çankiri Karateki̇n Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Çukurova Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Demi̇roğlu Bi̇li̇m Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Di̇cle Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Doğuş Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Dokuz Eylül Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Düzce Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Ege Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Erci̇yes Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Erzi̇ncan Bi̇nali̇ Yildirim Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Erzurum Tekni̇k Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Eski̇şehi̇r Osmangazi̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Eski̇şehi̇r Tekni̇k Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Fati̇h Sultan Mehmet Vakif Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Fenerbahçe Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Firat Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Galatasaray Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Gazi̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Gazi̇antep İslam Bi̇li̇m Ve Teknoloji̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Gazi̇antep Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Gebze Tekni̇k Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Gi̇resun Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Gümüşhane Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Hacettepe Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Hakkari̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Hali̇ç Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Harran Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Hasan Kalyoncu Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Hatay Mustafa Kemal Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Hi̇ti̇t Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Iğdir Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Isparta Uygulamali Bi̇li̇mler Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Işik Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İbn Haldun Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İhsan Doğramaci Bi̇lkent Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İnönü Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İskenderun Tekni̇k Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Arel Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Atlas Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Aydin Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Beykent Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Bi̇lgi̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Esenyurt Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Galata Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Gedi̇k Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Geli̇şi̇m Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Kent Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Kültür Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Medeni̇yet Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Medi̇pol Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Ni̇şantaşi Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Okan Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Rumeli̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Sabahatti̇n Zai̇m Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Sağlik Ve Sosyal Bi̇li̇mler Meslek Yüksekokulu"
+    },
+    {
+        "name": "İstanbul Sağlik Ve Teknoloji̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Şi̇şli̇ Meslek Yüksekokulu"
+    },
+    {
+        "name": "İstanbul Tekni̇k Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Ti̇caret Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Topkapi Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul Üni̇versi̇tesi̇-Cerrahpaşa"
+    },
+    {
+        "name": "İstanbul Yeni̇ Yüzyil Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İstanbul 29 Mayis Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İsti̇nye Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İzmi̇r Bakirçay Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İzmi̇r Demokrasi̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İzmi̇r Ekonomi̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İzmi̇r Kati̇p Çelebi̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İzmi̇r Kavram Meslek Yüksekokulu"
+    },
+    {
+        "name": "İzmi̇r Tinaztepe Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "İzmi̇r Yüksek Teknoloji̇ Ensti̇tüsü"
+    },
+    {
+        "name": "Kadi̇r Has Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Kafkas Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Kahramanmaraş İsti̇klal Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Kahramanmaraş Sütçü İmam Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Kapadokya Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Karabük Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Karadeni̇z Tekni̇k Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Karamanoğlu Mehmetbey Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Kastamonu Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Kayseri̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Kirikkale Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Kirklareli̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Kirşehi̇r Ahi̇ Evran Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Ki̇li̇s 7 Aralik Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Kocaeli̇ Sağlik Ve Teknoloji̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Kocaeli̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Koç Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Konya Gida Ve Tarim Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Konya Tekni̇k Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Kto Karatay Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Kütahya Dumlupinar Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Kütahya Sağlik Bi̇li̇mleri̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Lokman Heki̇m Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Malatya Turgut Özal Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Maltepe Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Mani̇sa Celâl Bayar Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Mardi̇n Artuklu Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Marmara Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Mef Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Mersi̇n Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Mi̇mar Si̇nan Güzel Sanatlar Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Mudanya Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Muğla Sitki Koçman Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Munzur Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Muş Alparslan Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Necmetti̇n Erbakan Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Nevşehi̇r Haci Bektaş Veli̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Ni̇ğde Ömer Hali̇sdemi̇r Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Nuh Naci̇ Yazgan Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Ondokuz Mayis Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Ordu Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Orta Doğu Tekni̇k Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Osmani̇ye Korkut Ata Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Osti̇m Tekni̇k Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Özyeği̇n Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Pamukkale Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Pi̇ri̇ Rei̇s Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Recep Tayyi̇p Erdoğan Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Sabanci Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Sağlik Bi̇li̇mleri̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Sakarya Uygulamali Bi̇li̇mler Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Sakarya Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Samsun Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Sanko Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Selçuk Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Si̇i̇rt Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Si̇nop Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Si̇vas Bi̇li̇m Ve Teknoloji̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Si̇vas Cumhuri̇yet Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Süleyman Demi̇rel Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Şirnak Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Tarsus Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Ted Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Teki̇rdağ Namik Kemal Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Tobb Ekonomi̇ Ve Teknoloji̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Tokat Gazi̇osmanpaşa Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Toros Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Trabzon Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Trakya Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Türk Hava Kurumu Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Türk-Alman Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Türki̇ye Uluslararasi İslam, Bi̇li̇m Ve Teknoloji̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Türk-Japon Bi̇li̇m Ve Teknoloji̇ Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Ufuk Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Uşak Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Üsküdar Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Van Yüzüncü Yil Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Yalova Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Yaşar Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Yedi̇tepe Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Yildiz Tekni̇k Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Yozgat Bozok Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Yüksek İhti̇sas Üni̇versi̇tesi̇"
+    },
+    {
+        "name": "Zonguldak Bülent Ecevi̇t Üni̇versi̇tesi̇"
+    }
+]

@@ -94,11 +94,13 @@ class SearchView extends StatelessWidget {
   /*----Search-Bar----*/
   TextField searchBar(BuildContext context) {
     return TextField(
-      style: const TextStyle(color: AppColor.black, fontSize: 16),
+      style: AppTxtStyle.body,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-        labelText: 'Ara',
-        labelStyle: const TextStyle(color: AppColor.darkBrown, fontSize: 16),
+        hintText: 'Ara',
+        hintStyle: AppTxtStyle.body.copyWith(
+          color: AppColor.darkBrown,
+        ),
         prefixIcon: const Icon(
           Icons.search_rounded,
           size: 20,

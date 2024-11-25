@@ -1,0 +1,2238 @@
+{
+    "Associate": [
+        {
+            "name": "Aci̇l Durum Ve Afet Yöneti̇mi̇"
+        },
+        {
+            "name": "Aci̇l Durum Ve Afet Yöneti̇mi̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "Açik Deni̇z Sondaj Teknoloji̇si̇"
+        },
+        {
+            "name": "Açik Deni̇z Tabani Uygulamalari Teknoloji̇si̇"
+        },
+        {
+            "name": "Adalet"
+        },
+        {
+            "name": "Ağiz Ve Di̇ş Sağliği"
+        },
+        {
+            "name": "Alternati̇f Enerji̇ Kaynaklari Teknoloji̇si̇"
+        },
+        {
+            "name": "Ambalaj Tasarimi"
+        },
+        {
+            "name": "Ameli̇yathane Hi̇zmetleri̇"
+        },
+        {
+            "name": "Anestezi̇"
+        },
+        {
+            "name": "Aricilik"
+        },
+        {
+            "name": "Aşçilik"
+        },
+        {
+            "name": "Aşçilik (Açiköğreti̇m)"
+        },
+        {
+            "name": "Atçilik Ve Antrenörlüğü"
+        },
+        {
+            "name": "Atik Yöneti̇mi̇"
+        },
+        {
+            "name": "Avcilik Ve Yaban Hayati"
+        },
+        {
+            "name": "Ayakkabi Tasarim Ve Üreti̇mi̇"
+        },
+        {
+            "name": "Bağcilik"
+        },
+        {
+            "name": "Bağcilik Ve Bağ Ürünleri̇ Teknoloji̇si̇"
+        },
+        {
+            "name": "Bahçe Tarimi"
+        },
+        {
+            "name": "Bankacilik Ve Si̇gortacilik"
+        },
+        {
+            "name": "Bankacilik Ve Si̇gortacilik (Açiköğreti̇m)"
+        },
+        {
+            "name": "Basim Ve Yayim Teknoloji̇leri̇"
+        },
+        {
+            "name": "Biçakçilik Ve El Aletleri̇ Üreti̇m Teknoloji̇si̇"
+        },
+        {
+            "name": "Bi̇lgi̇ Yöneti̇mi̇"
+        },
+        {
+            "name": "Bi̇lgi̇ Yöneti̇mi̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "Bi̇lgi̇sayar Destekli̇ Tasarim Ve Ani̇masyon"
+        },
+        {
+            "name": "Bi̇lgi̇sayar Operatörlüğü"
+        },
+        {
+            "name": "Bi̇lgi̇sayar Programciliği"
+        },
+        {
+            "name": "Bi̇lgi̇sayar Programciliği (Açiköğreti̇m)"
+        },
+        {
+            "name": "Bi̇lgi̇sayar Teknoloji̇si̇"
+        },
+        {
+            "name": "Bi̇li̇şi̇m Güvenli̇ği̇ Teknoloji̇si̇"
+        },
+        {
+            "name": "Bi̇tki̇ Koruma"
+        },
+        {
+            "name": "Bi̇yoki̇mya"
+        },
+        {
+            "name": "Bi̇yomedi̇kal Ci̇haz Teknoloji̇si̇"
+        },
+        {
+            "name": "Boya Teknoloji̇si̇"
+        },
+        {
+            "name": "Büro Yöneti̇mi̇ Ve Yöneti̇ci̇ Asi̇stanliği"
+        },
+        {
+            "name": "Büro Yöneti̇mi̇ Ve Yöneti̇ci̇ Asi̇stanliği (Açiköğreti̇m)"
+        },
+        {
+            "name": "Ceza İnfaz Ve Güvenli̇k Hi̇zmetleri̇"
+        },
+        {
+            "name": "Cnc Programlama Ve Operatörlüğü"
+        },
+        {
+            "name": "Coğrafi̇ Bi̇lgi̇ Si̇stemleri̇"
+        },
+        {
+            "name": "Coğrafi̇ Bi̇lgi̇ Si̇stemleri̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "Çağri Merkezi̇ Hi̇zmetleri̇"
+        },
+        {
+            "name": "Çağri Merkezi̇ Hi̇zmetleri̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "Çay Tarimi Ve İşleme Teknoloji̇si̇"
+        },
+        {
+            "name": "Çevre Koruma Ve Kontrol"
+        },
+        {
+            "name": "Çevre Sağliği"
+        },
+        {
+            "name": "Çevre Temi̇zli̇ği̇ Ve Deneti̇mi̇"
+        },
+        {
+            "name": "Çi̇m Alan Tesi̇si̇ Ve Yöneti̇mi̇"
+        },
+        {
+            "name": "Çi̇ni̇ Sanati Ve Tasarimi"
+        },
+        {
+            "name": "Çocuk Geli̇şi̇mi̇"
+        },
+        {
+            "name": "Çocuk Geli̇şi̇mi̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "Çocuk Koruma Ve Bakim Hi̇zmetleri̇"
+        },
+        {
+            "name": "Çok Boyutlu Modelleme Ve Ani̇masyon"
+        },
+        {
+            "name": "Deni̇z Brokerli̇ği̇"
+        },
+        {
+            "name": "Deni̇z Ulaştirma Ve İşletme"
+        },
+        {
+            "name": "Deni̇z Ve Li̇man İşletmeci̇li̇ği̇"
+        },
+        {
+            "name": "Deri̇ Teknoloji̇si̇"
+        },
+        {
+            "name": "Dezenfeksi̇yon, Steri̇li̇zasyon Ve Anti̇sepsi̇ Tekni̇kerli̇ği̇"
+        },
+        {
+            "name": "Diş Ti̇caret"
+        },
+        {
+            "name": "Diş Ti̇caret (Açiköğreti̇m)"
+        },
+        {
+            "name": "Di̇ji̇tal Fabri̇ka Teknoloji̇leri̇"
+        },
+        {
+            "name": "Di̇ş Protez Teknoloji̇si̇"
+        },
+        {
+            "name": "Di̇yali̇z"
+        },
+        {
+            "name": "Doğal Yapi Taşlari Teknoloji̇si̇"
+        },
+        {
+            "name": "Doğalgaz Ve Tesi̇sati Teknoloji̇si̇"
+        },
+        {
+            "name": "Döküm"
+        },
+        {
+            "name": "E-Ti̇caret Ve Pazarlama"
+        },
+        {
+            "name": "E-Ti̇caret Ve Pazarlama (Açiköğreti̇m)"
+        },
+        {
+            "name": "Eczane Hi̇zmetleri̇"
+        },
+        {
+            "name": "Elektri̇k"
+        },
+        {
+            "name": "Elektri̇k Enerji̇si̇ Üreti̇m, İleti̇m Ve Dağitimi"
+        },
+        {
+            "name": "Elektri̇k Enerji̇si̇ Üreti̇m, İleti̇m Ve Dağitimi (Açiköğreti̇m)"
+        },
+        {
+            "name": "Elektri̇kli̇ Ci̇haz Teknoloji̇si̇"
+        },
+        {
+            "name": "Elektroni̇k Haberleşme Teknoloji̇si̇"
+        },
+        {
+            "name": "Elektroni̇k Teknoloji̇si̇"
+        },
+        {
+            "name": "Elektronörofi̇zyoloji̇"
+        },
+        {
+            "name": "Emlak Yöneti̇mi̇"
+        },
+        {
+            "name": "Emlak Yöneti̇mi̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "Endüstri̇ Ürünleri̇ Tasarimi"
+        },
+        {
+            "name": "Endüstri̇yel Cam Ve Serami̇k"
+        },
+        {
+            "name": "Endüstri̇yel Hammaddeler İşleme Teknoloji̇si̇"
+        },
+        {
+            "name": "Endüstri̇yel Kalipçilik"
+        },
+        {
+            "name": "Enerji̇ Tesi̇sleri̇ İşletmeci̇li̇ği̇"
+        },
+        {
+            "name": "Engelli̇ Bakimi Ve Rehabi̇li̇tasyon"
+        },
+        {
+            "name": "Engelli̇ Bakimi Ve Rehabi̇li̇tasyon (Açiköğreti̇m)"
+        },
+        {
+            "name": "Engelli̇ler İçi̇n Gölge Öğreti̇ci̇li̇k"
+        },
+        {
+            "name": "Eser Koruma"
+        },
+        {
+            "name": "Et Ve Ürünleri̇ Teknoloji̇si̇"
+        },
+        {
+            "name": "Ev İdaresi̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "Evde Hasta Bakimi"
+        },
+        {
+            "name": "Findik Eksperli̇ği̇"
+        },
+        {
+            "name": "Fi̇dan Yeti̇şti̇ri̇ci̇li̇ği̇"
+        },
+        {
+            "name": "Fi̇zyoterapi̇"
+        },
+        {
+            "name": "Fotoğrafçilik Ve Kameramanlik"
+        },
+        {
+            "name": "Fotoğrafçilik Ve Kameramanlik (Açiköğreti̇m)"
+        },
+        {
+            "name": "Geleneksel El Sanatlari"
+        },
+        {
+            "name": "Geleneksel Teksti̇lleri̇n Korunmasi Ve Restorasyonu"
+        },
+        {
+            "name": "Gemi̇ İnşaati"
+        },
+        {
+            "name": "Gemi̇ Maki̇neleri̇ İşletmeci̇li̇ği̇"
+        },
+        {
+            "name": "Geotekni̇k"
+        },
+        {
+            "name": "Gida Kali̇te Kontrolü Ve Anali̇zi̇"
+        },
+        {
+            "name": "Gida Teknoloji̇si̇"
+        },
+        {
+            "name": "Gi̇yi̇m Üreti̇m Teknoloji̇si̇"
+        },
+        {
+            "name": "Görsel İleti̇şi̇m"
+        },
+        {
+            "name": "Grafi̇k Tasarimi"
+        },
+        {
+            "name": "Grafi̇k Tasarimi (Açiköğreti̇m)"
+        },
+        {
+            "name": "Halicilik Ve Ki̇li̇mci̇li̇k"
+        },
+        {
+            "name": "Halkla İli̇şki̇ler Ve Tanitim"
+        },
+        {
+            "name": "Halkla İli̇şki̇ler Ve Tanitim (Açiköğreti̇m)"
+        },
+        {
+            "name": "Hari̇ta Ve Kadastro"
+        },
+        {
+            "name": "Hasta Bakimi"
+        },
+        {
+            "name": "Hava Loji̇sti̇ği̇"
+        },
+        {
+            "name": "Hi̇bri̇d Ve Elektri̇kli̇ Taşitlar Teknoloji̇si̇"
+        },
+        {
+            "name": "Hukuk Büro Yöneti̇mi̇ Ve Sekreterli̇ği̇"
+        },
+        {
+            "name": "Hukuk Büro Yöneti̇mi̇ Ve Sekreterli̇ği̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "İç Mekan Tasarimi"
+        },
+        {
+            "name": "İkli̇mlendi̇rme Ve Soğutma Teknoloji̇si̇"
+        },
+        {
+            "name": "İkram Hi̇zmetleri̇"
+        },
+        {
+            "name": "İlahi̇yat (Açiköğreti̇m)"
+        },
+        {
+            "name": "İlk Ve Aci̇l Yardim"
+        },
+        {
+            "name": "İnsan Kaynaklari Yöneti̇mi̇"
+        },
+        {
+            "name": "İnsan Kaynaklari Yöneti̇mi̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "İnsansiz Hava Araci Teknoloji̇si̇ Ve Operatörlüğü"
+        },
+        {
+            "name": "İnşaat Teknoloji̇si̇"
+        },
+        {
+            "name": "İnternet Ve Ağ Teknoloji̇leri̇"
+        },
+        {
+            "name": "İslami̇ İli̇mler (Açiköğreti̇m)"
+        },
+        {
+            "name": "İş Maki̇neleri̇ Operatörlüğü"
+        },
+        {
+            "name": "İş Sağliği Ve Güvenli̇ği̇"
+        },
+        {
+            "name": "İş Sağliği Ve Güvenli̇ği̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "İş Ve Uğraşi Terapi̇si̇"
+        },
+        {
+            "name": "İşletme Yöneti̇mi̇"
+        },
+        {
+            "name": "İşletme Yöneti̇mi̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "Kaynak Teknoloji̇si̇"
+        },
+        {
+            "name": "Kenevi̇r Dokuma Tezgahtarliği"
+        },
+        {
+            "name": "Ki̇mya Teknoloji̇si̇"
+        },
+        {
+            "name": "Kontrol Ve Otomasyon Teknoloji̇si̇"
+        },
+        {
+            "name": "Kooperati̇fçi̇li̇k"
+        },
+        {
+            "name": "Kozmeti̇k Teknoloji̇si̇"
+        },
+        {
+            "name": "Kuyumculuk Ve Taki Tasarimi"
+        },
+        {
+            "name": "Kültürel Mi̇ras Ve Turi̇zm"
+        },
+        {
+            "name": "Kültürel Mi̇ras Ve Turi̇zm (Açiköğreti̇m)"
+        },
+        {
+            "name": "Kümes Hayvanlari Yeti̇şti̇ri̇ci̇li̇ği̇"
+        },
+        {
+            "name": "Laborant Ve Veteri̇ner Sağlik"
+        },
+        {
+            "name": "Laborant Ve Veteri̇ner Sağlik (Açiköğreti̇m)"
+        },
+        {
+            "name": "Laboratuvar Teknoloji̇si̇"
+        },
+        {
+            "name": "Loji̇sti̇k"
+        },
+        {
+            "name": "Loji̇sti̇k (Açiköğreti̇m)"
+        },
+        {
+            "name": "Madenci̇li̇k Teknoloji̇si̇"
+        },
+        {
+            "name": "Maki̇ne"
+        },
+        {
+            "name": "Maki̇ne Resi̇m Ve Konstrüksi̇yonu"
+        },
+        {
+            "name": "Mali̇ye"
+        },
+        {
+            "name": "Mantarcilik"
+        },
+        {
+            "name": "Mari̇na Ve Yat İşletmeci̇li̇ği̇"
+        },
+        {
+            "name": "Marka İleti̇şi̇mi̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "Medya Ve İleti̇şi̇m"
+        },
+        {
+            "name": "Medya Ve İleti̇şi̇m (Açiköğreti̇m)"
+        },
+        {
+            "name": "Mekatroni̇k"
+        },
+        {
+            "name": "Menkul Kiymetler Ve Sermaye Pi̇yasasi"
+        },
+        {
+            "name": "Menkul Kiymetler Ve Sermaye Pi̇yasasi (Açiköğreti̇m)"
+        },
+        {
+            "name": "Mermer Teknoloji̇si̇"
+        },
+        {
+            "name": "Metalurji̇"
+        },
+        {
+            "name": "Meyve Ve Sebze İşleme Teknoloji̇si̇"
+        },
+        {
+            "name": "Mi̇mari̇ Dekorati̇f Sanatlar"
+        },
+        {
+            "name": "Mi̇mari̇ Restorasyon"
+        },
+        {
+            "name": "Mobi̇l Teknoloji̇leri̇"
+        },
+        {
+            "name": "Mobi̇lya Ve Dekorasyon"
+        },
+        {
+            "name": "Moda Tasarimi"
+        },
+        {
+            "name": "Moda Yöneti̇mi̇"
+        },
+        {
+            "name": "Muhasebe Ve Vergi̇ Uygulamalari"
+        },
+        {
+            "name": "Muhasebe Ve Vergi̇ Uygulamalari (Açiköğreti̇m)"
+        },
+        {
+            "name": "Nüfus Ve Vatandaşlik"
+        },
+        {
+            "name": "Nükleer Teknoloji̇ Ve Radyasyon Güvenli̇ği̇"
+        },
+        {
+            "name": "Nükleer Tip Tekni̇kleri̇"
+        },
+        {
+            "name": "Odyometri̇"
+        },
+        {
+            "name": "Opti̇syenli̇k"
+        },
+        {
+            "name": "Organi̇k Tarim"
+        },
+        {
+            "name": "Ormancilik Ve Orman Ürünleri̇"
+        },
+        {
+            "name": "Ortopedi̇k Protez Ve Ortez"
+        },
+        {
+            "name": "Otobüs Kaptanliği"
+        },
+        {
+            "name": "Otomoti̇v Gövde Ve Yüzey İşlem Teknoloji̇leri̇"
+        },
+        {
+            "name": "Otomoti̇v Teknoloji̇si̇"
+        },
+        {
+            "name": "Otopsi̇ Yardimciliği"
+        },
+        {
+            "name": "Özel Güvenli̇k Ve Koruma"
+        },
+        {
+            "name": "Pastacilik Ve Ekmekçi̇li̇k"
+        },
+        {
+            "name": "Patoloji̇ Laboratuvar Tekni̇kleri̇"
+        },
+        {
+            "name": "Pazarlama"
+        },
+        {
+            "name": "Perakende Satiş Ve Mağaza Yöneti̇mi̇"
+        },
+        {
+            "name": "Perakende Satiş Ve Mağaza Yöneti̇mi̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "Peyzaj Ve Süs Bi̇tki̇leri̇ Yeti̇şti̇ri̇ci̇li̇ği̇"
+        },
+        {
+            "name": "Podoloji̇"
+        },
+        {
+            "name": "Poli̇mer Teknoloji̇si̇"
+        },
+        {
+            "name": "Posta Hi̇zmetleri̇"
+        },
+        {
+            "name": "Radyo Ve Televi̇zyon Programciliği"
+        },
+        {
+            "name": "Radyo Ve Televi̇zyon Programciliği (Açiköğreti̇m)"
+        },
+        {
+            "name": "Radyo Ve Televi̇zyon Teknoloji̇si̇"
+        },
+        {
+            "name": "Radyoterapi̇"
+        },
+        {
+            "name": "Rafi̇neri̇ Ve Petro-Ki̇mya Teknoloji̇si̇"
+        },
+        {
+            "name": "Rayli Si̇stemler Elektri̇k Ve Elektroni̇k"
+        },
+        {
+            "name": "Rayli Si̇stemler İşletmeci̇li̇ği̇"
+        },
+        {
+            "name": "Rayli Si̇stemler Maki̇ne Teknoloji̇si̇"
+        },
+        {
+            "name": "Rayli Si̇stemler Maki̇ni̇stli̇ği̇"
+        },
+        {
+            "name": "Rayli Si̇stemler Yol Teknoloji̇si̇"
+        },
+        {
+            "name": "Reklamcilik"
+        },
+        {
+            "name": "Reklamcilik (Açiköğreti̇m)"
+        },
+        {
+            "name": "Saç Bakimi Ve Güzelli̇k Hi̇zmetleri̇"
+        },
+        {
+            "name": "Sağlik Bi̇lgi̇ Si̇stemleri̇ Tekni̇kerli̇ği̇"
+        },
+        {
+            "name": "Sağlik Kurumlari İşletmeci̇li̇ği̇"
+        },
+        {
+            "name": "Sağlik Kurumlari İşletmeci̇li̇ği̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "Sağlik Turi̇zmi̇ İşletmeci̇li̇ği̇"
+        },
+        {
+            "name": "Sahne Işik Ve Ses Teknoloji̇leri̇"
+        },
+        {
+            "name": "Sahne Ve Dekor Tasarimi"
+        },
+        {
+            "name": "Sanal Ve Artirilmiş Gerçekli̇k"
+        },
+        {
+            "name": "Seracilik"
+        },
+        {
+            "name": "Serami̇k Ve Cam Tasarimi"
+        },
+        {
+            "name": "Si̇ber Güvenli̇k"
+        },
+        {
+            "name": "Si̇ber Güvenli̇k Anali̇stli̇ği̇ Ve Operatörlüğü"
+        },
+        {
+            "name": "Si̇lah Sanayi̇ Tekni̇kerli̇ği̇"
+        },
+        {
+            "name": "Si̇vi̇l Hava Ulaştirma İşletmeci̇li̇ği̇"
+        },
+        {
+            "name": "Si̇vi̇l Hava Ulaştirma İşletmeci̇li̇ği̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "Si̇vi̇l Havacilik Kabi̇n Hi̇zmetleri̇"
+        },
+        {
+            "name": "Si̇vi̇l Savunma Ve İtfai̇yeci̇li̇k"
+        },
+        {
+            "name": "Sondaj Teknoloji̇si̇"
+        },
+        {
+            "name": "Sosyal Güvenli̇k"
+        },
+        {
+            "name": "Sosyal Hi̇zmetler"
+        },
+        {
+            "name": "Sosyal Hi̇zmetler (Açiköğreti̇m)"
+        },
+        {
+            "name": "Sosyal Medya Yöneti̇ci̇li̇ği̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "Spor Yöneti̇mi̇"
+        },
+        {
+            "name": "Spor Yöneti̇mi̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "Su Alti Teknoloji̇si̇"
+        },
+        {
+            "name": "Su Ürünleri̇ İşleme Teknoloji̇si̇"
+        },
+        {
+            "name": "Sulama Teknoloji̇si̇"
+        },
+        {
+            "name": "Süt Ve Besi̇ Hayvanciliği"
+        },
+        {
+            "name": "Süt Ve Ürünleri̇ Teknoloji̇si̇"
+        },
+        {
+            "name": "Şarap Üreti̇m Teknoloji̇si̇"
+        },
+        {
+            "name": "Tahri̇batsiz Muayene"
+        },
+        {
+            "name": "Tapu Ve Kadastro"
+        },
+        {
+            "name": "Tarim Maki̇neleri̇"
+        },
+        {
+            "name": "Tarim Teknoloji̇si̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "Tarimsal İşletmeci̇li̇k"
+        },
+        {
+            "name": "Tarla Bi̇tki̇leri̇"
+        },
+        {
+            "name": "Teksti̇l Teknoloji̇si̇"
+        },
+        {
+            "name": "Teksti̇l Ve Hali Maki̇neleri̇"
+        },
+        {
+            "name": "Tibbi̇ Dokümantasyon Ve Sekreterli̇k"
+        },
+        {
+            "name": "Tibbi̇ Dokümantasyon Ve Sekreterli̇k (Açiköğreti̇m)"
+        },
+        {
+            "name": "Tibbi̇ Görüntüleme Tekni̇kleri̇"
+        },
+        {
+            "name": "Tibbi̇ Laboratuvar Tekni̇kleri̇"
+        },
+        {
+            "name": "Tibbi̇ Tanitim Ve Pazarlama"
+        },
+        {
+            "name": "Tibbi̇ Ve Aromati̇k Bi̇tki̇ler"
+        },
+        {
+            "name": "Tohumculuk Teknoloji̇si̇"
+        },
+        {
+            "name": "Turi̇st Rehberli̇ği̇"
+        },
+        {
+            "name": "Turi̇zm Ani̇masyonu"
+        },
+        {
+            "name": "Turi̇zm Ve Otel İşletmeci̇li̇ği̇"
+        },
+        {
+            "name": "Turi̇zm Ve Otel İşletmeci̇li̇ği̇ (Açiköğreti̇m)"
+        },
+        {
+            "name": "Turi̇zm Ve Seyahat Hi̇zmetleri̇"
+        },
+        {
+            "name": "Uçak Teknoloji̇si̇"
+        },
+        {
+            "name": "Uçuş Harekat Yöneti̇ci̇li̇ği̇"
+        },
+        {
+            "name": "Ulaştirma Ve Trafi̇k Hi̇zmetleri̇"
+        },
+        {
+            "name": "Un Ve Unlu Mamuller Teknoloji̇si̇"
+        },
+        {
+            "name": "Uygulamali İngi̇li̇zce Çevi̇rmenli̇k"
+        },
+        {
+            "name": "Uygulamali İspanyolca Çevi̇rmenli̇k"
+        },
+        {
+            "name": "Üreti̇mde Kali̇te Kontrol"
+        },
+        {
+            "name": "Web Tasarimi Ve Kodlama"
+        },
+        {
+            "name": "Web Tasarimi Ve Kodlama (Açiköğreti̇m)"
+        },
+        {
+            "name": "Yağ Endüstri̇si̇"
+        },
+        {
+            "name": "Yapi Deneti̇mi̇"
+        },
+        {
+            "name": "Yapi Ressamliği"
+        },
+        {
+            "name": "Yapi Tesi̇sat Teknoloji̇si̇"
+        },
+        {
+            "name": "Yapi Yalitim Teknoloji̇si̇"
+        },
+        {
+            "name": "Yaşli Bakimi"
+        },
+        {
+            "name": "Yaşli Bakimi (Açiköğreti̇m)"
+        },
+        {
+            "name": "Yat Kaptanliği"
+        },
+        {
+            "name": "Yeni̇ Medya Ve Gazeteci̇li̇k (Açiköğreti̇m)"
+        },
+        {
+            "name": "Yerel Yöneti̇mler"
+        },
+        {
+            "name": "Yerel Yöneti̇mler (Açiköğreti̇m)"
+        },
+        {
+            "name": "Zeyti̇nci̇li̇k Ve Zeyti̇n İşleme Teknoloji̇si̇"
+        }
+    ],
+    "Bachelor": [
+        {
+            "name": "Aci̇l Yardim Ve Afet Yöneti̇mi̇ (Fakülte)"
+        },
+        {
+            "name": "Aci̇l Yardim Ve Afet Yöneti̇mi̇ (Yüksekokul)"
+        },
+        {
+            "name": "Adli̇ Bi̇li̇mler"
+        },
+        {
+            "name": "Adli̇ Bi̇li̇şi̇m Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Adli̇ Bi̇li̇şi̇m Mühendi̇sli̇ği̇ (M.T.O.K.) "
+        },
+        {
+            "name": "Ağaç İşleri̇ Endüstri̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Ağaç İşleri̇ Endüstri̇ Mühendi̇sli̇ği̇ (M.T.O.K.) "
+        },
+        {
+            "name": "Ai̇le Ve Tüketi̇ci̇ Bi̇li̇mleri̇ "
+        },
+        {
+            "name": "Aktüerya Bi̇li̇mleri̇ "
+        },
+        {
+            "name": "Alman Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Almanca Müterci̇m Ve Tercümanlik (Fakülte)"
+        },
+        {
+            "name": "Almanca Müterci̇m Ve Tercümanlik (Yüksekokul)"
+        },
+        {
+            "name": "Almanca Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Ameri̇kan Kültürü Ve Edebi̇yati "
+        },
+        {
+            "name": "Antrenörlük Eği̇ti̇mi̇ "
+        },
+        {
+            "name": "Antropoloji̇ "
+        },
+        {
+            "name": "Arap Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Arapça Müterci̇m Ve Tercümanlik (Fakülte)"
+        },
+        {
+            "name": "Arapça Müterci̇m Ve Tercümanlik (Yüksekokul)"
+        },
+        {
+            "name": "Arapça Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Arkeoloji̇ "
+        },
+        {
+            "name": "Arkeoloji̇ Ve Sanat Tari̇hi̇ "
+        },
+        {
+            "name": "Arnavut Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Astronomi̇ Ve Uzay Bi̇li̇mleri̇ "
+        },
+        {
+            "name": "Ayakkabi Tasarimi Ve Üreti̇mi̇ "
+        },
+        {
+            "name": "Azerbaycan Türkçesi̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Bahçe Bi̇tki̇leri̇ "
+        },
+        {
+            "name": "Balikçilik Teknoloji̇si̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Bankacilik "
+        },
+        {
+            "name": "Bankacilik Ve Fi̇nans "
+        },
+        {
+            "name": "Bankacilik Ve Si̇gortacilik (Fakülte)"
+        },
+        {
+            "name": "Bankacilik Ve Si̇gortacilik (Yüksekokul)"
+        },
+        {
+            "name": "Basim Teknoloji̇leri̇ "
+        },
+        {
+            "name": "Basin Ve Yayin "
+        },
+        {
+            "name": "Bati Di̇lleri̇ "
+        },
+        {
+            "name": "Beden Eği̇ti̇mi̇ Ve Spor Öğretmenli̇ği̇ (Fakülte)"
+        },
+        {
+            "name": "Beden Eği̇ti̇mi̇ Ve Spor Öğretmenli̇ği̇ (Yüksekokul)"
+        },
+        {
+            "name": "Beslenme Ve Di̇yeteti̇k (Fakülte)"
+        },
+        {
+            "name": "Beslenme Ve Di̇yeteti̇k (Yüksekokul)"
+        },
+        {
+            "name": "Bi̇lgi̇ Güvenli̇ği̇ Teknoloji̇si̇ (Fakülte)"
+        },
+        {
+            "name": "Bi̇lgi̇ Güvenli̇ği̇ Teknoloji̇si̇ (Yüksekokul)"
+        },
+        {
+            "name": "Bi̇lgi̇ Ve Belge Yöneti̇mi̇ "
+        },
+        {
+            "name": "Bi̇lgi̇sayar Bi̇li̇mleri̇ "
+        },
+        {
+            "name": "Bi̇lgi̇sayar Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Bi̇lgi̇sayar Mühendi̇sli̇ği̇ (M.T.O.K.) "
+        },
+        {
+            "name": "Bi̇lgi̇sayar Teknoloji̇si̇ Ve Bi̇li̇şi̇m Si̇stemleri̇ "
+        },
+        {
+            "name": "Bi̇lgi̇sayar Ve Öğreti̇m Teknoloji̇leri̇ Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Bi̇li̇m Tari̇hi̇ "
+        },
+        {
+            "name": "Bi̇li̇şi̇m Si̇stemleri̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Bi̇li̇şi̇m Si̇stemleri̇ Mühendi̇sli̇ği̇ (M.T.O.K.) "
+        },
+        {
+            "name": "Bi̇li̇şi̇m Si̇stemleri̇ Ve Teknoloji̇leri̇ (Fakülte)"
+        },
+        {
+            "name": "Bi̇li̇şi̇m Si̇stemleri̇ Ve Teknoloji̇leri̇ (Yüksekokul)"
+        },
+        {
+            "name": "Bi̇tki̇ Koruma "
+        },
+        {
+            "name": "Bi̇tki̇sel Üreti̇m Ve Teknoloji̇leri̇ "
+        },
+        {
+            "name": "Bi̇yoki̇mya "
+        },
+        {
+            "name": "Bi̇yoloji̇ "
+        },
+        {
+            "name": "Bi̇yoloji̇ Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Bi̇yomedi̇kal Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Bi̇yomedi̇kal Mühendi̇sli̇ği̇ (M.T.O.K.) "
+        },
+        {
+            "name": "Bi̇yomühendi̇sli̇k "
+        },
+        {
+            "name": "Bi̇yosi̇stem Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Bi̇yoteknoloji̇ "
+        },
+        {
+            "name": "Boşnak Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Bulgar Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Bulgarca Müterci̇m Ve Tercümanlik "
+        },
+        {
+            "name": "Çağdaş Türk Lehçeleri̇ Ve Edebi̇yatlari "
+        },
+        {
+            "name": "Çağdaş Yunan Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Çalişma Ekonomi̇si̇ Ve Endüstri̇ İli̇şki̇leri̇ "
+        },
+        {
+            "name": "Çalişma Ekonomi̇si̇ Ve Endüstri̇ İli̇şki̇leri̇ (Açiköğreti̇m) "
+        },
+        {
+            "name": "Çerkez Di̇li̇ Ve Kültürü "
+        },
+        {
+            "name": "Cevher Hazirlama Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Çevi̇ri̇bi̇li̇mi̇ "
+        },
+        {
+            "name": "Çevre Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Çi̇n Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Çi̇nce Müterci̇m Ve Tercümanlik "
+        },
+        {
+            "name": "Çi̇zgi̇ Fi̇lm Ve Ani̇masyon "
+        },
+        {
+            "name": "Çocuk Geli̇şi̇mi̇ (Açiköğreti̇m) "
+        },
+        {
+            "name": "Çocuk Geli̇şi̇mi̇ (Fakülte)"
+        },
+        {
+            "name": "Çocuk Geli̇şi̇mi̇ (Yüksekokul)"
+        },
+        {
+            "name": "Coğrafya "
+        },
+        {
+            "name": "Coğrafya (Açiköğreti̇m) "
+        },
+        {
+            "name": "Coğrafya Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Deni̇z Ulaştirma İşletme Mühendi̇sli̇ği̇ (Fakülte)"
+        },
+        {
+            "name": "Deni̇z Ulaştirma İşletme Mühendi̇sli̇ği̇ (Yüksekokul)"
+        },
+        {
+            "name": "Deni̇zci̇li̇k İşletmeleri̇ Yöneti̇mi̇ "
+        },
+        {
+            "name": "Deri̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Di̇ji̇tal Oyun Tasarimi "
+        },
+        {
+            "name": "Di̇l Ve Konuşma Terapi̇si̇ (Fakülte)"
+        },
+        {
+            "name": "Di̇l Ve Konuşma Terapi̇si̇ (Yüksekokul)"
+        },
+        {
+            "name": "Di̇lbi̇li̇mi̇ "
+        },
+        {
+            "name": "Di̇ş Heki̇mli̇ği̇ "
+        },
+        {
+            "name": "Doğu Di̇lleri̇ "
+        },
+        {
+            "name": "Ebeli̇k (Fakülte)"
+        },
+        {
+            "name": "Ebeli̇k (Yüksekokul)"
+        },
+        {
+            "name": "Eczacilik "
+        },
+        {
+            "name": "Egzersi̇z Ve Spor Bi̇li̇mleri̇ "
+        },
+        {
+            "name": "Egzersi̇z Ve Spor Bi̇li̇mleri̇ (Açiköğreti̇m) "
+        },
+        {
+            "name": "Ekonometri̇ "
+        },
+        {
+            "name": "Ekonomi̇ "
+        },
+        {
+            "name": "Ekonomi̇ Ve Fi̇nans "
+        },
+        {
+            "name": "El Sanatlari "
+        },
+        {
+            "name": "El Sanatlari (M.T.O.K.) "
+        },
+        {
+            "name": "Elektri̇k Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Elektri̇k-Elektroni̇k Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Elektri̇k-Elektroni̇k Mühendi̇sli̇ği̇ (M.T.O.K.) "
+        },
+        {
+            "name": "Elektroni̇k Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Elektroni̇k Ti̇caret Ve Yöneti̇mi̇ "
+        },
+        {
+            "name": "Elektroni̇k Ti̇caret Ve Yöneti̇mi̇ (Açiköğreti̇m) "
+        },
+        {
+            "name": "Elektroni̇k Ve Haberleşme Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Emlak Ve Emlak Yöneti̇mi̇ "
+        },
+        {
+            "name": "Endüstri̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Endüstri̇yel Tasarim (Fakülte)"
+        },
+        {
+            "name": "Endüstri̇yel Tasarim (Yüksekokul)"
+        },
+        {
+            "name": "Endüstri̇yel Tasarim Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Endüstri̇yel Tasarim Mühendi̇sli̇ği̇ (M.T.O.K.) "
+        },
+        {
+            "name": "Enerji̇ Bi̇li̇mi̇ Ve Teknoloji̇leri̇ "
+        },
+        {
+            "name": "Enerji̇ Si̇stemleri̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Enerji̇ Si̇stemleri̇ Mühendi̇sli̇ği̇ (M.T.O.K.) "
+        },
+        {
+            "name": "Enerji̇ Yöneti̇mi̇ "
+        },
+        {
+            "name": "Ergoterapi̇ "
+        },
+        {
+            "name": "Ermeni̇ Di̇li̇ Ve Kültürü "
+        },
+        {
+            "name": "Eski̇ Yunan Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Fars Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Farsça Müterci̇m Ve Tercümanlik "
+        },
+        {
+            "name": "Felsefe "
+        },
+        {
+            "name": "Felsefe (Açiköğreti̇m) "
+        },
+        {
+            "name": "Felsefe Grubu Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Fen Bi̇lgi̇si̇ Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Fi̇lm Tasarimi Ve Yazarliği "
+        },
+        {
+            "name": "Fi̇lm Tasarimi Ve Yöneti̇mi̇ "
+        },
+        {
+            "name": "Fi̇lm Tasarimi Ve Yönetmenli̇ği̇ "
+        },
+        {
+            "name": "Fi̇nans Ve Bankacilik (Fakülte)"
+        },
+        {
+            "name": "Fi̇nans Ve Bankacilik (Yüksekokul)"
+        },
+        {
+            "name": "Fi̇zi̇k "
+        },
+        {
+            "name": "Fi̇zi̇k Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Fi̇zi̇k Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Fi̇zyoterapi̇ Ve Rehabi̇li̇tasyon (Fakülte)"
+        },
+        {
+            "name": "Fi̇zyoterapi̇ Ve Rehabi̇li̇tasyon (Yüksekokul)"
+        },
+        {
+            "name": "Fotoğraf "
+        },
+        {
+            "name": "Fotoğraf Ve Vi̇deo "
+        },
+        {
+            "name": "Fotoni̇k "
+        },
+        {
+            "name": "Fransiz Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Fransizca Müterci̇m Ve Tercümanlik "
+        },
+        {
+            "name": "Fransizca Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Gastronomi̇ Ve Mutfak Sanatlari (Fakülte)"
+        },
+        {
+            "name": "Gastronomi̇ Ve Mutfak Sanatlari (M.T.O.K.) "
+        },
+        {
+            "name": "Gastronomi̇ Ve Mutfak Sanatlari (Yüksekokul)"
+        },
+        {
+            "name": "Gayri̇menkul Geli̇şti̇rme Ve Yöneti̇mi̇ "
+        },
+        {
+            "name": "Gazeteci̇li̇k "
+        },
+        {
+            "name": "Geleneksel Türk Sanatlari "
+        },
+        {
+            "name": "Geleneksel Türk Sanatlari (M.T.O.K.) "
+        },
+        {
+            "name": "Gemi̇ İnşaati Ve Gemi̇ Maki̇neleri̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Gemi̇ Maki̇neleri̇ İşletme Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Gemi̇ Ve Deni̇z Teknoloji̇si̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Gemi̇ Ve Yat Tasarimi "
+        },
+        {
+            "name": "Geneti̇k Ve Bi̇yomühendi̇sli̇k "
+        },
+        {
+            "name": "Geomati̇k Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Gerontoloji̇ "
+        },
+        {
+            "name": "Gida Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Gida Teknoloji̇si̇ (Fakülte)"
+        },
+        {
+            "name": "Gida Teknoloji̇si̇ (Yüksekokul)"
+        },
+        {
+            "name": "Gi̇ri̇şi̇mci̇li̇k "
+        },
+        {
+            "name": "Görsel İleti̇şi̇m Tasarimi "
+        },
+        {
+            "name": "Görsel İleti̇şi̇m Tasarimi (Açiköğreti̇m) "
+        },
+        {
+            "name": "Görsel Sanatlar "
+        },
+        {
+            "name": "Görsel Sanatlar (M.T.O.K.) "
+        },
+        {
+            "name": "Görsel Sanatlar Ve İleti̇şi̇m Tasarimi "
+        },
+        {
+            "name": "Grafi̇k "
+        },
+        {
+            "name": "Grafi̇k Sanatlar (Açiköğreti̇m) "
+        },
+        {
+            "name": "Grafi̇k Tasarimi "
+        },
+        {
+            "name": "Grafi̇k Tasarimi (M.T.O.K.) "
+        },
+        {
+            "name": "Gümrük İşletme (Fakülte)"
+        },
+        {
+            "name": "Gümrük İşletme (Yüksekokul)"
+        },
+        {
+            "name": "Gürcü Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Halkbi̇li̇mi̇ "
+        },
+        {
+            "name": "Halkla İli̇şki̇ler Ve Reklamcilik (Açiköğreti̇m) "
+        },
+        {
+            "name": "Halkla İli̇şki̇ler Ve Reklamcilik (Fakülte)"
+        },
+        {
+            "name": "Halkla İli̇şki̇ler Ve Reklamcilik (Yüksekokul)"
+        },
+        {
+            "name": "Halkla İli̇şki̇ler Ve Tanitim "
+        },
+        {
+            "name": "Halkla İli̇şki̇ler Ve Tanitim (Açiköğreti̇m) "
+        },
+        {
+            "name": "Hari̇ta Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Havacilik Elektri̇k Ve Elektroni̇ği̇ (Fakülte)"
+        },
+        {
+            "name": "Havacilik Elektri̇k Ve Elektroni̇ği̇ (Yüksekokul)"
+        },
+        {
+            "name": "Havacilik Ve Uzay Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Havacilik Yöneti̇mi̇ (Açiköğreti̇m) "
+        },
+        {
+            "name": "Havacilik Yöneti̇mi̇ (Fakülte)"
+        },
+        {
+            "name": "Havacilik Yöneti̇mi̇ (Yüksekokul)"
+        },
+        {
+            "name": "Hayvansal Üreti̇m Ve Teknoloji̇leri̇ (Fakülte)"
+        },
+        {
+            "name": "Hayvansal Üreti̇m Ve Teknoloji̇leri̇ (Yüksekokul)"
+        },
+        {
+            "name": "Hemşi̇reli̇k (Fakülte)"
+        },
+        {
+            "name": "Hemşi̇reli̇k (Yüksekokul)"
+        },
+        {
+            "name": "Hi̇drojeoloji̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Hi̇ndoloji̇ "
+        },
+        {
+            "name": "Hi̇ti̇toloji̇ "
+        },
+        {
+            "name": "Hukuk "
+        },
+        {
+            "name": "Hungaroloji̇ "
+        },
+        {
+            "name": "İbrani̇ Di̇li̇ Ve Kültürü "
+        },
+        {
+            "name": "İç Mi̇marlik "
+        },
+        {
+            "name": "İç Mi̇marlik Ve Çevre Tasarimi "
+        },
+        {
+            "name": "İkti̇sadi̇ Ve İdari̇ Bi̇li̇mler Programlari "
+        },
+        {
+            "name": "İkti̇sat "
+        },
+        {
+            "name": "İkti̇sat (Açiköğreti̇m) "
+        },
+        {
+            "name": "İlahi̇yat "
+        },
+        {
+            "name": "İlahi̇yat (M.T.O.K.) "
+        },
+        {
+            "name": "İleti̇şi̇m "
+        },
+        {
+            "name": "İleti̇şi̇m Bi̇li̇mleri̇ "
+        },
+        {
+            "name": "İleti̇şi̇m Sanatlari "
+        },
+        {
+            "name": "İleti̇şi̇m Tasarimi Ve Yöneti̇mi̇ "
+        },
+        {
+            "name": "İleti̇şi̇m Ve Tasarimi "
+        },
+        {
+            "name": "İlköğreti̇m Matemati̇k Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "İmalat Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "İngi̇li̇z Di̇lbi̇li̇mi̇ "
+        },
+        {
+            "name": "İngi̇li̇z Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "İngi̇li̇zce Müterci̇m Ve Tercümanlik (Fakülte)"
+        },
+        {
+            "name": "İngi̇li̇zce Müterci̇m Ve Tercümanlik (Yüksekokul)"
+        },
+        {
+            "name": "İngi̇li̇zce Öğretmenli̇ği̇"
+        },
+        {
+            "name": "İngi̇li̇zce Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "İngi̇li̇zce, Fransizca Müterci̇m Ve Tercümanlik "
+        },
+        {
+            "name": "İnşaat Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "İnşaat Mühendi̇sli̇ği̇ (M.T.O.K.) "
+        },
+        {
+            "name": "İnsan Kaynaklari Yöneti̇mi̇ "
+        },
+        {
+            "name": "İnsan Kaynaklari Yöneti̇mi̇ (Açiköğreti̇m) "
+        },
+        {
+            "name": "İş Sağliği Ve Güvenli̇ği̇ (Açiköğreti̇m) "
+        },
+        {
+            "name": "İş Sağliği Ve Güvenli̇ği̇ (Fakülte)"
+        },
+        {
+            "name": "İş Sağliği Ve Güvenli̇ği̇ (Yüksekokul)"
+        },
+        {
+            "name": "İslam Bi̇li̇mleri̇ "
+        },
+        {
+            "name": "İslam İkti̇sadi Ve Fi̇nans "
+        },
+        {
+            "name": "İslami̇ İli̇mler "
+        },
+        {
+            "name": "İslami̇ İli̇mler (M.T.O.K.) "
+        },
+        {
+            "name": "İşletme "
+        },
+        {
+            "name": "İşletme (Açiköğreti̇m) "
+        },
+        {
+            "name": "İşletme Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "İspanyol Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "İstati̇sti̇k "
+        },
+        {
+            "name": "İstati̇sti̇k Ve Bi̇lgi̇sayar Bi̇li̇mleri̇ "
+        },
+        {
+            "name": "İtalyan Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Japon Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Japonca Müterci̇m Ve Tercümanlik "
+        },
+        {
+            "name": "Japonca Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Jeofi̇zi̇k Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Jeoloji̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Kamu Yöneti̇mi̇ "
+        },
+        {
+            "name": "Kamu Yöneti̇mi̇ (Açiköğreti̇m) "
+        },
+        {
+            "name": "Kanatli Hayvan Yeti̇şti̇ri̇ci̇li̇ği̇ "
+        },
+        {
+            "name": "Karşilaştirmali Edebi̇yat "
+        },
+        {
+            "name": "Kentsel Tasarim Ve Peyzaj Mi̇marliği "
+        },
+        {
+            "name": "Ki̇mya "
+        },
+        {
+            "name": "Ki̇mya Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Ki̇mya Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Ki̇mya-Bi̇yoloji̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Klasi̇k Arkeoloji̇ "
+        },
+        {
+            "name": "Kontrol Ve Otomasyon Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Kore Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Kültür Varliklarini Koruma Ve Onarim (Fakülte)"
+        },
+        {
+            "name": "Kültür Varliklarini Koruma Ve Onarim (Yüksekokul)"
+        },
+        {
+            "name": "Kültür Ve İleti̇şi̇m Bi̇li̇mleri̇ "
+        },
+        {
+            "name": "Küresel Si̇yaset Ve Uluslararasi İli̇şki̇ler "
+        },
+        {
+            "name": "Kurgu, Ses Ve Görüntü Yöneti̇mi̇ "
+        },
+        {
+            "name": "Kürt Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Kuyumculuk Ve Mücevher Tasarimi "
+        },
+        {
+            "name": "Lati̇n Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Leh Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Loji̇sti̇k Yöneti̇mi̇ (Fakülte)"
+        },
+        {
+            "name": "Loji̇sti̇k Yöneti̇mi̇ (Yüksekokul)"
+        },
+        {
+            "name": "Maden Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Maki̇ne Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Maki̇ne Mühendi̇sli̇ği̇ (M.T.O.K.) "
+        },
+        {
+            "name": "Mali̇ye "
+        },
+        {
+            "name": "Mali̇ye (Açiköğreti̇m) "
+        },
+        {
+            "name": "Malzeme Bi̇li̇mi̇ Ve Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Malzeme Bi̇li̇mi̇ Ve Nanoteknoloji̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Malzeme Bi̇li̇mi̇ Ve Teknoloji̇leri̇ "
+        },
+        {
+            "name": "Matemati̇k "
+        },
+        {
+            "name": "Matemati̇k Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Matemati̇k Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Matemati̇k Ve Bi̇lgi̇sayar Bi̇li̇mleri̇ "
+        },
+        {
+            "name": "Medya Ve Görsel Sanatlar "
+        },
+        {
+            "name": "Medya Ve İleti̇şi̇m "
+        },
+        {
+            "name": "Mekatroni̇k Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Mekatroni̇k Mühendi̇sli̇ği̇ (M.T.O.K.) "
+        },
+        {
+            "name": "Metalurji̇ Ve Malzeme Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Metalurji̇ Ve Malzeme Mühendi̇sli̇ği̇ (M.T.O.K.) "
+        },
+        {
+            "name": "Meteoroloji̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Mi̇marlik "
+        },
+        {
+            "name": "Moda Tasarimi (Fakülte)"
+        },
+        {
+            "name": "Moda Tasarimi (M.T.O.K.) "
+        },
+        {
+            "name": "Moda Tasarimi (Yüksekokul)"
+        },
+        {
+            "name": "Moleküler Bi̇yoloji̇ Ve Geneti̇k "
+        },
+        {
+            "name": "Moleküler Bi̇yoteknoloji̇ "
+        },
+        {
+            "name": "Muhasebe Ve Fi̇nans Yöneti̇mi̇ (Fakülte)"
+        },
+        {
+            "name": "Muhasebe Ve Fi̇nans Yöneti̇mi̇ (Yüksekokul)"
+        },
+        {
+            "name": "Mühendi̇sli̇k Programlari "
+        },
+        {
+            "name": "Mühendi̇sli̇k Ve Doğa Bi̇li̇mleri̇ Programlari "
+        },
+        {
+            "name": "Müterci̇m-Tercümanlik "
+        },
+        {
+            "name": "Müzeci̇li̇k "
+        },
+        {
+            "name": "Nanobi̇li̇m Ve Nanoteknoloji̇ "
+        },
+        {
+            "name": "Nanoteknoloji̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Nükleer Enerji̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Odyoloji̇ (Fakülte)"
+        },
+        {
+            "name": "Odyoloji̇ (Yüksekokul)"
+        },
+        {
+            "name": "Okul Öncesi̇ Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Opti̇k Ve Akusti̇k Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Organi̇k Tarim İşletmeci̇li̇ği̇ (Fakülte)"
+        },
+        {
+            "name": "Organi̇k Tarim İşletmeci̇li̇ği̇ (Yüksekokul)"
+        },
+        {
+            "name": "Orman Endüstri̇si̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Orman Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Ortez Ve Protez "
+        },
+        {
+            "name": "Otel Yöneti̇ci̇li̇ği̇ "
+        },
+        {
+            "name": "Otomoti̇v Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Otomoti̇v Mühendi̇sli̇ği̇ (M.T.O.K.) "
+        },
+        {
+            "name": "Özel Eği̇ti̇m Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Pazarlama (Fakülte)"
+        },
+        {
+            "name": "Pazarlama (Yüksekokul)"
+        },
+        {
+            "name": "Perfüzyon "
+        },
+        {
+            "name": "Petrol Ve Doğalgaz Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Peyzaj Mi̇marliği "
+        },
+        {
+            "name": "Pi̇lotaj (Fakülte)"
+        },
+        {
+            "name": "Pi̇lotaj (Yüksekokul)"
+        },
+        {
+            "name": "Poli̇mer Malzeme Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Poli̇ti̇ka Ve Ekonomi̇ "
+        },
+        {
+            "name": "Protohi̇storya Ve Ön Asya Arkeoloji̇si̇ "
+        },
+        {
+            "name": "Psi̇koloji̇ "
+        },
+        {
+            "name": "Psi̇koloji̇k Danişmanlik Ve Rehberli̇k "
+        },
+        {
+            "name": "Psi̇koloji̇k Danişmanlik Ve Rehberli̇k Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Radyo, Televi̇zyon Ve Si̇nema "
+        },
+        {
+            "name": "Rayli Si̇stemler Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Rehberli̇k Ve Psi̇koloji̇k Danişmanlik "
+        },
+        {
+            "name": "Reklam Tasarimi Ve İleti̇şi̇mi̇ "
+        },
+        {
+            "name": "Reklamcilik "
+        },
+        {
+            "name": "Reklamcilik (Açiköğreti̇m) "
+        },
+        {
+            "name": "Rekreasyon "
+        },
+        {
+            "name": "Rekreasyon (Açiköğreti̇m) "
+        },
+        {
+            "name": "Rekreasyon Yöneti̇mi̇ (Fakülte)"
+        },
+        {
+            "name": "Rekreasyon Yöneti̇mi̇ (M.T.O.K.) "
+        },
+        {
+            "name": "Rekreasyon Yöneti̇mi̇ (Yüksekokul)"
+        },
+        {
+            "name": "Rus Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Rus Di̇li̇ Ve Edebi̇yati Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Rusça Müterci̇m Ve Tercümanlik (Fakülte)"
+        },
+        {
+            "name": "Rusça Müterci̇m Ve Tercümanlik (Yüksekokul)"
+        },
+        {
+            "name": "Sağlik Yöneti̇mi̇ (Açiköğreti̇m) "
+        },
+        {
+            "name": "Sağlik Yöneti̇mi̇ (Fakülte)"
+        },
+        {
+            "name": "Sağlik Yöneti̇mi̇ (Yüksekokul)"
+        },
+        {
+            "name": "Sanat Tari̇hi̇ "
+        },
+        {
+            "name": "Sanat Ve Kültür Yöneti̇mi̇ "
+        },
+        {
+            "name": "Sanat Ve Sosyal Bi̇li̇mler Programlari "
+        },
+        {
+            "name": "Şehi̇r Ve Bölge Planlama "
+        },
+        {
+            "name": "Sermaye Pi̇yasasi "
+        },
+        {
+            "name": "Seyahat İşletmeci̇li̇ği̇ "
+        },
+        {
+            "name": "Seyahat İşletmeci̇li̇ği̇ Ve Turi̇zm Rehberli̇ği̇ "
+        },
+        {
+            "name": "Si̇gortacilik (Fakülte)"
+        },
+        {
+            "name": "Si̇gortacilik (Yüksekokul)"
+        },
+        {
+            "name": "Si̇gortacilik Ve Aktüerya Bi̇li̇mleri̇ "
+        },
+        {
+            "name": "Si̇gortacilik Ve Ri̇sk Yöneti̇mi̇ "
+        },
+        {
+            "name": "Si̇gortacilik Ve Sosyal Güvenli̇k "
+        },
+        {
+            "name": "Si̇nema Ve Di̇ji̇tal Medya "
+        },
+        {
+            "name": "Si̇nema Ve Televi̇zyon "
+        },
+        {
+            "name": "Sinif Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Si̇noloji̇ "
+        },
+        {
+            "name": "Si̇yasal Bi̇li̇mler "
+        },
+        {
+            "name": "Si̇yaset Bi̇li̇mi̇ "
+        },
+        {
+            "name": "Si̇yaset Bi̇li̇mi̇ Ve Kamu Yöneti̇mi̇ "
+        },
+        {
+            "name": "Si̇yaset Bi̇li̇mi̇ Ve Kamu Yöneti̇mi̇ (Açiköğreti̇m) "
+        },
+        {
+            "name": "Si̇yaset Bi̇li̇mi̇ Ve Uluslararasi İli̇şki̇ler "
+        },
+        {
+            "name": "Si̇yaset Bi̇li̇mi̇ Ve Uluslararasi İli̇şki̇ler (Açiköğreti̇m) "
+        },
+        {
+            "name": "Sosyal Bi̇lgi̇ler Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Sosyal Hi̇zmet (Açiköğreti̇m) "
+        },
+        {
+            "name": "Sosyal Hi̇zmet (Fakülte)"
+        },
+        {
+            "name": "Sosyal Hi̇zmet (Yüksekokul)"
+        },
+        {
+            "name": "Sosyoloji̇ "
+        },
+        {
+            "name": "Sosyoloji̇ (Açiköğreti̇m) "
+        },
+        {
+            "name": "Spor Yöneti̇ci̇li̇ği̇ (Fakülte)"
+        },
+        {
+            "name": "Spor Yöneti̇ci̇li̇ği̇ (Yüksekokul)"
+        },
+        {
+            "name": "Su Bi̇li̇mleri̇ Ve Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Su Ürünleri̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Sümeroloji̇ "
+        },
+        {
+            "name": "Süryani̇ Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Süt Teknoloji̇si̇ "
+        },
+        {
+            "name": "Taki Tasarimi (Fakülte)"
+        },
+        {
+            "name": "Taki Tasarimi (Yüksekokul)"
+        },
+        {
+            "name": "Taki Tasarimi Ve İmalati "
+        },
+        {
+            "name": "Tapu Kadastro "
+        },
+        {
+            "name": "Tari̇h "
+        },
+        {
+            "name": "Tari̇h (Açiköğreti̇m) "
+        },
+        {
+            "name": "Tari̇h Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Tari̇h Öncesi̇ Arkeoloji̇si̇ "
+        },
+        {
+            "name": "Tarim Ekonomi̇si̇ "
+        },
+        {
+            "name": "Tarim Maki̇neleri̇ Ve Teknoloji̇leri̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Tarim Ti̇careti̇ Ve İşletmeci̇li̇ği̇ "
+        },
+        {
+            "name": "Tarimsal Bi̇yoteknoloji̇ "
+        },
+        {
+            "name": "Tarimsal Geneti̇k Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Tarimsal Yapilar Ve Sulama "
+        },
+        {
+            "name": "Tarla Bi̇tki̇leri̇ "
+        },
+        {
+            "name": "Teknoloji̇ Ve Bi̇lgi̇ Yöneti̇mi̇ "
+        },
+        {
+            "name": "Teksti̇l Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Teksti̇l Mühendi̇sli̇ği̇ (M.T.O.K.) "
+        },
+        {
+            "name": "Teksti̇l Tasarimi "
+        },
+        {
+            "name": "Teksti̇l Tasarimi (M.T.O.K.) "
+        },
+        {
+            "name": "Teksti̇l Ve Moda Tasarimi (Açiköğreti̇m) "
+        },
+        {
+            "name": "Teksti̇l Ve Moda Tasarimi (Fakülte)"
+        },
+        {
+            "name": "Teksti̇l Ve Moda Tasarimi (Yüksekokul)"
+        },
+        {
+            "name": "Televi̇zyon Haberci̇li̇ği̇ Ve Programciliği "
+        },
+        {
+            "name": "Tip "
+        },
+        {
+            "name": "Tip Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Ti̇yatro Eleşti̇rmenli̇ği̇ Ve Dramaturji̇ "
+        },
+        {
+            "name": "Tohum Bi̇li̇mi̇ Ve Teknoloji̇si̇ "
+        },
+        {
+            "name": "Toprak Bi̇li̇mi̇ Ve Bi̇tki̇ Besleme "
+        },
+        {
+            "name": "Turi̇zm İşletmeci̇li̇ği̇ (Fakülte)"
+        },
+        {
+            "name": "Turi̇zm İşletmeci̇li̇ği̇ (Yüksekokul)"
+        },
+        {
+            "name": "Turi̇zm Rehberli̇ği̇ (Fakülte)"
+        },
+        {
+            "name": "Turi̇zm Rehberli̇ği̇ (Yüksekokul)"
+        },
+        {
+            "name": "Turi̇zm Ve Otel İşletmeci̇li̇ği̇ "
+        },
+        {
+            "name": "Türk Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Türk Di̇li̇ Ve Edebi̇yati (Açiköğreti̇m) "
+        },
+        {
+            "name": "Türk Di̇li̇ Ve Edebi̇yati Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Türk Halkbi̇li̇mi̇ "
+        },
+        {
+            "name": "Türk İslam Arkeoloji̇si̇ "
+        },
+        {
+            "name": "Türkçe Öğretmenli̇ği̇ "
+        },
+        {
+            "name": "Türkoloji̇ "
+        },
+        {
+            "name": "Tütün Eksperli̇ği̇ "
+        },
+        {
+            "name": "Uçak Bakim Ve Onarim (Fakülte)"
+        },
+        {
+            "name": "Uçak Bakim Ve Onarim (Yüksekokul)"
+        },
+        {
+            "name": "Uçak Elektri̇k Ve Elektroni̇ği̇ "
+        },
+        {
+            "name": "Uçak Gövde Ve Motor Bakimi (Fakülte)"
+        },
+        {
+            "name": "Uçak Gövde Ve Motor Bakimi (Yüksekokul)"
+        },
+        {
+            "name": "Uçak Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Ukrayna Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Uluslararasi Ekonomi̇ "
+        },
+        {
+            "name": "Uluslararasi Fi̇nans "
+        },
+        {
+            "name": "Uluslararasi Fi̇nans Ve Bankacilik "
+        },
+        {
+            "name": "Uluslararasi Gi̇ri̇şi̇mci̇li̇k "
+        },
+        {
+            "name": "Uluslararasi İli̇şki̇ler "
+        },
+        {
+            "name": "Uluslararasi İli̇şki̇ler (Açiköğreti̇m) "
+        },
+        {
+            "name": "Uluslararasi İşletme Yöneti̇mi̇ "
+        },
+        {
+            "name": "Uluslararasi Ti̇caret (Fakülte)"
+        },
+        {
+            "name": "Uluslararasi Ti̇caret (Yüksekokul)"
+        },
+        {
+            "name": "Uluslararasi Ti̇caret Ve Fi̇nans "
+        },
+        {
+            "name": "Uluslararasi Ti̇caret Ve Fi̇nansman (Fakülte)"
+        },
+        {
+            "name": "Uluslararasi Ti̇caret Ve Fi̇nansman (Yüksekokul)"
+        },
+        {
+            "name": "Uluslararasi Ti̇caret Ve İşletmeci̇li̇k (Fakülte)"
+        },
+        {
+            "name": "Uluslararasi Ti̇caret Ve İşletmeci̇li̇k (Yüksekokul)"
+        },
+        {
+            "name": "Uluslararasi Ti̇caret Ve Loji̇sti̇k (Açiköğreti̇m) "
+        },
+        {
+            "name": "Uluslararasi Ti̇caret Ve Loji̇sti̇k (Fakülte)"
+        },
+        {
+            "name": "Uluslararasi Ti̇caret Ve Loji̇sti̇k (Yüksekokul)"
+        },
+        {
+            "name": "Urdu Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Uzay Bi̇li̇mleri̇ Ve Teknoloji̇leri̇ "
+        },
+        {
+            "name": "Uzay Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Uzay Ve Uydu Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Veteri̇nerli̇k "
+        },
+        {
+            "name": "Yaban Hayati Ekoloji̇si̇ Ve Yöneti̇mi̇ "
+        },
+        {
+            "name": "Yapay Zeka Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Yapay Zeka Ve Veri̇ Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Yazilim Geli̇şti̇rme (Fakülte)"
+        },
+        {
+            "name": "Yazilim Geli̇şti̇rme (Yüksekokul)"
+        },
+        {
+            "name": "Yazilim Mühendi̇sli̇ği̇ "
+        },
+        {
+            "name": "Yazilim Mühendi̇sli̇ği̇ (M.T.O.K.) "
+        },
+        {
+            "name": "Yeni̇ Medya (Fakülte)"
+        },
+        {
+            "name": "Yeni̇ Medya (Yüksekokul)"
+        },
+        {
+            "name": "Yeni̇ Medya Ve İleti̇şi̇m "
+        },
+        {
+            "name": "Yerel Yöneti̇mler "
+        },
+        {
+            "name": "Yi̇yecek Ve İçecek İşletmeci̇li̇ği̇ "
+        },
+        {
+            "name": "Yöneti̇m Bi̇li̇mleri̇ Programlari "
+        },
+        {
+            "name": "Yöneti̇m Bi̇li̇şi̇m Si̇stemleri̇ (Açiköğreti̇m) "
+        },
+        {
+            "name": "Yöneti̇m Bi̇li̇şi̇m Si̇stemleri̇ (Fakülte)"
+        },
+        {
+            "name": "Yöneti̇m Bi̇li̇şi̇m Si̇stemleri̇ (Yüksekokul)"
+        },
+        {
+            "name": "Yunan Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Zaza Di̇li̇ Ve Edebi̇yati "
+        },
+        {
+            "name": "Zi̇raat Mühendi̇sli̇ği̇ Programlari "
+        },
+        {
+            "name": "Zootekni̇"
+        }
+    ]
+}
