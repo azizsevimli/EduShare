@@ -1,0 +1,680 @@
+[
+  {
+    "name": "AÇIK DENİZ SONDAJ TEKNOLOJİSİ"
+  },
+  {
+    "name": "AÇIK DENİZ TABANI UYGULAMALARI TEKNOLOJİSİ"
+  },
+  {
+    "name": "ACİL DURUM VE AFET YÖNETİMİ"
+  },
+  {
+    "name": "ADALET"
+  },
+  {
+    "name": "AĞIZ VE DİŞ SAĞLIĞI"
+  },
+  {
+    "name": "ALTERNATİF ENERJİ KAYNAKLARI TEKNOLOJİSİ"
+  },
+  {
+    "name": "AMBALAJ TASARIMI</optio"
+  },
+  {
+    "name": "AMELİYATHANE HİZMETLERİ"
+  },
+  {
+    "name": "ANESTEZİ"
+  },
+  {
+    "name": "ARICILIK"
+  },
+  {
+    "name": "AŞÇILIK"
+  },
+  {
+    "name": "ATÇILIK VE ANTRENÖRLÜĞÜ"
+  },
+  {
+    "name": "ATIK YÖNETİMİ"
+  },
+  {
+    "name": "AVCILIK VE YABAN HAYATI"
+  },
+  {
+    "name": "AYAKKABI TASARIM VE ÜRETİMİ"
+  },
+  {
+    "name": "BAĞCILIK"
+  },
+  {
+    "name": "BAHÇE TARIMI"
+  },
+  {
+    "name": "BANKACILIK VE SİGORTACILIK"
+  },
+  {
+    "name": "BASIM VE YAYIN TEKNOLOJİLERİ"
+  },
+  {
+    "name": "BİLGİ YÖNETİMİ"
+  },
+  {
+    "name": "BİLGİSAYAR DESTEKLİ TASARIM VE ANİMASYON"
+  },
+  {
+    "name": "BİLGİSAYAR OPERATÖRLÜĞÜ"
+  },
+  {
+    "name": "BİLGİSAYAR PROGRAMCILIĞI"
+  },
+  {
+    "name": "BİLGİSAYAR TEKNOLOJİSİ"
+  },
+  {
+    "name": "BİLİŞİM GÜVENLİĞİ TEKNOLOJİSİ<"
+  },
+  {
+    "name": "BİTKİ KORUMA"
+  },
+  {
+    "name": "BİYOKİMYA"
+  },
+  {
+    "name": "BİYOMEDİKAL CİHAZ TEKNOLOJİSİ"
+  },
+  {
+    "name": "BOYA TEKNOLOJİSİ"
+  },
+  {
+    "name": "BÜRO YÖNETİMİ VE YÖNETİCİ ASİSTANLIĞI"
+  },
+  {
+    "name": "ÇAĞRI MERKEZİ HİZMETLERİ"
+  },
+  {
+    "name": "ÇAY TARIMI VE İŞLEME TEKNOLOJİSİ"
+  },
+  {
+    "name": "ÇEVRE KORUMA VE KONTROL"
+  },
+  {
+    "name": "ÇEVRE SAĞLIĞI"
+  },
+  {
+    "name": "ÇEVRE TEMİZLİĞİ VE DENETİMİ"
+  },
+  {
+    "name": "CEZA İNFAZ VE GÜVENLİK HİZMETLERİ"
+  },
+  {
+    "name": "ÇİM ALAN TESİSİ VE YÖNETİMİ"
+  },
+  {
+    "name": "ÇİNİ SANATI VE TASARIMI"
+  },
+  {
+    "name": "CNG PROGRAMLAMA VE OPERATÖRLÜĞÜ"
+  },
+  {
+    "name": "ÇOCUK GELİŞİMİ"
+  },
+  {
+    "name": "ÇOCUK KORUMA VE BAKIM HİZMETLERİ"
+  },
+  {
+    "name": "COĞRAFİ BİLGİ SİSTEMLERİ"
+  },
+  {
+    "name": "ÇOK BOYUTLU MODELLEME VE ANİMASYON<"
+  },
+  {
+    "name": "DENİZ BROKERLİĞİ"
+  },
+  {
+    "name": "DENİZ ULAŞTIRMA VE İŞLETME"
+  },
+  {
+    "name": "DENİZ VE LİMAN İŞLETMECİLİĞİ"
+  },
+  {
+    "name": "DERİ TEKNOLOJİSİ"
+  },
+  {
+    "name": "DEZENFEKSİYON, STERİLİZASYON VE ANTİSEPSİ TEKNİKERLİĞİ<"
+  },
+  {
+    "name": "DİJİTAL FABRİKA TEKNOLOJİLERİ<"
+  },
+  {
+    "name": "DİŞ PROTEZ TEKNOLOJİSİ"
+  },
+  {
+    "name": "DIŞ TİCARET"
+  },
+  {
+    "name": "DİYALİZ"
+  },
+  {
+    "name": "DOĞAL YAPI TAŞLARI TEKNOLOJİSİ"
+  },
+  {
+    "name": "DOĞALGAZ VE TESİSATI TEKNOLOJİSİ"
+  },
+  {
+    "name": "DÖKÜM"
+  },
+  {
+    "name": "E-TİCARET VE PAZARLAMA"
+  },
+  {
+    "name": "ECZANE HİZMETLERİ"
+  },
+  {
+    "name": "ELEKTRİK"
+  },
+  {
+    "name": "ELEKTRİK ENERJİSİ ÜRETİM, İLETİM VE DAĞITIMI"
+  },
+  {
+    "name": "ELEKTRİKLİ CİHAZ TEKNOLOJİSİ"
+  },
+  {
+    "name": "ELEKTRONİK HABERLEŞME TEKNOLOJİSİ"
+  },
+  {
+    "name": "ELEKTRONİK TEKNOLOJİSİ"
+  },
+  {
+    "name": "ELEKTRONÖROFİZYOLOJİ"
+  },
+  {
+    "name": "EMLAK YÖNETİMİ<"
+  },
+  {
+    "name": "ENDÜSTRİ ÜRÜNLERİ TASARIMI"
+  },
+  {
+    "name": "ENDÜSTRİYEL CAM VE SERAMİK"
+  },
+  {
+    "name": "ENDÜSTRİYEL HAMMADDELER İŞLEME TEKNOLOJİSİ"
+  },
+  {
+    "name": "ENDÜSTRİYEL KALIPÇILIK"
+  },
+  {
+    "name": "ENERJİ TESİSLERİ İŞLETMECİLİĞİ"
+  },
+  {
+    "name": "ENGELLİ BAKIMI VE REHABİLİTASYON"
+  },
+  {
+    "name": "ENGELLİLİLER İÇİN GÖLGE ÖĞRETİCİLİK<"
+  },
+  {
+    "name": "ESER KORUMA"
+  },
+  {
+    "name": "ET VE ÜRÜNLERİ TEKNOLOJİSİ"
+  },
+  {
+    "name": "EVDE HASTA BAKIMI"
+  },
+  {
+    "name": "FİDAN YETİŞTİRİCİLİĞİ"
+  },
+  {
+    "name": "FINDIK EKSPERLİĞİ"
+  },
+  {
+    "name": "FİZYOTERAPİ"
+  },
+  {
+    "name": "FOTOĞRAFÇILIK VE KAMERAMANLIK"
+  },
+  {
+    "name": "GELENEKSEL EL SANATLARI"
+  },
+  {
+    "name": "GELENEKSEL TEKSTİLLERİN KORUNMASI VE RESTORASYONU"
+  },
+  {
+    "name": "GEMİ İNŞAATI"
+  },
+  {
+    "name": "GEMİ MAKİNELERİ İŞLETME"
+  },
+  {
+    "name": "GEOTEKNİK"
+  },
+  {
+    "name": "GIDA KALİTE KONTROLÜ VE ANALİZİ"
+  },
+  {
+    "name": "GIDA TEKNOLOJİSİ"
+  },
+  {
+    "name": "GİYİM ÜRETİM TEKNOLOJİSİ"
+  },
+  {
+    "name": "GÖRSEL İLETİŞİM"
+  },
+  {
+    "name": "GRAFİK TASARIMI"
+  },
+  {
+    "name": "HALICILIK VE KİLİMCİLİK"
+  },
+  {
+    "name": "HALKLA İLİŞKİLER VE TANITIM"
+  },
+  {
+    "name": "HARİTA VE KADASTRO"
+  },
+  {
+    "name": "HASTA BAKIMI"
+  },
+  {
+    "name": "HAVA LOJİSTİĞİ"
+  },
+  {
+    "name": "HİBRİD VE ELEKTRİKLİ TAŞITLAR TEKNOLOJİSİ"
+  },
+  {
+    "name": "HUKUK BÜRO YÖNETİMİ VE SEKRETERLİĞİ"
+  },
+  {
+    "name": "İÇ MEKAN TASARIMI"
+  },
+  {
+    "name": "İKLİMLENDİRME VE SOĞUTMA TEKNOLOJİSİ"
+  },
+  {
+    "name": "İKRAM HİZMETLERİ"
+  },
+  {
+    "name": "İLK VE ACİL YARDIM"
+  },
+  {
+    "name": "İNŞAAT TEKNOLOJİSİ"
+  },
+  {
+    "name": "İNSAN KAYNAKLARI YÖNETİMİ"
+  },
+  {
+    "name": "İNSANSIZ HAVA ARACI TEKNOLOJİSİ OPERATÖRLÜĞÜ"
+  },
+  {
+    "name": "İNTERNET VE AĞ TEKNOLOJİLERİ"
+  },
+  {
+    "name": "İŞ MAKİNELERİ OPERATÖRLÜĞÜ"
+  },
+  {
+    "name": "İŞ SAĞLIĞI VE GÜVENLİĞİ"
+  },
+  {
+    "name": "İŞ VE UĞRAŞI TERAPİSİ"
+  },
+  {
+    "name": "İŞLETME YÖNETİMİ"
+  },
+  {
+    "name": "KAYNAK TEKNOLOJİSİ"
+  },
+  {
+    "name": "KİMYA TEKNOLOJİSİ"
+  },
+  {
+    "name": "KONTROL VE OTOMASYON TEKNOLOJİSİ"
+  },
+  {
+    "name": "KOOPERATİFÇİLİK"
+  },
+  {
+    "name": "KOZMETİK TEKNOLOJİSİ"
+  },
+  {
+    "name": "KÜLTÜREL MİRAS VE TURİZM"
+  },
+  {
+    "name": "KÜMES HAYVANLARI YETİŞTİRİCİLİĞİ"
+  },
+  {
+    "name": "KUYUMCULUK VE TAKI TASARIMI"
+  },
+  {
+    "name": "LABORANT VE VETERİNER SAĞLIK"
+  },
+  {
+    "name": "LABORATUVAR TEKNOLOJİSİ"
+  },
+  {
+    "name": "LOJİSTİK"
+  },
+  {
+    "name": "MADEN TEKNOLOJİSİ"
+  },
+  {
+    "name": "MAKİNE"
+  },
+  {
+    "name": "MAKİNE RESİM VE KONSTRÜKSİYONU"
+  },
+  {
+    "name": "MALİYE"
+  },
+  {
+    "name": "MANTARCILIK"
+  },
+  {
+    "name": "MARİNA VE YAT İŞLETMECİLİĞİ"
+  },
+  {
+    "name": "MEDYA VE İLETİŞİM"
+  },
+  {
+    "name": "MEKATRONİK"
+  },
+  {
+    "name": "MENKUL KIYMETLER VE SERMAYE PİYASASI"
+  },
+  {
+    "name": "MERMER TEKNOLOJİSİ</optio"
+  },
+  {
+    "name": "METALURJİ"
+  },
+  {
+    "name": "MEYVE VE SEBZE İŞLEME TEKNOLOJİSİ"
+  },
+  {
+    "name": "MİMARİ DEKORATİF SANATLAR"
+  },
+  {
+    "name": "MİMARİ RESTORASYON"
+  },
+  {
+    "name": "MOBİL TEKNOLOJİLERİ"
+  },
+  {
+    "name": "MOBİLYA VE DEKORASYON"
+  },
+  {
+    "name": "MODA TASARIMI"
+  },
+  {
+    "name": "MODA YÖNETİMİ"
+  },
+  {
+    "name": "MUHASEBE VE VERGİ UYGULAMALARI"
+  },
+  {
+    "name": "NÜFUS VE VATANDAŞLIK"
+  },
+  {
+    "name": "NÜKLEER TEKNOLOJİ VE RADYASYON GÜVENLİĞİ"
+  },
+  {
+    "name": "NÜKLEER TIP TEKNİKLERİ"
+  },
+  {
+    "name": "ODYOMETRİ"
+  },
+  {
+    "name": "OPTİSYENLİK"
+  },
+  {
+    "name": "ORGANİK TARIM"
+  },
+  {
+    "name": "ORMANCILIK VE ORMAN ÜRÜNLERİ"
+  },
+  {
+    "name": "ORTOPEDİK PROTEZ VE ORTEZ"
+  },
+  {
+    "name": "OTOBÜS KAPTANLIĞI"
+  },
+  {
+    "name": "OTOMOTİV GÖVDE VE YÜZEY İŞLEM TEKNOLOJİLERİ"
+  },
+  {
+    "name": "OTOMOTİV TEKNOLOJİSİ"
+  },
+  {
+    "name": "OTOPSİ YARDIMCILIĞI"
+  },
+  {
+    "name": "ÖZEL GÜVENLİK VE KORUMA"
+  },
+  {
+    "name": "PASTACILIK VE EKMEKÇİLİK"
+  },
+  {
+    "name": "PATOLOJİ LABORATUVAR TEKNİKLERİ"
+  },
+  {
+    "name": "PAZARLAMA"
+  },
+  {
+    "name": "PERAKENDE SATIŞ VE MAĞAZA YÖNETİMİ"
+  },
+  {
+    "name": "PEYZAJ VE SÜS BİTKİLERİ YETİŞTİRİCİLİĞİ</optio"
+  },
+  {
+    "name": "PODOLOJİ"
+  },
+  {
+    "name": "POLİMER TEKNOLOJİSİ"
+  },
+  {
+    "name": "POSTA HİZMETLERİ"
+  },
+  {
+    "name": "RADYO VE TELEVİZYON PROGRAMCILIĞI"
+  },
+  {
+    "name": "RADYO VE TELEVİZYON TEKNOLOJİSİ"
+  },
+  {
+    "name": "RADYOTERAPİ"
+  },
+  {
+    "name": "RAFİNERİ VE PETRO-KİMYA TEKNOLOJİSİ"
+  },
+  {
+    "name": "RAYLI SİSTEMLER ELEKTRİK VE ELEKTRONİK</optio"
+  },
+  {
+    "name": "RAYLI SİSTEMLER İŞLETMECİLİĞİ"
+  },
+  {
+    "name": "RAYLI SİSTEMLER MAKİNE TEKNOLOJİSİ"
+  },
+  {
+    "name": "RAYLI SİSTEMLER MAKİNİSTLİK"
+  },
+  {
+    "name": "RAYLI SİSTEMLER YOL TEKNOLOJİSİ"
+  },
+  {
+    "name": "REKLAMCILIK"
+  },
+  {
+    "name": "SAÇ BAKIMI VE GÜZELLİK HİZMETLERİ"
+  },
+  {
+    "name": "SAĞLIK BİLGİ SİSTEMLERİ TEKNİKERLİĞİ"
+  },
+  {
+    "name": "SAĞLIK KURUMLARI İŞLETMECİLİĞİ"
+  },
+  {
+    "name": "SAĞLIK TURİZMİ İŞLETMECİLİĞİ"
+  },
+  {
+    "name": "SAHNE IŞIK VE SES TEKNOLOJİLERİ"
+  },
+  {
+    "name": "SAHNE VE DEKOR TASARIMI"
+  },
+  {
+    "name": "ŞARAP ÜRETİM TEKNOLOJİSİ"
+  },
+  {
+    "name": "SERACILIK"
+  },
+  {
+    "name": "SERAMİK VE CAM TASARIMI"
+  },
+  {
+    "name": "SİBER GÜVENLİK"
+  },
+  {
+    "name": "SİLAH SANAYİ TEKNİKERLİĞİ"
+  },
+  {
+    "name": "SİVİL HAVA ULAŞTIRMA İŞLETMECİLİĞİ"
+  },
+  {
+    "name": "SİVİL HAVACILIK KABİN HİZMETLERİ"
+  },
+  {
+    "name": "SİVİL SAVUNMA VE İTFAİYECİLİK"
+  },
+  {
+    "name": "SONDAJ TEKNOLOJİSİ"
+  },
+  {
+    "name": "SOSYAL GÜVENLİK"
+  },
+  {
+    "name": "SOSYAL HİZMETLER"
+  },
+  {
+    "name": "SPOR YÖNETİMİ"
+  },
+  {
+    "name": "SU ALTI TEKNOLOJİSİ"
+  },
+  {
+    "name": "SU ÜRÜNLERİ İŞLEME TEKNOLOJİSİ"
+  },
+  {
+    "name": "SULAMA TEKNOLOJİSİ"
+  },
+  {
+    "name": "SÜT VE BESİ HAYVANCILIĞI"
+  },
+  {
+    "name": "SÜT VE ÜRÜNLERİ TEKNOLOJİSİ"
+  },
+  {
+    "name": "TAHRİBATSIZ MUAYENE"
+  },
+  {
+    "name": "TAPU VE KADASTRO"
+  },
+  {
+    "name": "TARIM MAKİNELERİ"
+  },
+  {
+    "name": "TARIMSAL İŞLETMECİLİK"
+  },
+  {
+    "name": "TARLA BİTKİLERİ"
+  },
+  {
+    "name": "TEKSTİL TEKNOLOJİSİ"
+  },
+  {
+    "name": "TEKSTİL VE HALI MAKİNELERİ"
+  },
+  {
+    "name": "TIBBİ DOKÜMANTASYON VE SEKRETERLİK"
+  },
+  {
+    "name": "TIBBİ GÖRÜNTÜLEME TEKNİKLERİ"
+  },
+  {
+    "name": "TIBBİ LABORATUVAR TEKNİKLERİ"
+  },
+  {
+    "name": "TIBBİ TANITIM VE PAZARLAMA"
+  },
+  {
+    "name": "TIBBİ VE AROMATİK BİTKİLER"
+  },
+  {
+    "name": "TOHUMCULUK TEKNOLOJİSİ"
+  },
+  {
+    "name": "TURİST REHBERLİĞİ"
+  },
+  {
+    "name": "TURİZM ANİMASYONU"
+  },
+  {
+    "name": "TURİZM VE OTEL İŞLETMECİLİĞİ"
+  },
+  {
+    "name": "TURİZM VE SEYAHAT HİZMETLERİ"
+  },
+  {
+    "name": "UÇAK TEKNOLOJİSİ"
+  },
+  {
+    "name": "UÇUŞ HAREKAT YÖNETİCİLİĞİ"
+  },
+  {
+    "name": "ULAŞTIRMA VE TRAFİK HİZMETLERİ"
+  },
+  {
+    "name": "UN VE UNLU MAMULLER TEKNOLOJİSİ"
+  },
+  {
+    "name": "ÜRETİMDE KALİTE KONTROL"
+  },
+  {
+    "name": "UYGULAMALI İNGİLİZCE ÇEVİRMENLİK"
+  },
+  {
+    "name": "UYGULAMALI İSPANYOLCA ÇEVİRMENLİK"
+  },
+  {
+    "name": "WEB TASARIMI VE KODLAMA"
+  },
+  {
+    "name": "YAĞ ENDÜSTRİSİ"
+  },
+  {
+    "name": "YAPI DENETİMİ"
+  },
+  {
+    "name": "YAPI RESSAMLIĞI"
+  },
+  {
+    "name": "YAPI TESİSAT TEKNOLOJİSİ"
+  },
+  {
+    "name": "YAPI YALITIM TEKNOLOJİSİ"
+  },
+  {
+    "name": "YAŞLI BAKIMI"
+  },
+  {
+    "name": "YAT KAPTANLIĞI"
+  },
+  {
+    "name": "YENİ MEDYA VE GAZETECİLİK"
+  },
+  {
+    "name": "YEREL YÖNETİMLER"
+  },
+  {
+    "name": "ZEYTİNCİLİK VE ZEYTİN İŞLEME TEKNOLOJİSİ"
+  }
+]
