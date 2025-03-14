@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:edushare/services/auth_services.dart';
-import 'package:edushare/core/utils/utils.dart';
+import 'package:edushare/core/utils/show_snackbar.dart';
 import 'package:edushare/core/constants/constants.dart';
 import 'package:edushare/core/widgets/input_widgets.dart';
 
@@ -23,9 +23,9 @@ class _LoginPageState extends State<LoginPage> {
     await authService.signInUser(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
-        onError: (String message) => Utils.showSnackBar(context, message),
+        onError: (String message) => ShowSnackBar.showSnackBar(context, message),
         onSuccess: (UserCredential userCredential) {
-          Utils.showSnackBar(context, 'Giriş başarılı: ${userCredential.user?.email}');
+          ShowSnackBar.showSnackBar(context, 'Giriş başarılı: ${userCredential.user?.email}');
           context.push('/home');
         });
   }
@@ -33,9 +33,9 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> resetPasswordBtn() async {
     await authService.resetPassword(
       email: emailController.text.trim(),
-      onError: (String message) => Utils.showSnackBar(context, message),
+      onError: (String message) => ShowSnackBar.showSnackBar(context, message),
       onSuccess: () {
-        Utils.showSnackBar(context, 'Şifre sıfırlama maili gönderildi!');
+        ShowSnackBar.showSnackBar(context, 'Şifre sıfırlama maili gönderildi!');
         emailController.clear();
         passwordController.clear();
       },

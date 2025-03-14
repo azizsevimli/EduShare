@@ -4,159 +4,355 @@ import 'package:edushare/models/associate_model.dart';
 import 'package:edushare/models/bachelor_model.dart';
 import 'package:edushare/core/constants/constants.dart';
 
-class UniDropdownMenu extends StatefulWidget {
-  final TextEditingController uniController;
+class UniversityModalBottomSheet extends StatelessWidget {
+  final TextEditingController controller;
   final List<UniversityModel> universities;
 
-  const UniDropdownMenu({
+  const UniversityModalBottomSheet({
     super.key,
-    required this.uniController,
+    required this.controller,
     required this.universities,
   });
 
-  @override
-  State<UniDropdownMenu> createState() => _UniDropdownMenuState();
-}
+  void _showUniversityPicker(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return DraggableScrollableSheet(
+          expand: false,
+          builder: (BuildContext context, ScrollController scrollController) {
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
+                  child: Text(
+                    'Üniversite seçiniz',
+                    style: AppTextStyles.h3.copyWith(color: AppColors.orange),
+                  ),
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    controller: scrollController,
+                    itemCount: universities.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final university = universities[index];
+                      return ListTile(
+                        title: Text(university.name),
+                        onTap: () {
+                          controller.text = university.name;
+                          Navigator.pop(context);
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+  }
 
-class _UniDropdownMenuState extends State<UniDropdownMenu> {
   @override
   Widget build(BuildContext context) {
-    return DropdownMenu<UniversityModel>(
-      controller: widget.uniController,
-      width: MediaQuery.of(context).size.width,
-      label: const Text('Üniversite'),
-      hintText: 'Üniversitenizi seçin',
-      keyboardType: TextInputType.none,
-      dropdownMenuEntries: widget.universities.map((university){
-        return DropdownMenuEntry<UniversityModel>(
-            value: university,
-            label: university.name
-        );
-      }).toList(),
+    return GestureDetector(
+      onTap: () => _showUniversityPicker(context),
+      child: AbsorbPointer(
+        child: TextField(
+          controller: controller,
+          decoration: const InputDecoration(
+            labelText: 'Üniversite',
+            suffixIcon: Icon(Icons.arrow_drop_down),
+          ),
+        ),
+      ),
     );
   }
 }
 
-class DepDropdownMenu extends StatefulWidget {
-  final TextEditingController depController;
+class DepartmentModalBottomSheet extends StatelessWidget {
+  final TextEditingController controller;
   final String degree;
   final List<AssociateModel> associates;
   final List<BachelorModel> bachelors;
 
-  const DepDropdownMenu({
+  const DepartmentModalBottomSheet({
     super.key,
-    required this.depController,
+    required this.controller,
     required this.degree,
     required this.associates,
     required this.bachelors,
   });
 
-  @override
-  State<DepDropdownMenu> createState() => _DepDropdownMenuState();
-}
-
-class _DepDropdownMenuState extends State<DepDropdownMenu> {
-  @override
-  Widget build(BuildContext context) {
-    return _buildDropdownMenu();
-  }
-
-  Widget _buildDropdownMenu() {
-    if (widget.degree == 'Lisans') {
-      return DropdownMenu<BachelorModel>(
-        controller: widget.depController,
-        width: MediaQuery.of(context).size.width,
-        label: const Text('Bölüm'),
-        hintText: 'Bölümünüzü seçin',
-        keyboardType: TextInputType.none,
-        dropdownMenuEntries: widget.bachelors.map((bachelor) {
-          return DropdownMenuEntry<BachelorModel>(
-            value: bachelor,
-            label: bachelor.name,
-          );
-        }).toList(),
-      );
-    } else if (widget.degree == 'Önlisans') {
-      return DropdownMenu<AssociateModel>(
-        controller: widget.depController,
-        width: MediaQuery.of(context).size.width,
-        label: const Text('Bölüm'),
-        hintText: 'Bölümünüzü seçin',
-        keyboardType: TextInputType.none,
-        dropdownMenuEntries: widget.associates.map((associate) {
-          return DropdownMenuEntry<AssociateModel>(
-            value: associate,
-            label: associate.name,
-          );
-        }).toList(),
-      );
-    } else {
-      return Text(
-        'Bölüm seçmek için önce "Derece" seçmelisiniz.',
-        style: AppTextStyles.body1,
-      );
+  void _showDepPicker(BuildContext context) {
+    List<String> items = [];
+    if (degree == 'Lisans') {
+      items = bachelors.map((e) => e.name).toList();
+    } else if (degree == 'Önlisans') {
+      items = associates.map((e) => e.name).toList();
     }
+
+    if (items.isEmpty) return;
+
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return DraggableScrollableSheet(
+          expand: false,
+          builder: (BuildContext context, ScrollController scrollController) {
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
+                  child: Text(
+                    'Bölüm seçiniz',
+                    style: AppTextStyles.h3.copyWith(color: AppColors.orange),
+                  ),
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    controller: scrollController,
+                    itemCount: items.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ListTile(
+                        title: Text(items[index]),
+                        onTap: () {
+                          controller.text = items[index];
+                          Navigator.pop(context);
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
   }
-}
 
-class DegreeDropdownMenu extends StatefulWidget {
-  final TextEditingController controller;
-
-  const DegreeDropdownMenu({super.key, required this.controller});
-
-  @override
-  State<DegreeDropdownMenu> createState() => _DegreeDropdownMenuState();
-}
-
-class _DegreeDropdownMenuState extends State<DegreeDropdownMenu> {
-  List<String> degree = ['Lisans', 'Önlisans'];
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-
-    return DropdownMenu<String>(
-      width: width * 0.46,
-      controller: widget.controller,
-      label: const Text('Derece'),
-      hintText: 'Derecenizi seçin',
-      keyboardType: TextInputType.none,
-      dropdownMenuEntries: degree.map((degree) {
-        return DropdownMenuEntry<String>(
-          value: degree,
-          label: degree,
-        );
-      }).toList(),
+    return GestureDetector(
+      onTap: () => _showDepPicker(context),
+      child: AbsorbPointer(
+        child: TextField(
+          controller: controller,
+          decoration: InputDecoration(
+            labelText: degree.isEmpty ? 'Önce derece seçimi yapınız' : 'Bölüm',
+            suffixIcon: const Icon(Icons.arrow_drop_down),
+          ),
+        ),
+      ),
     );
   }
 }
 
-class GradeDropdownMenu extends StatefulWidget {
+class AllDepartmentBottomSheet extends StatelessWidget {
+  final TextEditingController controller;
+  final List<Object> departments;
+
+  const AllDepartmentBottomSheet({
+    super.key,
+    required this.controller,
+    required this.departments,
+  });
+
+  void _showDepartmentPicker(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return DraggableScrollableSheet(
+          expand: false,
+          builder: (BuildContext context, ScrollController scrollController) {
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
+                  child: Text(
+                    'Bölüm seçiniz',
+                    style: AppTextStyles.h3.copyWith(color: AppColors.orange),
+                  ),
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    controller: scrollController,
+                    itemCount: departments.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final department = departments[index];
+                      final String label;
+                      if (department is BachelorModel || department is AssociateModel) {
+                        label = (department as dynamic).name;
+                      } else {
+                        label = department.toString();
+                      }
+                      return ListTile(
+                        title: Text(label),
+                        onTap: () {
+                          controller.text = label;
+                          Navigator.pop(context);
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => _showDepartmentPicker(context),
+      child: AbsorbPointer(
+        child: TextField(
+          controller: controller,
+          readOnly: true,
+          decoration: const InputDecoration(
+            labelText: 'Bölüm',
+            suffixIcon: Icon(Icons.arrow_drop_down),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class DegreeDropdownMenu extends StatelessWidget {
+  final TextEditingController controller;
+
+  const DegreeDropdownMenu({super.key, required this.controller});
+
+  void _showDegreePicker(BuildContext context) {
+    final List<String> degree = ['Lisans', 'Önlisans'];
+
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return DraggableScrollableSheet(
+          expand: false,
+          builder: (BuildContext context, ScrollController scrollController) {
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
+                  child: Text(
+                    'Derece seçiniz',
+                    style: AppTextStyles.h3.copyWith(color: AppColors.orange),
+                  ),
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    controller: scrollController,
+                    itemCount: degree.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ListTile(
+                        title: Text(degree[index]),
+                        onTap: () {
+                          controller.text = degree[index];
+                          Navigator.pop(context);
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => _showDegreePicker(context),
+      child: AbsorbPointer(
+        child: TextField(
+          controller: controller,
+          decoration: const InputDecoration(
+            labelText: 'Derece',
+            suffixIcon: Icon(Icons.arrow_drop_down),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class GradeDropdownMenu extends StatelessWidget {
   final TextEditingController controller;
 
   const GradeDropdownMenu({super.key, required this.controller});
 
-  @override
-  State<GradeDropdownMenu> createState() => _GradeDropdownMenuState();
-}
+  void _showGradePicker(BuildContext context) {
+    final List<String> grade = ['Hazırlık', '1', '2', '3', '4', '5', '6'];
 
-class _GradeDropdownMenuState extends State<GradeDropdownMenu> {
-  List<String> grade = ['Hazırlık', '1', '2', '3', '4', '5', '6'];
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return DraggableScrollableSheet(
+          expand: false,
+          builder: (BuildContext context, ScrollController scrollController) {
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
+                  child: Text(
+                    'Sınıf seçiniz',
+                    style: AppTextStyles.h3.copyWith(color: AppColors.orange),
+                  ),
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    controller: scrollController,
+                    shrinkWrap: true,
+                    itemCount: grade.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ListTile(
+                        title: Text(grade[index]),
+                        onTap: () {
+                          controller.text = grade[index];
+                          Navigator.pop(context);
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    return DropdownMenu<String>(
-      width: width * 0.46,
-      controller: widget.controller,
-      label: const Text('Sınıf'),
-      hintText: 'Sınıfınızı seçin',
-      keyboardType: TextInputType.none,
-      dropdownMenuEntries: grade.map((grade) {
-        return DropdownMenuEntry<String>(
-          value: grade,
-          label: grade,
-        );
-      }).toList(),
+    return GestureDetector(
+      onTap: () => _showGradePicker(context),
+      child: AbsorbPointer(
+        child: TextField(
+          controller: controller,
+          decoration: const InputDecoration(
+            labelText: 'Sınıf',
+            suffixIcon: Icon(Icons.arrow_drop_down),
+          ),
+        ),
+      ),
     );
   }
 }

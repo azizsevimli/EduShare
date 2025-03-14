@@ -8,8 +8,8 @@ class UserModel {
   String department;
   String degree;
   String grade;
+  String imageUrl;
 
-  // Constructor
   UserModel({
     required this.uuid,
     required this.name,
@@ -20,6 +20,7 @@ class UserModel {
     required this.department,
     required this.degree,
     required this.grade,
+    required this.imageUrl,
   });
 
   Map<String, dynamic> toMap() {
@@ -33,6 +34,7 @@ class UserModel {
       'department': department,
       'degree': degree,
       'grade': grade,
+      'imageUrl': imageUrl,
     };
   }
 
@@ -47,6 +49,7 @@ class UserModel {
       department: map['department'] ?? '',
       degree: map['degree'] ?? '',
       grade: map['grade'] ?? '',
+      imageUrl: map['imageUrl'] ?? '',
     );
   }
 }

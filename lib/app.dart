@@ -7,7 +7,7 @@ class AppLayout extends StatelessWidget {
   const AppLayout({super.key, required this.child});
 
   int _calculateSelectedIndex(BuildContext context) {
-    final String? location = GoRouter.of(context).state?.path;
+    final String? location = GoRouter.of(context).state.path;
     if (location!.startsWith('/home')) {
       return 0;
     } else if (location.startsWith('/search')) {
@@ -26,12 +26,14 @@ class AppLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     int currentIndex = _calculateSelectedIndex(context);
 
-    return Scaffold(
-      appBar: _buildAppBar(currentIndex, context),
-      body: child,
-      bottomNavigationBar: _buildBottomAppBar(currentIndex, context),
-      floatingActionButton: _buildFloatingActionButton(context, currentIndex),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    return SafeArea(
+      child: Scaffold(
+        appBar: _buildAppBar(currentIndex, context),
+        body: child,
+        bottomNavigationBar: _buildBottomAppBar(currentIndex, context),
+        floatingActionButton: _buildFloatingActionButton(context, currentIndex),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      ),
     );
   }
 
@@ -73,7 +75,8 @@ class AppLayout extends StatelessWidget {
             unselectedIcon: Icons.manage_search,
             route: '/search',
           ),
-          const SizedBox(width: 40), // FAB için boşluk
+          if (currentIndex != 4)
+            const SizedBox(width: 40),
           _buildBottomNavigationIcon(
             context,
             currentIndex,
@@ -111,11 +114,15 @@ class AppLayout extends StatelessWidget {
     );
   }
 
-  FloatingActionButton _buildFloatingActionButton(BuildContext context, int currentIndex) {
+  FloatingActionButton? _buildFloatingActionButton(BuildContext context, int currentIndex) {
+    if (currentIndex == 4) {
+      return null;
+    }
     return FloatingActionButton(
       onPressed: () => context.go('/product-add'),
-      child: Icon(currentIndex == 4 ? Icons.add_circle : Icons.add_circle_outline,
-        size: currentIndex == 4 ? 28 : 24,
+      child: Icon(
+        Icons.add_circle_outline,
+        size: 24,
       ),
     );
   }

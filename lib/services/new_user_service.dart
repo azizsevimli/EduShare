@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:edushare/models/user_model.dart';
-import 'package:flutter/cupertino.dart';
 
 Future<void> registerUser({
   required String name,
@@ -30,6 +29,7 @@ Future<void> registerUser({
       grade: grade,
       university: university,
       department: department,
+      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/edushare-cfca8.firebasestorage.app/o/users%2Fdefault_image.jpg?alt=media&token=6590c09a-04b4-4bc2-a205-e7e5b6b0873a',
     );
 
     await FirebaseFirestore.instance

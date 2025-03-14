@@ -81,6 +81,17 @@ class AppTheme {
             color: AppColors.black,
           ),
         ),
+        outlineBorder: BorderSide(
+          width: 1.0,
+          color: AppColors.black,
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          borderSide: BorderSide(
+            width: 1.0,
+            color: AppColors.black,
+          ),
+        ),
       ),
     ),
     bottomAppBarTheme: BottomAppBarTheme(
@@ -94,7 +105,7 @@ class AppTheme {
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: AppColors.orange,
       foregroundColor: AppColors.white,
-      splashColor: AppColors.vanilla,
+      splashColor: AppColors.wine,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(100.0),
       ),

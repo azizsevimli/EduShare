@@ -6,20 +6,20 @@ import 'package:edushare/services/uni_and_dep_service.dart';
 import 'package:edushare/models/university_model.dart';
 import 'package:edushare/models/associate_model.dart';
 import 'package:edushare/models/bachelor_model.dart';
-import 'package:edushare/core/utils/utils.dart';
+import 'package:edushare/core/utils/show_snackbar.dart';
 import 'package:edushare/core/constants/constants.dart';
 import 'package:edushare/core/widgets/school_dropdown_menu.dart';
 
-class ProfileInfoPage extends StatefulWidget {
+class SignUpInfoPage extends StatefulWidget {
   final Map<String, dynamic>? data;
 
-  const ProfileInfoPage({super.key, this.data});
+  const SignUpInfoPage({super.key, this.data});
 
   @override
-  State<ProfileInfoPage> createState() => _ProfileInfoPageState();
+  State<SignUpInfoPage> createState() => _SignUpInfoPageState();
 }
 
-class _ProfileInfoPageState extends State<ProfileInfoPage> {
+class _SignUpInfoPageState extends State<SignUpInfoPage> {
   final UniAndDepService uniAndDepService = UniAndDepService();
   final TextEditingController uniController = TextEditingController();
   final TextEditingController depController = TextEditingController();
@@ -42,6 +42,7 @@ class _ProfileInfoPageState extends State<ProfileInfoPage> {
     degreeController.addListener(() {
       setState(() {
         selectedDegree = degreeController.text;
+        depController.text = '';
       });
     });
   }
@@ -67,7 +68,7 @@ class _ProfileInfoPageState extends State<ProfileInfoPage> {
         depController.text.isEmpty ||
         gradeController.text.isEmpty ||
         degreeController.text.isEmpty) {
-      Utils.showSnackBar(context, 'Lütfen tüm alanları doldurun!');
+      ShowSnackBar.showSnackBar(context, 'Lütfen tüm alanları doldurun!');
     } else {
       registerUser(
         name: widget.data?['name'],
@@ -79,9 +80,9 @@ class _ProfileInfoPageState extends State<ProfileInfoPage> {
         grade: gradeController.text.trim(),
         university: uniController.text.trim(),
         department: depController.text.trim(),
-        onError: (String message) => Utils.showSnackBar(context, message),
+        onError: (String message) => ShowSnackBar.showSnackBar(context, message),
         onSuccess: (UserCredential userCredential) {
-          Utils.showSnackBar(
+          ShowSnackBar.showSnackBar(
             context,
             'Kayıt başarılı: ${userCredential.user?.email}',
           );
@@ -113,21 +114,17 @@ class _ProfileInfoPageState extends State<ProfileInfoPage> {
                 Text('Tüm bilgileri doldurun ve kaydolun.',
                     style: AppTextStyles.body1),
                 SizedBox(height: 30.0),
-                Row(
-                  children: [
-                    DegreeDropdownMenu(controller: degreeController),
-                    SizedBox(width: 10.0),
-                    GradeDropdownMenu(controller: gradeController),
-                  ],
-                ),
+                DegreeDropdownMenu(controller: degreeController),
                 SizedBox(height: 15.0),
-                UniDropdownMenu(
-                  uniController: uniController,
+                GradeDropdownMenu(controller: gradeController),
+                SizedBox(height: 15.0),
+                UniversityModalBottomSheet(
+                  controller: uniController,
                   universities: universities,
                 ),
                 SizedBox(height: 15.0),
-                DepDropdownMenu(
-                  depController: depController,
+                DepartmentModalBottomSheet(
+                  controller: depController,
                   degree: selectedDegree,
                   associates: associates,
                   bachelors: bachelors,

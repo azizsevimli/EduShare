@@ -1,16 +1,16 @@
+import 'package:edushare/pages/ProductDetail/product_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:edushare/app.dart';
 import 'package:edushare/pages/Splash/splash_page.dart';
 import 'package:edushare/pages/Login/login_page.dart';
 import 'package:edushare/pages/Signup/signup_page.dart';
-import 'package:edushare/pages/Signup/profileInfo_page.dart';
+import 'package:edushare/pages/SignUp/signup_info_page.dart';
 import 'package:edushare/pages/Home/home_page.dart';
 import 'package:edushare/pages/Search/search_page.dart';
 import 'package:edushare/pages/ProductAdd/product_add_page.dart';
 import 'package:edushare/pages/Messages/messages_page.dart';
 import 'package:edushare/pages/Profile/profile_page.dart';
-
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -31,14 +31,14 @@ class AppRouter {
       GoRoute(
         path: '/signup',
         builder: (BuildContext context, GoRouterState state) {
-          return const SignupPage();
+          return const SignUpPage();
         },
         routes: [
           GoRoute(
             path: 'profile-info',
             builder: (BuildContext context, GoRouterState state) {
               final Map<String, dynamic> data = state.extra as Map<String, dynamic>;
-              return ProfileInfoPage(data: data);
+              return SignUpInfoPage(data: data);
             },
           ),
         ],
@@ -79,6 +79,13 @@ class AppRouter {
             ),
           ),
         ],
+      ),
+      GoRoute(
+        path: '/product-detail/:id',
+        builder: (BuildContext context, GoRouterState state) {
+          final productId = state.pathParameters['id']!;
+          return ProductDetailPage(productId: productId);
+        },
       ),
     ],
   );

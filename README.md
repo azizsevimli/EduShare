@@ -17,7 +17,7 @@ EduShare is a mobile application developed using Flutter and Firebase technologi
     - Authentication
     - Firestore Database
     - Storage
-- **Android Studio**: Version 2024.2.1 (Ladybug)
+- **Android Studio**
 
 ## Acknowledgments
 
