@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:edushare/core/constants/constants.dart';
+import '../constants/constants.dart';
 
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(

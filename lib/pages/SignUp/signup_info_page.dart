@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:edushare/services/new_user_service.dart';
-import 'package:edushare/services/uni_and_dep_service.dart';
-import 'package:edushare/models/university_model.dart';
-import 'package:edushare/models/associate_model.dart';
-import 'package:edushare/models/bachelor_model.dart';
-import 'package:edushare/core/utils/show_snackbar.dart';
-import 'package:edushare/core/constants/constants.dart';
-import 'package:edushare/core/widgets/school_dropdown_menu.dart';
+import '../../services/new_user_service.dart';
+import '../../services/uni_and_dep_service.dart';
+import '../../models/university_model.dart';
+import '../../models/associate_model.dart';
+import '../../models/bachelor_model.dart';
+import '../../core/utils/show_snackbar.dart';
+import '../../core/constants/constants.dart';
+import '../../core/widgets/school_dropdown_menu.dart';
 
 class SignUpInfoPage extends StatefulWidget {
   final Map<String, dynamic>? data;

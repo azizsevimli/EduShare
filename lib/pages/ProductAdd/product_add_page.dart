@@ -1,15 +1,17 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:edushare/models/associate_model.dart';
-import 'package:edushare/models/bachelor_model.dart';
-import 'package:edushare/services/uni_and_dep_service.dart';
-import 'package:edushare/services/new_product_service.dart';
-import 'package:edushare/core/constants/constants.dart';
-import 'package:edushare/core/widgets/input_widgets.dart';
-import 'package:edushare/core/widgets/school_dropdown_menu.dart';
-import 'package:edushare/core/widgets/product_image_picker.dart';
-import 'package:edushare/core/utils/user_uid.dart';
-import 'package:edushare/core/utils/show_snackbar.dart';
+import '../../models/associate_model.dart';
+import '../../models/bachelor_model.dart';
+import '../../services/uni_and_dep_service.dart';
+import '../../services/new_product_service.dart';
+import '../../core/constants/constants.dart';
+import '../../core/widgets/input_widgets.dart';
+import '../../core/widgets/custom_button.dart';
+import '../../core/widgets/school_dropdown_menu.dart';
+import '../../core/widgets/product_image_picker.dart';
+import '../../core/utils/user_uid.dart';
+import '../../core/utils/show_snackbar.dart';
+import '../../core/utils/generate_uuid.dart';
 
 class ProductAddPage extends StatefulWidget {
   const ProductAddPage({super.key});
@@ -63,20 +65,22 @@ class _ProductAddPageState extends State<ProductAddPage> {
   }
 
   void addProductBtn() {
-    if (_images[0] == null || productTitleController.text.isEmpty ||
+    if (_images[0] == null ||
+        productTitleController.text.isEmpty ||
         productDescriptionController.text.isEmpty ||
         productDepController.text.isEmpty ||
         productClassController.text.isEmpty) {
       ShowSnackBar.showSnackBar(context, 'Lütfen tüm alanları doldurun!');
     } else {
       uploadProduct(
+          id: GenerateUuid.generateProductId(),
           owner: GetUser.getUserUID(),
           title: productTitleController.text.trim(),
           description: productDescriptionController.text.trim(),
           cost: productCostController.text.trim(),
           department: productDepController.text.trim(),
           subject: productClassController.text.trim(),
-          images: _images
+          images: _images,
       );
     }
   }
@@ -134,6 +138,7 @@ class _ProductAddPageState extends State<ProductAddPage> {
                 buildRadio('Ücretli', true),
               ],
             ),
+            SizedBox(height: 5),
             if (isPaid == true)
               OnlyCostField(
                 controller: productCostController,
@@ -160,12 +165,10 @@ class _ProductAddPageState extends State<ProductAddPage> {
               hintText: 'Örn: Mühendislik Matematiği',
             ),
             SizedBox(height: 20),
-            SizedBox(
+            CustomElevatedButton(
+              text: 'Ürünü Ekle',
+              onPressed: addProductBtn,
               width: width,
-              child: ElevatedButton(
-                onPressed: addProductBtn,
-                child: Text('Ürünü Ekle'),
-              ),
             ),
             SizedBox(height: 30),
           ],
@@ -180,8 +183,8 @@ class _ProductAddPageState extends State<ProductAddPage> {
         Radio<bool>(
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           splashRadius: 10,
-          fillColor: WidgetStatePropertyAll(AppColors.orange),
-          overlayColor: WidgetStatePropertyAll(AppColors.orange),
+          fillColor: WidgetStatePropertyAll(AppColors.periwinkle),
+          overlayColor: WidgetStatePropertyAll(AppColors.periwinkle),
           value: val,
           groupValue: isPaid,
           onChanged: (value) {

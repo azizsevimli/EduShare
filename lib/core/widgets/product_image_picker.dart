@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:edushare/core/constants/constants.dart';
+import '../constants/constants.dart';
 
 class ProductImagePicker extends StatefulWidget {
   final List<File?> selectedImages;

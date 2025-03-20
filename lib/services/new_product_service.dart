@@ -1,9 +1,11 @@
 import 'dart:io';
+import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:edushare/models/product_model.dart';
-import 'package:edushare/services/upload_image_service.dart';
+import '../../models/product_model.dart';
+import '../../services/upload_image_service.dart';
 
 Future<void> uploadProduct({
+  required String id,
   required String owner,
   required String title,
   required String description,
@@ -14,12 +16,17 @@ Future<void> uploadProduct({
 }) async {
   try {
     FirebaseFirestore ffs = FirebaseFirestore.instance;
-
     List<String> imageUrls = [];
 
     for (int i = 0; i < images.length; i++) {
       if (images[i] != null) {
-        String? imageUrl = await uploadImageToStorage(images[i]!, "products", owner);
+        String? imageUrl = await uploadImageToStorage(
+          image: images[i]!,
+          document: "products",
+          owner: owner,
+          id: id,
+          index: i,
+        );
         if (imageUrl != null) {
           imageUrls.add(imageUrl);
         }
@@ -27,20 +34,28 @@ Future<void> uploadProduct({
     }
 
     ProductModel product = ProductModel(
+      id: id,
       owner: owner,
       title: title,
       price: cost,
       description: description,
       department: department,
       subject: subject,
-      imageUrl: imageUrls,
+      imageUrls: imageUrls,
     );
 
-    await ffs.collection('products').doc('${DateTime.now().millisecondsSinceEpoch}_$owner').set(product.toMap());
-    await ffs.collection('users').doc(owner).collection('products').doc('${DateTime.now().millisecondsSinceEpoch}_$owner').set(product.toMap());
-
-    print("Ürün başarıyla Firestore'a kaydedildi!");
+    await ffs
+        .collection('products')
+        .doc('${owner}_$id')
+        .set(product.toMap());
+    await ffs
+        .collection('users')
+        .doc(owner)
+        .collection('products')
+        .doc('${id}_$owner')
+        .set(product.toMap());
+    debugPrint("Ürün Firestore'a kaydedildi.");
   } catch (e) {
-    print("Ürün kaydedilirken hata oluştu: $e");
+    debugPrint("Ürün kaydedilirken hata oluştu: $e");
   }
 }

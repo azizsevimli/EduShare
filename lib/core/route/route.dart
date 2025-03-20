@@ -1,16 +1,17 @@
-import 'package:edushare/pages/ProductDetail/product_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:edushare/app.dart';
-import 'package:edushare/pages/Splash/splash_page.dart';
-import 'package:edushare/pages/Login/login_page.dart';
-import 'package:edushare/pages/Signup/signup_page.dart';
-import 'package:edushare/pages/SignUp/signup_info_page.dart';
-import 'package:edushare/pages/Home/home_page.dart';
-import 'package:edushare/pages/Search/search_page.dart';
-import 'package:edushare/pages/ProductAdd/product_add_page.dart';
-import 'package:edushare/pages/Messages/messages_page.dart';
-import 'package:edushare/pages/Profile/profile_page.dart';
+import '../../app.dart';
+import '../../pages/Splash/splash_page.dart';
+import '../../pages/Login/login_page.dart';
+import '../../pages/Signup/signup_page.dart';
+import '../../pages/SignUp/signup_info_page.dart';
+import '../../pages/Home/home_page.dart';
+import '../../pages/Search/search_page.dart';
+import '../../pages/ProductAdd/product_add_page.dart';
+import '../../pages/Messages/messages_page.dart';
+import '../../pages/Profile/profile_page.dart';
+import '../../pages/Profile/profile_edit_page.dart';
+import '../../pages/ProductDetail/product_detail_page.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -74,11 +75,17 @@ class AppRouter {
           ),
           GoRoute(
             path: '/profile',
-            pageBuilder: (context, state) => NoTransitionPage(
+            pageBuilder: (BuildContext context, GoRouterState state) => NoTransitionPage(
               child: ProfilePage(),
             ),
           ),
         ],
+      ),
+      GoRoute(
+        path: '/profile/edit',
+        builder: (BuildContext context, GoRouterState state) {
+          return ProfileEditPage();
+        },
       ),
       GoRoute(
         path: '/product-detail/:id',

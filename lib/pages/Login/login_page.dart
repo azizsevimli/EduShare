@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:edushare/services/auth_services.dart';
-import 'package:edushare/core/utils/show_snackbar.dart';
-import 'package:edushare/core/constants/constants.dart';
-import 'package:edushare/core/widgets/input_widgets.dart';
+import '../../services/auth_services.dart';
+import '../../core/utils/show_snackbar.dart';
+import '../../core/constants/constants.dart';
+import '../../core/widgets/input_widgets.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

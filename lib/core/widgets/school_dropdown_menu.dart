@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:edushare/models/university_model.dart';
-import 'package:edushare/models/associate_model.dart';
-import 'package:edushare/models/bachelor_model.dart';
-import 'package:edushare/core/constants/constants.dart';
+import '../../models/university_model.dart';
+import '../../models/associate_model.dart';
+import '../../models/bachelor_model.dart';
+import '../constants/constants.dart';
 
 class UniversityModalBottomSheet extends StatelessWidget {
   final TextEditingController controller;

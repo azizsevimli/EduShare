@@ -26,14 +26,12 @@ class AppLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     int currentIndex = _calculateSelectedIndex(context);
 
-    return SafeArea(
-      child: Scaffold(
-        appBar: _buildAppBar(currentIndex, context),
-        body: child,
-        bottomNavigationBar: _buildBottomAppBar(currentIndex, context),
-        floatingActionButton: _buildFloatingActionButton(context, currentIndex),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      ),
+    return Scaffold(
+      appBar: _buildAppBar(currentIndex, context),
+      body: child,
+      bottomNavigationBar: _buildBottomAppBar(currentIndex, context),
+      floatingActionButton: _buildFloatingActionButton(context, currentIndex),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
@@ -43,10 +41,10 @@ class AppLayout extends StatelessWidget {
       actions: [
         currentIndex == 3
             ? IconButton(
-          icon: Icon(Icons.settings),
-          color: AppColors.white,
-          onPressed: () => context.go('/settings'),
-        )
+                icon: Icon(Icons.settings),
+                color: AppColors.white,
+                onPressed: () => context.go('/settings'),
+              )
             : const SizedBox(),
       ],
     );
@@ -75,8 +73,7 @@ class AppLayout extends StatelessWidget {
             unselectedIcon: Icons.manage_search,
             route: '/search',
           ),
-          if (currentIndex != 4)
-            const SizedBox(width: 40),
+          if (currentIndex != 4) const SizedBox(width: 40),
           _buildBottomNavigationIcon(
             context,
             currentIndex,
@@ -99,13 +96,13 @@ class AppLayout extends StatelessWidget {
   }
 
   Widget _buildBottomNavigationIcon(
-      BuildContext context,
-      int currentIndex, {
-        required int index,
-        required IconData selectedIcon,
-        required IconData unselectedIcon,
-        required String route,
-      }) {
+    BuildContext context,
+    int currentIndex, {
+    required int index,
+    required IconData selectedIcon,
+    required IconData unselectedIcon,
+    required String route,
+  }) {
     return IconButton(
       icon: Icon(currentIndex == index ? selectedIcon : unselectedIcon),
       color: currentIndex == index ? AppColors.orange : AppColors.brown,
@@ -114,7 +111,8 @@ class AppLayout extends StatelessWidget {
     );
   }
 
-  FloatingActionButton? _buildFloatingActionButton(BuildContext context, int currentIndex) {
+  FloatingActionButton? _buildFloatingActionButton(
+      BuildContext context, int currentIndex) {
     if (currentIndex == 4) {
       return null;
     }

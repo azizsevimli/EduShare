@@ -1,17 +1,37 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:edushare/models/user_model.dart';
+import '../../models/product_model.dart';
+import '../../models/user_model.dart';
 
-class UserData{
-  Future<UserModel?> getUserData(String uid) async{
+class UserData {
+  Future<UserModel?> getUserData({required String uid}) async {
     FirebaseFirestore ffs = FirebaseFirestore.instance;
     UserModel? user;
 
-    DocumentSnapshot documentSnapshot = await ffs.collection('users').doc(uid).get();
+    DocumentSnapshot snapshot = await ffs
+        .collection('users')
+        .doc(uid)
+        .get();
 
-    if (documentSnapshot.exists) {
-      user = UserModel.fromMap(documentSnapshot.data() as Map<String, dynamic>);
+    if (snapshot.exists) {
+      user = UserModel.fromMap(snapshot.data() as Map<String, dynamic>);
     }
 
     return user;
+  }
+
+  Future<List<ProductModel>> getUserProducts({required String uid}) async {
+    FirebaseFirestore ffs = FirebaseFirestore.instance;
+    List<ProductModel> products = [];
+    QuerySnapshot snapshot = await ffs
+        .collection('users')
+        .doc(uid)
+        .collection('products')
+        .get();
+
+    for (var doc in snapshot.docs) {
+      products.add(ProductModel.fromMap(doc.data() as Map<String, dynamic>));
+    }
+
+    return products;
   }
 }
