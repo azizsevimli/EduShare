@@ -13,6 +13,7 @@ Future<void> uploadProduct({
   required String department,
   required String subject,
   required List<File?> images,
+  required bool isSold,
 }) async {
   try {
     FirebaseFirestore ffs = FirebaseFirestore.instance;
@@ -42,6 +43,7 @@ Future<void> uploadProduct({
       department: department,
       subject: subject,
       imageUrls: imageUrls,
+      isSold: isSold,
     );
 
     await ffs

@@ -5,7 +5,7 @@ import '../../models/bachelor_model.dart';
 import '../../services/uni_and_dep_service.dart';
 import '../../services/new_product_service.dart';
 import '../../core/constants/constants.dart';
-import '../../core/widgets/input_widgets.dart';
+import '../../core/widgets/custom_text_fields.dart';
 import '../../core/widgets/custom_button.dart';
 import '../../core/widgets/school_dropdown_menu.dart';
 import '../../core/widgets/product_image_picker.dart';
@@ -73,14 +73,15 @@ class _ProductAddPageState extends State<ProductAddPage> {
       ShowSnackBar.showSnackBar(context, 'Lütfen tüm alanları doldurun!');
     } else {
       uploadProduct(
-          id: GenerateUuid.generateProductId(),
-          owner: GetUser.getUserUID(),
-          title: productTitleController.text.trim(),
-          description: productDescriptionController.text.trim(),
-          cost: productCostController.text.trim(),
-          department: productDepController.text.trim(),
-          subject: productClassController.text.trim(),
-          images: _images,
+        id: GenerateUuid.generateProductId(),
+        owner: GetUser.getUserUID(),
+        title: productTitleController.text.trim(),
+        description: productDescriptionController.text.trim(),
+        cost: productCostController.text.trim(),
+        department: productDepController.text.trim(),
+        subject: productClassController.text.trim(),
+        images: _images,
+        isSold: false,
       );
     }
   }
@@ -110,9 +111,10 @@ class _ProductAddPageState extends State<ProductAddPage> {
               subtitle: 'Ürünün adını girin',
             ),
             SizedBox(height: 5),
-            OnlyTextField(
+            CustomTextField(
               controller: productTitleController,
-              hintText: 'Örn: Hesap Makinesi',
+              hint: 'Örn: Hesap Makinesi',
+              ml: false,
             ),
             SizedBox(height: 20),
             InputTitleSubtitle(
@@ -120,9 +122,10 @@ class _ProductAddPageState extends State<ProductAddPage> {
               subtitle: 'Ürün hakkında detaylı bilgi verin (En az 30 karakter)',
             ),
             SizedBox(height: 5),
-            MultiLinesTextField(
+            CustomTextField(
               controller: productDescriptionController,
-              hintText: 'Marka model bilgisi, kullanım durumu, vb.',
+              hint: 'Marka model bilgisi, kullanım durumu, vb.',
+              ml: true,
             ),
             SizedBox(height: 20),
             InputTitleSubtitle(
@@ -142,7 +145,7 @@ class _ProductAddPageState extends State<ProductAddPage> {
             if (isPaid == true)
               OnlyCostField(
                 controller: productCostController,
-                hintText: 'Ücret',
+                hint: 'Ücret',
               ),
             SizedBox(height: 20),
             InputTitleSubtitle(
@@ -150,19 +153,17 @@ class _ProductAddPageState extends State<ProductAddPage> {
               subtitle: 'Ürünün kullanıldığı bölümü seçin',
             ),
             SizedBox(height: 5),
-            AllDepartmentBottomSheet(
-              controller: productDepController,
-              departments: departments,
-            ),
+            AllDepartmentBottomSheet(controller: productDepController),
             SizedBox(height: 20),
             InputTitleSubtitle(
               title: 'İlgili Ders',
               subtitle: 'Ürünün kullanıldığı dersi seçin',
             ),
             SizedBox(height: 5),
-            OnlyTextField(
+            CustomTextField(
               controller: productClassController,
-              hintText: 'Örn: Mühendislik Matematiği',
+              hint: 'Örn: Mühendislik Matematiği',
+              ml: false,
             ),
             SizedBox(height: 20),
             CustomElevatedButton(

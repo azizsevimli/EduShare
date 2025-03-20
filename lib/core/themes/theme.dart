@@ -7,6 +7,7 @@ class AppTheme {
       backgroundColor: AppColors.orange,
       titleTextStyle: AppTextStyles.h2.copyWith(color: AppColors.white),
     ),
+    scaffoldBackgroundColor: AppColors.white,
     textTheme: TextTheme(
       headlineLarge: AppTextStyles.h1,
       headlineMedium: AppTextStyles.h2,

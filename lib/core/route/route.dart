@@ -84,7 +84,8 @@ class AppRouter {
       GoRoute(
         path: '/profile/edit',
         builder: (BuildContext context, GoRouterState state) {
-          return ProfileEditPage();
+          final Map<String, dynamic> data = state.extra as Map<String, dynamic>;
+          return ProfileEditPage(data: data);
         },
       ),
       GoRoute(

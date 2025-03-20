@@ -7,6 +7,7 @@ class ProductModel {
   final String department;
   final String subject;
   final List<String> imageUrls;
+  final bool isSold;
 
   ProductModel({
     required this.id,
@@ -17,6 +18,7 @@ class ProductModel {
     required this.department,
     required this.subject,
     required this.imageUrls,
+    required this.isSold,
   });
 
   Map<String, dynamic> toMap() {
@@ -29,6 +31,7 @@ class ProductModel {
       'department': department,
       'subject': subject,
       'imageUrl': imageUrls,
+      'isSold': isSold,
     };
   }
 
@@ -42,6 +45,7 @@ class ProductModel {
       department: map['department'] ?? '',
       subject: map['subject'] ?? '',
       imageUrls: List<String>.from(map['imageUrl'] ?? []),
+      isSold: map['isSold'] ?? false,
     );
   }
 }

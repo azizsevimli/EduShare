@@ -18,10 +18,12 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  UserData ud = UserData();
   String uid = FirebaseAuth.instance.currentUser!.uid;
   late Future<UserModel?> userFuture;
   late Future<List<ProductModel>> productFuture;
-  UserData ud = UserData();
+  int _selectedIndex = 0;
+  late UserModel user;
 
   @override
   void initState() {
@@ -44,7 +46,7 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   void goProfileEditPage() {
-    context.push('/profile/edit');
+    context.push('/profile/edit', extra: user.toMap());
   }
 
   @override
@@ -74,7 +76,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 if (!snapshot.hasData || snapshot.data == null) {
                   return Text("Kullanıcı verisi bulunamadı.");
                 }
-                final user = snapshot.data!;
+
+                user = snapshot.data!;
 
                 return UserInfoCard(user: user);
               },
@@ -95,21 +98,21 @@ class _ProfilePageState extends State<ProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   IconButton(
-                    onPressed: () => {debugPrint('Liste')},
+                    onPressed: () => setState(() => _selectedIndex = 0),
                     icon: const Icon(
                       Icons.format_list_bulleted,
                       color: AppColors.white,
                     ),
                   ),
                   IconButton(
-                    onPressed: () => {debugPrint('Satılanlar')},
+                    onPressed: () => setState(() => _selectedIndex = 1),
                     icon: const Icon(
                       Icons.checklist_outlined,
                       color: AppColors.white,
                     ),
                   ),
                   IconButton(
-                    onPressed: () => {debugPrint('Favoriler')},
+                    onPressed: () => setState(() => _selectedIndex = 2),
                     icon: const Icon(
                       Icons.favorite_border_outlined,
                       color: AppColors.white,
@@ -136,6 +139,17 @@ class _ProfilePageState extends State<ProfilePage> {
                 }
 
                 List<ProductModel> products = snapshot.data!;
+                List<ProductModel> soldProducts = [];
+                List<ProductModel> unsoldProducts = [];
+
+                for (var product in products) {
+                  if (product.isSold) {
+                    soldProducts.add(product);
+                  }
+                  else {
+                    unsoldProducts.add(product);
+                  }
+                }
 
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -148,15 +162,21 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: products.length,
+                    itemCount: _selectedIndex == 0 ? unsoldProducts.length : soldProducts.length,
                     itemBuilder: (context, index) {
+                      if (_selectedIndex == 0) {
+                        return ProductCard(product: unsoldProducts[index]);
+                      }else if (_selectedIndex == 1) {
+                        return ProductCard(product: soldProducts[index]);
+                      }
+
                       return ProductCard(product: products[index]);
                     },
                   ),
                 );
               },
             ),
-            SizedBox(height: 200.0),
+            SizedBox(height: 50.0),
             CustomElevatedButton(
               text: 'Çıkış Yap',
               onPressed: () => logoutBtn(context),

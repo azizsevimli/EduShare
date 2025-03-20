@@ -54,3 +54,33 @@ class CustomElevatedButton extends StatelessWidget {
     );
   }
 }
+
+class CustomTextButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
+  final Color? bgColor;
+  final Color? fgColor;
+  final TextStyle? textStyle;
+
+  const CustomTextButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.bgColor,
+    this.fgColor,
+    this.textStyle,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: onPressed,
+      style: TextButton.styleFrom(
+        backgroundColor: bgColor ?? AppColors.white,
+        foregroundColor: fgColor ?? AppColors.wine,
+        textStyle: textStyle ?? AppTextStyles.textButton,
+      ),
+      child: Text(text),
+    );
+  }
+}

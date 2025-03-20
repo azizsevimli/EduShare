@@ -2,17 +2,36 @@ import 'package:flutter/material.dart';
 import '../../models/university_model.dart';
 import '../../models/associate_model.dart';
 import '../../models/bachelor_model.dart';
+import '../../services/uni_and_dep_service.dart';
 import '../constants/constants.dart';
 
-class UniversityModalBottomSheet extends StatelessWidget {
+class UniversityModalBottomSheet extends StatefulWidget {
   final TextEditingController controller;
-  final List<UniversityModel> universities;
 
   const UniversityModalBottomSheet({
     super.key,
     required this.controller,
-    required this.universities,
   });
+
+  @override
+  State<UniversityModalBottomSheet> createState() =>
+      _UniversityModalBottomSheet();
+}
+
+class _UniversityModalBottomSheet extends State<UniversityModalBottomSheet> {
+  final UniAndDepService service = UniAndDepService();
+  List<UniversityModel> universities = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    universities = await service.loadUniversities();
+    setState(() {});
+  }
 
   void _showUniversityPicker(BuildContext context) {
     showModalBottomSheet(
@@ -40,7 +59,7 @@ class UniversityModalBottomSheet extends StatelessWidget {
                       return ListTile(
                         title: Text(university.name),
                         onTap: () {
-                          controller.text = university.name;
+                          widget.controller.text = university.name;
                           Navigator.pop(context);
                         },
                       );
@@ -61,7 +80,7 @@ class UniversityModalBottomSheet extends StatelessWidget {
       onTap: () => _showUniversityPicker(context),
       child: AbsorbPointer(
         child: TextField(
-          controller: controller,
+          controller: widget.controller,
           decoration: const InputDecoration(
             labelText: 'Üniversite',
             suffixIcon: Icon(Icons.arrow_drop_down),
@@ -72,25 +91,42 @@ class UniversityModalBottomSheet extends StatelessWidget {
   }
 }
 
-class DepartmentModalBottomSheet extends StatelessWidget {
+class DepartmentModalBottomSheet extends StatefulWidget {
   final TextEditingController controller;
   final String degree;
-  final List<AssociateModel> associates;
-  final List<BachelorModel> bachelors;
 
   const DepartmentModalBottomSheet({
     super.key,
     required this.controller,
     required this.degree,
-    required this.associates,
-    required this.bachelors,
   });
+
+  @override
+  State<DepartmentModalBottomSheet> createState() => _DepartmentModalBottomSheet();
+}
+
+class _DepartmentModalBottomSheet extends State<DepartmentModalBottomSheet> {
+  final UniAndDepService service = UniAndDepService();
+  List<AssociateModel> associates = [];
+  List<BachelorModel> bachelors = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    associates = await service.loadAssociates();
+    bachelors = await service.loadBachelors();
+    setState(() {});
+  }
 
   void _showDepPicker(BuildContext context) {
     List<String> items = [];
-    if (degree == 'Lisans') {
+    if (widget.degree == 'Lisans') {
       items = bachelors.map((e) => e.name).toList();
-    } else if (degree == 'Önlisans') {
+    } else if (widget.degree == 'Önlisans') {
       items = associates.map((e) => e.name).toList();
     }
 
@@ -120,7 +156,7 @@ class DepartmentModalBottomSheet extends StatelessWidget {
                       return ListTile(
                         title: Text(items[index]),
                         onTap: () {
-                          controller.text = items[index];
+                          widget.controller.text = items[index];
                           Navigator.pop(context);
                         },
                       );
@@ -141,9 +177,9 @@ class DepartmentModalBottomSheet extends StatelessWidget {
       onTap: () => _showDepPicker(context),
       child: AbsorbPointer(
         child: TextField(
-          controller: controller,
+          controller: widget.controller,
           decoration: InputDecoration(
-            labelText: degree.isEmpty ? 'Önce derece seçimi yapınız' : 'Bölüm',
+            labelText: widget.degree.isEmpty ? 'Önce derece seçimi yapınız' : 'Bölüm',
             suffixIcon: const Icon(Icons.arrow_drop_down),
           ),
         ),
@@ -152,15 +188,43 @@ class DepartmentModalBottomSheet extends StatelessWidget {
   }
 }
 
-class AllDepartmentBottomSheet extends StatelessWidget {
+class AllDepartmentBottomSheet extends StatefulWidget{
   final TextEditingController controller;
-  final List<Object> departments;
 
   const AllDepartmentBottomSheet({
     super.key,
     required this.controller,
-    required this.departments,
   });
+
+  @override
+  State<AllDepartmentBottomSheet> createState() => _AllDepartmentBottomSheet();
+}
+
+class _AllDepartmentBottomSheet extends State<AllDepartmentBottomSheet> {
+  final UniAndDepService service = UniAndDepService();
+  List<Object> departments = [];
+  List<AssociateModel> associates = [];
+  List<BachelorModel> bachelors = [];
+
+  Future<void> loadData() async {
+    associates = await service.loadAssociates();
+    bachelors = await service.loadBachelors();
+    setState(() {
+      departments = [...associates, ...bachelors];
+      departments.sort((a, b) {
+        String nameA = (a is AssociateModel) ? a.name : (a as BachelorModel).name;
+        String nameB = (b is AssociateModel) ? b.name : (b as BachelorModel).name;
+
+        return nameA.compareTo(nameB);
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
 
   void _showDepartmentPicker(BuildContext context) {
     showModalBottomSheet(
@@ -187,7 +251,8 @@ class AllDepartmentBottomSheet extends StatelessWidget {
                     itemBuilder: (BuildContext context, int index) {
                       final department = departments[index];
                       final String label;
-                      if (department is BachelorModel || department is AssociateModel) {
+                      if (department is BachelorModel ||
+                          department is AssociateModel) {
                         label = (department as dynamic).name;
                       } else {
                         label = department.toString();
@@ -195,7 +260,7 @@ class AllDepartmentBottomSheet extends StatelessWidget {
                       return ListTile(
                         title: Text(label),
                         onTap: () {
-                          controller.text = label;
+                          widget.controller.text = label;
                           Navigator.pop(context);
                         },
                       );
@@ -216,7 +281,7 @@ class AllDepartmentBottomSheet extends StatelessWidget {
       onTap: () => _showDepartmentPicker(context),
       child: AbsorbPointer(
         child: TextField(
-          controller: controller,
+          controller: widget.controller,
           readOnly: true,
           decoration: const InputDecoration(
             labelText: 'Bölüm',

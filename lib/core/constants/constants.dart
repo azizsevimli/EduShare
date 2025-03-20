@@ -52,4 +52,12 @@ class AppTextStyles {
     fontSize: 10.0,
     fontWeight: FontWeight.w300,
   );
+
+  static const TextStyle textButton = TextStyle(
+    fontFamily: 'Poppins',
+    fontSize: 14.0,
+    fontWeight: FontWeight.w500,
+    decoration: TextDecoration.underline,
+    decorationStyle: TextDecorationStyle.solid,
+  );
 }

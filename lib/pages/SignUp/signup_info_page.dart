@@ -120,14 +120,11 @@ class _SignUpInfoPageState extends State<SignUpInfoPage> {
                 SizedBox(height: 15.0),
                 UniversityModalBottomSheet(
                   controller: uniController,
-                  universities: universities,
                 ),
                 SizedBox(height: 15.0),
                 DepartmentModalBottomSheet(
                   controller: depController,
                   degree: selectedDegree,
-                  associates: associates,
-                  bachelors: bachelors,
                 ),
                 SizedBox(height: 30.0),
                 SizedBox(

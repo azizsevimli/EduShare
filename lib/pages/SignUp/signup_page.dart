@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:edushare/core/utils/show_snackbar.dart';
-import 'package:edushare/core/utils/validation.dart';
-import 'package:edushare/core/widgets/input_widgets.dart';
-import 'package:edushare/core/constants/constants.dart';
+import '../../core/utils/show_snackbar.dart';
+import '../../core/utils/validation.dart';
+import '../../core/widgets/custom_text_fields.dart';
+import '../../core/constants/constants.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -82,19 +82,21 @@ class _SignUpPageState extends State<SignUpPage> {
                     children: [
                       Expanded(
                         flex: 1,
-                        child: TextFieldWithLabel(
+                        child: CustomTextField(
                           controller: nameController,
-                          labelText: 'Ad',
-                          hintText: 'Adınızı girin',
+                          label: 'Ad',
+                          hint: 'Adınızı girin',
+                          ml: false,
                         ),
                       ),
                       SizedBox(width: 5.0),
                       Expanded(
                         flex: 1,
-                        child: TextFieldWithLabel(
+                        child: CustomTextField(
                           controller: surnameController,
-                          labelText: 'Soyad',
-                          hintText: 'Soyadınızı girin',
+                          label: 'Soyad',
+                          hint: 'Soyadınızı girin',
+                          ml: false,
                         ),
                       ),
                     ],

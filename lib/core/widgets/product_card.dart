@@ -70,8 +70,14 @@ class _ProductCardState extends State<ProductCard> {
           alignment: MainAxisAlignment.spaceBetween,
         ),
         _buildRow(
-          leftWidget: const Icon(Icons.location_on_outlined, size: 16),
-          rightWidget: Text('Location', style: AppTextStyles.body3),
+          leftWidget: const Icon(Icons.school_outlined, size: 16),
+          rightWidget: Expanded(
+            child: Text(
+              product.department,
+              overflow: TextOverflow.ellipsis,
+              style: AppTextStyles.body3,
+            ),
+          ),
           alignment: MainAxisAlignment.start,
         ),
         _buildRow(
@@ -134,6 +140,7 @@ class _ProductCardState extends State<ProductCard> {
       mainAxisAlignment: alignment,
       children: [
         if (leftWidget != null) leftWidget,
+        SizedBox(width: 5),
         rightWidget,
       ],
     );
