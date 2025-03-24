@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
+  static const Color lightVanilla = Color(0xFFF4EFD7);
   static const Color vanilla = Color(0xFFE9DFAE);
+  static const Color darkVanilla = Color(0xFF757057);
+  static const Color lightPeriwinkle = Color(0xFFE7E1FF);
   static const Color periwinkle = Color(0xFFCEC2FF);
+  static const Color darkPeriwinkle = Color(0xFF676180);
+  static const Color lightBrown = Color(0xFFD3BFAC);
   static const Color brown = Color(0xFFA77E58);
+  static const Color darkBrown = Color(0xFF543F2C);
+  static const Color lightOrange = Color(0xFFF0A793);
   static const Color orange = Color(0xFFE14F27);
+  static const Color darkOrange = Color(0xFF712814);
+  static const Color lightWine = Color(0xFFB5939B);
   static const Color wine = Color(0xFF6B2737);
+  static const Color darkWine = Color(0xFF36141C);
   static const Color white = Color(0xFFFFFFFF);
+  static const Color grey = Color(0xFF7E7E7E);
   static const Color black = Color(0xFF000000);
 }
 

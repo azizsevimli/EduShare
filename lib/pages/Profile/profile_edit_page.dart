@@ -32,6 +32,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
   File? _image;
   String? imageUrl;
 
+  // TODO: Kamera ile resim seçme eklenecek
   Future<void> _pickImage() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
 
@@ -42,8 +43,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     }
   }
 
-  // TODO: Güncelleme  için giden verilerin doğruluğunu kontrol et
-
+  // TODO: Güncelleme  için giden verilerin doğruluğunu kontrol et ve UserService fonksiyonunu kullan
   Future<void> _updateProfile({required BuildContext ctx}) async {
     if (_image != null) {
       imageUrl = await uploadProfileImageToStorage(
@@ -91,12 +91,12 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
       appBar: AppBar(
         backgroundColor: AppColors.vanilla,
         foregroundColor: AppColors.orange,
-        title: Text(
+        title: const Text(
           'Profile Edit',
           style: TextStyle(color: AppColors.orange),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
       ),
@@ -127,7 +127,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                     ml: false,
                   ),
                 ),
-                SizedBox(width: 5.0),
+                const SizedBox(width: 5.0),
                 Expanded(
                   flex: 1,
                   child: CustomTextField(

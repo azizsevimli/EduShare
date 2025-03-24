@@ -1,10 +1,9 @@
+import 'package:edushare/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import '../../core/widgets/product_card.dart';
 import '../../models/product_model.dart';
 import '../../models/user_model.dart';
-import '../../services/user_data_services.dart';
 import '../../core/widgets/user_info.dart';
 import '../../core/widgets/custom_button.dart';
 import '../../core/utils/show_snackbar.dart';
@@ -18,31 +17,34 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  UserData ud = UserData();
-  String uid = FirebaseAuth.instance.currentUser!.uid;
+  final UserServices us = UserServices();
   late Future<UserModel?> userFuture;
   late Future<List<ProductModel>> productFuture;
   int _selectedIndex = 0;
   late UserModel user;
+  List<ProductModel> favoriteProducts = [];
+  bool isLoadingFavorites = true;
 
   @override
   void initState() {
     super.initState();
-    userFuture = ud.getUserData(uid: uid);
-    productFuture = ud.getUserProducts(uid: uid);
+    userFuture = us.getUserData();
+    productFuture = us.getUserProducts();
+    _loadFavoriteProducts();
+  }
+
+  void _loadFavoriteProducts() async {
+    favoriteProducts = await us.getFavoriteProducts();
+    setState(() {
+      isLoadingFavorites = false;
+    });
   }
 
   Future<void> logoutBtn(BuildContext context) async {
-    try {
-      await FirebaseAuth.instance.signOut();
-      if (context.mounted) {
-        context.go('/login');
-      }
-    } catch (e) {
-      if (context.mounted) {
-        ShowSnackBar.showSnackBar(context, 'Çıkış yapılırken hata oluştu: $e');
-      }
-    }
+    us.logoutUser(
+        onSuccess: () => context.go('/login'),
+        onError: (e) => ShowSnackBar.showSnackBar(context, 'Çıkış yapılırken hata oluştu: $e'),
+    );
   }
 
   void goProfileEditPage() {
@@ -60,12 +62,13 @@ class _ProfilePageState extends State<ProfilePage> {
           children: [
             FutureBuilder<UserModel?>(
               future: userFuture,
-              builder: (BuildContext context, AsyncSnapshot<UserModel?> snapshot) {
+              builder:
+                  (BuildContext context, AsyncSnapshot<UserModel?> snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return SizedBox(
                     width: width * 0.9,
                     height: 150,
-                    child: Center(
+                    child: const Center(
                       child: CircularProgressIndicator(),
                     ),
                   );
@@ -74,7 +77,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   return Text("Hata oluştu: ${snapshot.error}");
                 }
                 if (!snapshot.hasData || snapshot.data == null) {
-                  return Text("Kullanıcı verisi bulunamadı.");
+                  return const Text("Kullanıcı verisi bulunamadı.");
                 }
 
                 user = snapshot.data!;
@@ -121,7 +124,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             FutureBuilder<List<ProductModel>>(
               future: productFuture,
               builder: (context, snapshot) {
@@ -145,8 +148,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 for (var product in products) {
                   if (product.isSold) {
                     soldProducts.add(product);
-                  }
-                  else {
+                  } else {
                     unsoldProducts.add(product);
                   }
                 }
@@ -154,29 +156,34 @@ class _ProfilePageState extends State<ProfilePage> {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0),
                   child: GridView.builder(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       mainAxisSpacing: 10,
                       crossAxisSpacing: 10,
                       childAspectRatio: 0.65,
                     ),
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: _selectedIndex == 0 ? unsoldProducts.length : soldProducts.length,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: _selectedIndex == 0
+                        ? unsoldProducts.length
+                        : _selectedIndex == 1 ? soldProducts.length : favoriteProducts.length,
                     itemBuilder: (context, index) {
                       if (_selectedIndex == 0) {
                         return ProductCard(product: unsoldProducts[index]);
-                      }else if (_selectedIndex == 1) {
+                      } else if (_selectedIndex == 1) {
                         return ProductCard(product: soldProducts[index]);
+                      } else {
+                        return isLoadingFavorites
+                            ? const CircularProgressIndicator()
+                            : ProductCard(product: favoriteProducts[index]);
                       }
-
-                      return ProductCard(product: products[index]);
                     },
                   ),
                 );
               },
             ),
-            SizedBox(height: 50.0),
+            const SizedBox(height: 50.0),
             CustomElevatedButton(
               text: 'Çıkış Yap',
               onPressed: () => logoutBtn(context),

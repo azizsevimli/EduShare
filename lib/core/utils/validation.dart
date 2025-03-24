@@ -1,4 +1,4 @@
-class Validation{
+class Validation {
   static bool isValidEmail(String email) {
     final RegExp emailRegex = RegExp(
       r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
@@ -15,7 +15,7 @@ class Validation{
 
   static bool isValidPassword(String password) {
     final RegExp passwordRegex = RegExp(
-        r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+.,<>?])[A-Za-z\d!@#$%^&*()_+.,<>?]{8,}$'
+      r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+.,<>?])[A-Za-z\d!@#$%^&*()_+.,<>?]{8,}$',
     );
     return passwordRegex.hasMatch(password);
   }

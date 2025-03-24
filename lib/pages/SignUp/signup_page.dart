@@ -89,7 +89,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           ml: false,
                         ),
                       ),
-                      SizedBox(width: 5.0),
+                      const SizedBox(width: 5.0),
                       Expanded(
                         flex: 1,
                         child: CustomTextField(
@@ -101,33 +101,33 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 15.0),
+                  const SizedBox(height: 15.0),
                   EmailField(controller: emailController),
-                  SizedBox(height: 15.0),
+                  const SizedBox(height: 15.0),
                   PhoneField(controller: phoneController),
-                  SizedBox(height: 15.0),
+                  const SizedBox(height: 15.0),
                   PasswordField(controller: passwordController),
-                  SizedBox(height: 5.0),
+                  const SizedBox(height: 5.0),
                   Text(
                     'Şifreniz büyük harf, küçük harf rakam ve özel karakter içermeli (Min. 8 karakter)',
                     style: AppTextStyles.caption.copyWith(color: AppColors.brown),
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   SizedBox(
                     width: width * 0.4,
                     child: ElevatedButton(
                       onPressed: signUpBtn,
-                      child: Text('İleri'),
+                      child: const Text('İleri'),
                     ),
                   ),
-                  SizedBox(height: 10.0),
+                  const SizedBox(height: 10.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Zaten hesabınız var mı?", style: AppTextStyles.body2),
+                      const Text("Zaten hesabınız var mı?", style: AppTextStyles.body2),
                       TextButton(
                         onPressed: goLogInPage,
-                        child: Text("Giriş yapın"),
+                        child: const Text("Giriş yapın"),
                       ),
                     ],
                   ),

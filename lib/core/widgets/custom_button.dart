@@ -3,8 +3,8 @@ import '../constants/constants.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final String text;
-  final IconData? icon;
   final VoidCallback onPressed;
+  final IconData? icon;
   final double? width;
   final double? height;
   final Color? bgColor;
@@ -26,7 +26,7 @@ class CustomElevatedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width ?? 120,
+      width: width ?? 150,
       height: height ?? 40,
       child: ElevatedButton(
         onPressed: onPressed,

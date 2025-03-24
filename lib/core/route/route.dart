@@ -12,6 +12,7 @@ import '../../pages/Messages/messages_page.dart';
 import '../../pages/Profile/profile_page.dart';
 import '../../pages/Profile/profile_edit_page.dart';
 import '../../pages/ProductDetail/product_detail_page.dart';
+import '../../pages/UserDetail/user_detail_page.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -51,31 +52,31 @@ class AppRouter {
         routes: [
           GoRoute(
             path: '/home',
-            pageBuilder: (context, state) => NoTransitionPage(
+            pageBuilder: (context, state) => const NoTransitionPage(
               child: HomePage(),
             ),
           ),
           GoRoute(
             path: '/search',
-            pageBuilder: (context, state) => NoTransitionPage(
+            pageBuilder: (context, state) => const NoTransitionPage(
               child: SearchPage(),
             ),
           ),
           GoRoute(
             path: '/product-add',
-            pageBuilder: (context, state) => NoTransitionPage(
+            pageBuilder: (context, state) => const NoTransitionPage(
               child: ProductAddPage(),
             ),
           ),
           GoRoute(
             path: '/messages',
-            pageBuilder: (context, state) => NoTransitionPage(
+            pageBuilder: (context, state) => const NoTransitionPage(
               child: MessagesPage(),
             ),
           ),
           GoRoute(
             path: '/profile',
-            pageBuilder: (BuildContext context, GoRouterState state) => NoTransitionPage(
+            pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(
               child: ProfilePage(),
             ),
           ),
@@ -86,6 +87,13 @@ class AppRouter {
         builder: (BuildContext context, GoRouterState state) {
           final Map<String, dynamic> data = state.extra as Map<String, dynamic>;
           return ProfileEditPage(data: data);
+        },
+      ),
+      GoRoute(
+        path: '/user-detail/:id',
+        builder: (BuildContext context, GoRouterState state) {
+          final userId = state.pathParameters['id']!;
+          return UserDetailPage(userId: userId);
         },
       ),
       GoRoute(

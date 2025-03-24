@@ -27,6 +27,8 @@ class UserInfoCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                
+                // TODO: Taşmalar engellenecek
                 Text(
                   '${user.name}  ${user.surname}',
                   style: AppTextStyles.body1.copyWith(fontWeight: FontWeight.w500),
@@ -64,7 +66,7 @@ class UserInfoCard extends StatelessWidget {
           icon,
           color: AppColors.orange,
         ),
-        SizedBox(width: 5),
+        const SizedBox(width: 5),
         Text(
           txt,
           style: ts,

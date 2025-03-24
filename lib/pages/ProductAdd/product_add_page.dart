@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../../models/associate_model.dart';
 import '../../models/bachelor_model.dart';
 import '../../services/uni_and_dep_service.dart';
@@ -9,7 +10,6 @@ import '../../core/widgets/custom_text_fields.dart';
 import '../../core/widgets/custom_button.dart';
 import '../../core/widgets/school_dropdown_menu.dart';
 import '../../core/widgets/product_image_picker.dart';
-import '../../core/utils/user_uid.dart';
 import '../../core/utils/show_snackbar.dart';
 import '../../core/utils/generate_uuid.dart';
 
@@ -20,7 +20,10 @@ class ProductAddPage extends StatefulWidget {
   State<ProductAddPage> createState() => _ProductAddPageState();
 }
 
+// TODO: Ürün için kategori seçme eklenecek
+
 class _ProductAddPageState extends State<ProductAddPage> {
+  String uid = FirebaseAuth.instance.currentUser!.uid;
   final UniAndDepService uniAndDepService = UniAndDepService();
   TextEditingController productTitleController = TextEditingController();
   TextEditingController productDescriptionController = TextEditingController();
@@ -73,8 +76,8 @@ class _ProductAddPageState extends State<ProductAddPage> {
       ShowSnackBar.showSnackBar(context, 'Lütfen tüm alanları doldurun!');
     } else {
       uploadProduct(
-        id: GenerateUuid.generateProductId(),
-        owner: GetUser.getUserUID(),
+        id: generateProductId(),
+        owner: uid,
         title: productTitleController.text.trim(),
         description: productDescriptionController.text.trim(),
         cost: productCostController.text.trim(),
@@ -96,82 +99,82 @@ class _ProductAddPageState extends State<ProductAddPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            InputTitleSubtitle(
+            const InputTitleSubtitle(
               title: 'Ürün Görselleri',
               subtitle: 'En az bir ürün görseli yükleyin',
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             ProductImagePicker(
               selectedImages: _images,
               onImagesChanged: _updateImages,
             ),
-            SizedBox(height: 20),
-            InputTitleSubtitle(
+            const SizedBox(height: 20),
+            const InputTitleSubtitle(
               title: 'Ürün Adı',
               subtitle: 'Ürünün adını girin',
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             CustomTextField(
               controller: productTitleController,
               hint: 'Örn: Hesap Makinesi',
               ml: false,
             ),
-            SizedBox(height: 20),
-            InputTitleSubtitle(
+            const SizedBox(height: 20),
+            const InputTitleSubtitle(
               title: 'Ürün Açıklaması',
               subtitle: 'Ürün hakkında detaylı bilgi verin (En az 30 karakter)',
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             CustomTextField(
               controller: productDescriptionController,
               hint: 'Marka model bilgisi, kullanım durumu, vb.',
               ml: true,
             ),
-            SizedBox(height: 20),
-            InputTitleSubtitle(
+            const SizedBox(height: 20),
+            const InputTitleSubtitle(
               title: 'Ürün Fiyatı',
               subtitle: 'Ürünün fiyatını girin',
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 buildRadio('Ücretsiz', false),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 buildRadio('Ücretli', true),
               ],
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             if (isPaid == true)
               OnlyCostField(
                 controller: productCostController,
                 hint: 'Ücret',
               ),
-            SizedBox(height: 20),
-            InputTitleSubtitle(
+            const SizedBox(height: 20),
+            const InputTitleSubtitle(
               title: 'İlgili Bölüm',
               subtitle: 'Ürünün kullanıldığı bölümü seçin',
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             AllDepartmentBottomSheet(controller: productDepController),
-            SizedBox(height: 20),
-            InputTitleSubtitle(
+            const SizedBox(height: 20),
+            const InputTitleSubtitle(
               title: 'İlgili Ders',
               subtitle: 'Ürünün kullanıldığı dersi seçin',
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             CustomTextField(
               controller: productClassController,
               hint: 'Örn: Mühendislik Matematiği',
               ml: false,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             CustomElevatedButton(
               text: 'Ürünü Ekle',
               onPressed: addProductBtn,
               width: width,
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
           ],
         ),
       ),
@@ -184,8 +187,8 @@ class _ProductAddPageState extends State<ProductAddPage> {
         Radio<bool>(
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           splashRadius: 10,
-          fillColor: WidgetStatePropertyAll(AppColors.periwinkle),
-          overlayColor: WidgetStatePropertyAll(AppColors.periwinkle),
+          fillColor: const WidgetStatePropertyAll(AppColors.periwinkle),
+          overlayColor: const WidgetStatePropertyAll(AppColors.periwinkle),
           value: val,
           groupValue: isPaid,
           onChanged: (value) {

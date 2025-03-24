@@ -1,6 +1,6 @@
-import 'package:edushare/core/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import './core/constants/constants.dart';
 
 class AppLayout extends StatelessWidget {
   final Widget child;
@@ -41,7 +41,7 @@ class AppLayout extends StatelessWidget {
       actions: [
         currentIndex == 3
             ? IconButton(
-                icon: Icon(Icons.settings),
+                icon: const Icon(Icons.settings),
                 color: AppColors.white,
                 onPressed: () => context.go('/settings'),
               )
@@ -118,7 +118,7 @@ class AppLayout extends StatelessWidget {
     }
     return FloatingActionButton(
       onPressed: () => context.go('/product-add'),
-      child: Icon(
+      child: const Icon(
         Icons.add_circle_outline,
         size: 24,
       ),

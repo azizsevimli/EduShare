@@ -79,32 +79,32 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               EmailField(controller: emailController),
-              SizedBox(height: 15.0),
+              const SizedBox(height: 15.0),
               PasswordField(controller: passwordController),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
                     onPressed: resetPasswordBtn,
-                    child: Text('Şifremi Unuttum'),
+                    child: const Text('Şifremi Unuttum'),
                   ),
                 ],
               ),
-              SizedBox(height: 15.0),
+              const SizedBox(height: 15.0),
               SizedBox(
                 width: width * 0.4,
                 child: ElevatedButton(
                   onPressed: logInBtn,
-                  child: Text('Giriş Yap'),
+                  child: const Text('Giriş Yap'),
                 ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Hesabınız yok mu?", style: AppTextStyles.body2),
+                  const Text("Hesabınız yok mu?", style: AppTextStyles.body2),
                   TextButton(
                     onPressed: goSignUpPage,
-                    child: Text("Kayıt olun"),
+                    child: const Text("Kayıt olun"),
                   ),
                 ],
               ),

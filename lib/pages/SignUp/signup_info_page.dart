@@ -1,7 +1,7 @@
+import 'package:edushare/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../../services/new_user_service.dart';
 import '../../services/uni_and_dep_service.dart';
 import '../../models/university_model.dart';
 import '../../models/associate_model.dart';
@@ -20,6 +20,7 @@ class SignUpInfoPage extends StatefulWidget {
 }
 
 class _SignUpInfoPageState extends State<SignUpInfoPage> {
+  final UserServices us = UserServices();
   final UniAndDepService uniAndDepService = UniAndDepService();
   final TextEditingController uniController = TextEditingController();
   final TextEditingController depController = TextEditingController();
@@ -70,7 +71,7 @@ class _SignUpInfoPageState extends State<SignUpInfoPage> {
         degreeController.text.isEmpty) {
       ShowSnackBar.showSnackBar(context, 'Lütfen tüm alanları doldurun!');
     } else {
-      registerUser(
+      us.registerUser(
         name: widget.data?['name'],
         surname: widget.data?['surname'],
         mail: widget.data?['mail'],
@@ -111,27 +112,27 @@ class _SignUpInfoPageState extends State<SignUpInfoPage> {
                     style: AppTextStyles.h1.copyWith(color: AppColors.orange),
                   ),
                 ),
-                Text('Tüm bilgileri doldurun ve kaydolun.',
+                const Text('Tüm bilgileri doldurun ve kaydolun.',
                     style: AppTextStyles.body1),
-                SizedBox(height: 30.0),
+                const SizedBox(height: 30.0),
                 DegreeDropdownMenu(controller: degreeController),
-                SizedBox(height: 15.0),
+                const SizedBox(height: 15.0),
                 GradeDropdownMenu(controller: gradeController),
-                SizedBox(height: 15.0),
+                const SizedBox(height: 15.0),
                 UniversityModalBottomSheet(
                   controller: uniController,
                 ),
-                SizedBox(height: 15.0),
+                const SizedBox(height: 15.0),
                 DepartmentModalBottomSheet(
                   controller: depController,
                   degree: selectedDegree,
                 ),
-                SizedBox(height: 30.0),
+                const SizedBox(height: 30.0),
                 SizedBox(
                   width: width * 0.4,
                   child: ElevatedButton(
                     onPressed: signUpBtn,
-                    child: Text('Kayıt Ol'),
+                    child: const Text('Kayıt Ol'),
                   ),
                 ),
               ],

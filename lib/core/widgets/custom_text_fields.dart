@@ -47,7 +47,7 @@ class EmailField extends StatelessWidget {
       controller: controller,
       enabled: enabled,
       keyboardType: TextInputType.emailAddress,
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         labelText: 'E-posta',
         hintText: 'E-postanızı girin',
         prefixIcon: Icon(Icons.email),
@@ -72,7 +72,7 @@ class PhoneField extends StatelessWidget {
       controller: controller,
       enabled: enabled,
       keyboardType: TextInputType.number,
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         labelText: 'Telefon',
         hintText: '5XX XXX XX XX',
         prefix: Text('+90'),
@@ -112,7 +112,7 @@ class _PasswordFieldState extends State<PasswordField> {
       decoration: InputDecoration(
         labelText: 'Şifre',
         hintText: 'Şifrenizi girin',
-        prefixIcon: Icon(Icons.lock),
+        prefixIcon: const Icon(Icons.lock),
         suffixIcon: IconButton(
           icon: Icon(
             isPasswordVisible ? Icons.visibility : Icons.visibility_off,
@@ -139,7 +139,7 @@ class OnlyCostField extends StatelessWidget {
     return TextField(
       controller: controller,
       keyboardType: TextInputType.number,
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         hintText: '0',
         suffixIcon: Icon(Icons.currency_lira_outlined),
         suffixIconColor: AppColors.orange,
@@ -151,6 +151,7 @@ class OnlyCostField extends StatelessWidget {
 class InputTitleSubtitle extends StatelessWidget {
   final String? title;
   final String? subtitle;
+
   const InputTitleSubtitle({
     super.key,
     this.title,
@@ -165,13 +166,17 @@ class InputTitleSubtitle extends StatelessWidget {
       children: [
         Text(
           title!,
-          style: AppTextStyles.body1
-              .copyWith(color: AppColors.wine, fontWeight: FontWeight.w600),
+          style: AppTextStyles.body1.copyWith(
+            color: AppColors.wine,
+            fontWeight: FontWeight.w600,
+          ),
         ),
-        SizedBox(height: 2),
+        const SizedBox(height: 2),
         Text(
           subtitle!,
-          style: AppTextStyles.caption.copyWith(color: AppColors.brown),
+          style: AppTextStyles.caption.copyWith(
+            color: AppColors.brown,
+          ),
         ),
       ],
     );

@@ -79,16 +79,16 @@ class _ProductImagePickerState extends State<ProductImagePicker> {
       builder: (ctx) => Wrap(
         children: [
           ListTile(
-            leading: Icon(Icons.photo_library),
-            title: Text("Galeriden seç"),
+            leading: const Icon(Icons.photo_library),
+            title: const Text("Galeriden seç"),
             onTap: () {
               Navigator.of(ctx).pop();
               _pickImage(ImageSource.gallery, index);
             },
           ),
           ListTile(
-            leading: Icon(Icons.camera),
-            title: Text("Kamera ile çek"),
+            leading: const Icon(Icons.camera),
+            title: const Text("Kamera ile çek"),
             onTap: () {
               Navigator.of(ctx).pop();
               _pickImage(ImageSource.camera, index);
@@ -96,8 +96,8 @@ class _ProductImagePickerState extends State<ProductImagePicker> {
           ),
           if (selectedImage != null)
             ListTile(
-              leading: Icon(Icons.delete),
-              title: Text("Resmi sil"),
+              leading: const Icon(Icons.delete),
+              title: const Text("Resmi sil"),
               onTap: () {
                 Navigator.of(ctx).pop();
                 _removeImage(index);

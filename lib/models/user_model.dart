@@ -9,6 +9,7 @@ class UserModel {
   String degree;
   String grade;
   String imageUrl;
+  List<String> favoriteMaterials;
 
   UserModel({
     required this.uuid,
@@ -21,6 +22,7 @@ class UserModel {
     required this.degree,
     required this.grade,
     required this.imageUrl,
+    this.favoriteMaterials = const [],
   });
 
   Map<String, dynamic> toMap() {
@@ -35,6 +37,7 @@ class UserModel {
       'degree': degree,
       'grade': grade,
       'imageUrl': imageUrl,
+      'favoriteMaterials': favoriteMaterials,
     };
   }
 
@@ -50,6 +53,7 @@ class UserModel {
       degree: map['degree'] ?? '',
       grade: map['grade'] ?? '',
       imageUrl: map['imageUrl'] ?? '',
+      favoriteMaterials: List<String>.from(map['favoriteMaterials'] ?? []),
     );
   }
 }

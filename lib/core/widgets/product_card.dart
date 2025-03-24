@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../../models/product_model.dart';
+import './favorite_button.dart';
 import '../constants/constants.dart';
+import '../../models/product_model.dart';
 
 class ProductCard extends StatefulWidget {
   final ProductModel product;
 
-  const ProductCard({super.key, required this.product});
+  const ProductCard({
+    super.key,
+    required this.product,
+  });
 
   @override
   State<ProductCard> createState() => _ProductCardState();
@@ -15,7 +19,6 @@ class ProductCard extends StatefulWidget {
 
 class _ProductCardState extends State<ProductCard> {
   late PageController _pageController;
-  bool isFavorite = false;
 
   @override
   void initState() {
@@ -31,12 +34,6 @@ class _ProductCardState extends State<ProductCard> {
 
   void goProductDetailPage() {
     context.push('/product-detail/${widget.product.id}');
-  }
-
-  void addFavorite() {
-    setState(() {
-      isFavorite = !isFavorite;
-    });
   }
 
   @override
@@ -66,7 +63,7 @@ class _ProductCardState extends State<ProductCard> {
               style: AppTextStyles.body1,
             ),
           ),
-          rightWidget: _buildFavoriteButton(),
+          rightWidget: FavoriteButton(id: product.id),
           alignment: MainAxisAlignment.spaceBetween,
         ),
         _buildRow(
@@ -117,7 +114,7 @@ class _ProductCardState extends State<ProductCard> {
             child: SmoothPageIndicator(
               controller: _pageController,
               count: urls.length,
-              effect: ExpandingDotsEffect(
+              effect: const ExpandingDotsEffect(
                 activeDotColor: AppColors.vanilla,
                 dotColor: AppColors.vanilla,
                 dotHeight: 6,
@@ -140,33 +137,21 @@ class _ProductCardState extends State<ProductCard> {
       mainAxisAlignment: alignment,
       children: [
         if (leftWidget != null) leftWidget,
-        SizedBox(width: 5),
+        const SizedBox(width: 5),
         rightWidget,
       ],
     );
   }
 
-  Widget _buildFavoriteButton() {
-    return GestureDetector(
-      onTap: addFavorite,
-      child: isFavorite
-          ? const Icon(
-              Icons.favorite,
-              color: AppColors.orange,
-            )
-          : const Icon(
-              Icons.favorite_border,
-              color: AppColors.orange,
-            ),
-    );
-  }
-
-  Widget _buildContainer(
-      {required Widget child, required double width, required double height}) {
+  Widget _buildContainer({
+    required Widget child,
+    required double width,
+    required double height,
+  }) {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.white,
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.vanilla,
             blurRadius: 1,
