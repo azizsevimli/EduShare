@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import './core/constants/constants.dart';
+import 'core/widgets/app_bar.dart';
 
 class AppLayout extends StatelessWidget {
   final Widget child;
@@ -12,11 +13,11 @@ class AppLayout extends StatelessWidget {
       return 0;
     } else if (location.startsWith('/search')) {
       return 1;
-    } else if (location.startsWith('/messages')) {
+    } else if (location.startsWith('/my-materials')) {
       return 2;
     } else if (location.startsWith('/profile')) {
       return 3;
-    } else if (location.startsWith('/product-add')) {
+    } else if (location.startsWith('/material-add')) {
       return 4;
     }
     return 0;
@@ -27,30 +28,15 @@ class AppLayout extends StatelessWidget {
     int currentIndex = _calculateSelectedIndex(context);
 
     return Scaffold(
-      appBar: _buildAppBar(currentIndex, context),
+      appBar: buildAppBar(context: context, index: currentIndex),
       body: child,
-      bottomNavigationBar: _buildBottomAppBar(currentIndex, context),
+      bottomNavigationBar: _buildBottomAppBar(context: context, index: currentIndex),
       floatingActionButton: _buildFloatingActionButton(context, currentIndex),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
-  AppBar _buildAppBar(int currentIndex, BuildContext context) {
-    return AppBar(
-      title: const Text('EduShare'),
-      actions: [
-        currentIndex == 3
-            ? IconButton(
-                icon: const Icon(Icons.settings),
-                color: AppColors.white,
-                onPressed: () => context.go('/settings'),
-              )
-            : const SizedBox(),
-      ],
-    );
-  }
-
-  BottomAppBar _buildBottomAppBar(int currentIndex, BuildContext context) {
+  BottomAppBar _buildBottomAppBar({required BuildContext context, required int index}) {
     return BottomAppBar(
       notchMargin: 5.0,
       child: Row(
@@ -59,7 +45,7 @@ class AppLayout extends StatelessWidget {
         children: [
           _buildBottomNavigationIcon(
             context,
-            currentIndex,
+            index,
             index: 0,
             selectedIcon: Icons.home,
             unselectedIcon: Icons.home_outlined,
@@ -67,24 +53,24 @@ class AppLayout extends StatelessWidget {
           ),
           _buildBottomNavigationIcon(
             context,
-            currentIndex,
+            index,
             index: 1,
             selectedIcon: Icons.search,
             unselectedIcon: Icons.manage_search,
             route: '/search',
           ),
-          if (currentIndex != 4) const SizedBox(width: 40),
+          if (index != 4) const SizedBox(width: 40),
           _buildBottomNavigationIcon(
             context,
-            currentIndex,
+            index,
             index: 2,
-            selectedIcon: Icons.mail,
-            unselectedIcon: Icons.mail_outline,
-            route: '/messages',
+            selectedIcon: Icons.list_alt_outlined,
+            unselectedIcon: Icons.format_list_bulleted,
+            route: '/my-materials',
           ),
           _buildBottomNavigationIcon(
             context,
-            currentIndex,
+            index,
             index: 3,
             selectedIcon: Icons.person,
             unselectedIcon: Icons.person_outline,
@@ -117,7 +103,7 @@ class AppLayout extends StatelessWidget {
       return null;
     }
     return FloatingActionButton(
-      onPressed: () => context.go('/product-add'),
+      onPressed: () => context.go('/material-add'),
       child: const Icon(
         Icons.add_circle_outline,
         size: 24,

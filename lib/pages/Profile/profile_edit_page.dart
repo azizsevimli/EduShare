@@ -48,10 +48,10 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     if (_image != null) {
       imageUrl = await uploadProfileImageToStorage(
         image: _image!,
-        owner: widget.data['uuid'],
+        owner: widget.data['uid'],
       );
     }
-    await ffs.collection('users').doc(widget.data['uuid']).update({
+    await ffs.collection('users').doc(widget.data['uid']).update({
       'name': nameController.text,
       'surname': surnameController.text,
       'mail': emailController.text,

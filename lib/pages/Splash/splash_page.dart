@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import '../../services/user_service.dart';
 import '../../core/constants/constants.dart';
 
 class SplashPage extends StatelessWidget {
@@ -8,26 +8,27 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final UserServices us = UserServices();
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _checkUser(context);
+      us.checkUser(
+        onUserFound: () => context.go('/home'),
+        onUserNotFound: () => context.go('/login'),
+      );
     });
 
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.orange,
         body: Center(
-          child: Text('EduShare', style: AppTextStyles.h1.copyWith(color: AppColors.white)),
+          child: Text(
+            appName,
+            style: AppTextStyles.h1.copyWith(
+              color: AppColors.white,
+            ),
+          ),
         ),
       ),
     );
-  }
-
-  void _checkUser(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser;
-    if (user != null) {
-      context.go('/home');
-    } else {
-      context.go('/login');
-    }
   }
 }

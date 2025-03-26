@@ -1,17 +1,19 @@
+import 'package:edushare/pages/MaterialManagement/my_materials_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../app.dart';
+import '../../pages/MaterialManagement/material_edit_page.dart';
 import '../../pages/Splash/splash_page.dart';
 import '../../pages/Login/login_page.dart';
 import '../../pages/Signup/signup_page.dart';
 import '../../pages/SignUp/signup_info_page.dart';
 import '../../pages/Home/home_page.dart';
 import '../../pages/Search/search_page.dart';
-import '../../pages/ProductAdd/product_add_page.dart';
+import '../../pages/MaterialAdd/material_add_page.dart';
 import '../../pages/Messages/messages_page.dart';
 import '../../pages/Profile/profile_page.dart';
 import '../../pages/Profile/profile_edit_page.dart';
-import '../../pages/ProductDetail/product_detail_page.dart';
+import '../../pages/MaterialDetail/material_detail_page.dart';
 import '../../pages/UserDetail/user_detail_page.dart';
 
 class AppRouter {
@@ -63,15 +65,15 @@ class AppRouter {
             ),
           ),
           GoRoute(
-            path: '/product-add',
+            path: '/material-add',
             pageBuilder: (context, state) => const NoTransitionPage(
-              child: ProductAddPage(),
+              child: MaterialAddPage(),
             ),
           ),
           GoRoute(
-            path: '/messages',
+            path: '/my-materials',
             pageBuilder: (context, state) => const NoTransitionPage(
-              child: MessagesPage(),
+              child: MyMaterialsPage(),
             ),
           ),
           GoRoute(
@@ -90,6 +92,12 @@ class AppRouter {
         },
       ),
       GoRoute(
+        path: '/messages',
+        builder: (BuildContext context, GoRouterState state) {
+          return const MessagesPage();
+        },
+      ),
+      GoRoute(
         path: '/user-detail/:id',
         builder: (BuildContext context, GoRouterState state) {
           final userId = state.pathParameters['id']!;
@@ -97,10 +105,17 @@ class AppRouter {
         },
       ),
       GoRoute(
-        path: '/product-detail/:id',
+        path: '/material-detail/:id',
         builder: (BuildContext context, GoRouterState state) {
-          final productId = state.pathParameters['id']!;
-          return ProductDetailPage(productId: productId);
+          final materialId = state.pathParameters['id']!;
+          return MaterialDetailPage(materialId: materialId);
+        },
+      ),
+      GoRoute(
+        path: '/my-materials/edit/:id',
+        builder: (BuildContext context, GoRouterState state) {
+          final materialId = state.pathParameters['id']!;
+          return MaterialEditPage(materialId: materialId);
         },
       ),
     ],

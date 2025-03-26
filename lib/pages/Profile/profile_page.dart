@@ -1,8 +1,8 @@
 import 'package:edushare/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../core/widgets/product_card.dart';
-import '../../models/product_model.dart';
+import '../../core/widgets/material_card.dart';
+import '../../models/material_model.dart';
 import '../../models/user_model.dart';
 import '../../core/widgets/user_info.dart';
 import '../../core/widgets/custom_button.dart';
@@ -19,22 +19,24 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   final UserServices us = UserServices();
   late Future<UserModel?> userFuture;
-  late Future<List<ProductModel>> productFuture;
+  late Future<List<MaterialModel>> materialFuture;
+  late Future<List<MaterialModel>> favoriteMaterialFuture;
   int _selectedIndex = 0;
   late UserModel user;
-  List<ProductModel> favoriteProducts = [];
+  List<MaterialModel> favoriteMaterials = [];
   bool isLoadingFavorites = true;
 
   @override
   void initState() {
     super.initState();
     userFuture = us.getUserData();
-    productFuture = us.getUserProducts();
-    _loadFavoriteProducts();
+    materialFuture = us.getUserMaterials();
+    favoriteMaterialFuture = us.getFavoriteMaterials();
+    _loadFavoriteMaterials();
   }
 
-  void _loadFavoriteProducts() async {
-    favoriteProducts = await us.getFavoriteProducts();
+  void _loadFavoriteMaterials() async {
+    favoriteMaterials = await us.getFavoriteMaterials();
     setState(() {
       isLoadingFavorites = false;
     });
@@ -42,8 +44,9 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Future<void> logoutBtn(BuildContext context) async {
     us.logoutUser(
-        onSuccess: () => context.go('/login'),
-        onError: (e) => ShowSnackBar.showSnackBar(context, 'Çıkış yapılırken hata oluştu: $e'),
+      onSuccess: () => context.go('/login'),
+      onError: (e) => ShowSnackBar.showSnackBar(
+          context, 'Çıkış yapılırken hata oluştu: $e'),
     );
   }
 
@@ -125,64 +128,106 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             const SizedBox(height: 10),
-            FutureBuilder<List<ProductModel>>(
-              future: productFuture,
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
-                }
 
-                if (snapshot.hasError) {
-                  return const Center(
-                      child: Text("Veriler yüklenirken bir hata oluştu!"));
-                }
-
-                if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                  return const Center(child: Text("Henüz ürün yüklemediniz."));
-                }
-
-                List<ProductModel> products = snapshot.data!;
-                List<ProductModel> soldProducts = [];
-                List<ProductModel> unsoldProducts = [];
-
-                for (var product in products) {
-                  if (product.isSold) {
-                    soldProducts.add(product);
-                  } else {
-                    unsoldProducts.add(product);
-                  }
-                }
-
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  child: GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 10,
-                      crossAxisSpacing: 10,
-                      childAspectRatio: 0.65,
-                    ),
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: _selectedIndex == 0
-                        ? unsoldProducts.length
-                        : _selectedIndex == 1 ? soldProducts.length : favoriteProducts.length,
-                    itemBuilder: (context, index) {
-                      if (_selectedIndex == 0) {
-                        return ProductCard(product: unsoldProducts[index]);
-                      } else if (_selectedIndex == 1) {
-                        return ProductCard(product: soldProducts[index]);
-                      } else {
-                        return isLoadingFavorites
-                            ? const CircularProgressIndicator()
-                            : ProductCard(product: favoriteProducts[index]);
+            _selectedIndex != 2
+                ? FutureBuilder<List<MaterialModel>>(
+                    future: materialFuture,
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(child: CircularProgressIndicator());
                       }
+
+                      if (snapshot.hasError) {
+                        return const Center(
+                            child:
+                                Text("Veriler yüklenirken bir hata oluştu!"));
+                      }
+
+                      if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                        return const Center(
+                            child: Text("Henüz ürün yüklemediniz."));
+                      }
+
+                      List<MaterialModel> materials = snapshot.data!;
+                      List<MaterialModel> soldMaterials = [];
+                      List<MaterialModel> unsoldMaterials = [];
+
+                      for (var material in materials) {
+                        if (material.isSold) {
+                          soldMaterials.add(material);
+                        } else {
+                          unsoldMaterials.add(material);
+                        }
+                      }
+
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        child: GridView.builder(
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            mainAxisSpacing: 10,
+                            crossAxisSpacing: 10,
+                            childAspectRatio: 0.65,
+                          ),
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: _selectedIndex == 0
+                              ? unsoldMaterials.length
+                              : soldMaterials.length,
+                          itemBuilder: (context, index) {
+                            if (_selectedIndex == 0) {
+                              return MaterialCard(
+                                  material: unsoldMaterials[index]);
+                            } else {
+                              return MaterialCard(
+                                  material: soldMaterials[index]);
+                            }
+                          },
+                        ),
+                      );
+                    },
+                  )
+                : FutureBuilder(
+                    future: favoriteMaterialFuture,
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(child: CircularProgressIndicator());
+                      }
+
+                      if (snapshot.hasError) {
+                        return const Center(
+                            child:
+                                Text("Veriler yüklenirken bir hata oluştu!"));
+                      }
+
+                      if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                        return const Center(
+                            child: Text("Henüz favori ürününüz bulunmamaktadır."));
+                      }
+
+                      List<MaterialModel> materials = snapshot.data!;
+
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        child: GridView.builder(
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            mainAxisSpacing: 10,
+                            crossAxisSpacing: 10,
+                            childAspectRatio: 0.65,
+                          ),
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: materials.length,
+                          itemBuilder: (context, index) {
+                            return MaterialCard(material: materials[index]);
+                          },
+                        ),
+                      );
                     },
                   ),
-                );
-              },
-            ),
             const SizedBox(height: 50.0),
             CustomElevatedButton(
               text: 'Çıkış Yap',

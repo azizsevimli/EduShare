@@ -1,17 +1,17 @@
-import 'package:edushare/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../models/user_model.dart';
-import '../../models/product_model.dart';
-import '../constants/constants.dart';
 import './custom_button.dart';
+import '../constants/constants.dart';
+import '../../models/user_model.dart';
+import '../../models/material_model.dart';
+import '../../services/user_service.dart';
 
 class MaterialInfoArea extends StatefulWidget {
-  final ProductModel product;
+  final MaterialModel material;
 
   const MaterialInfoArea({
     super.key,
-    required this.product,
+    required this.material,
   });
 
   @override
@@ -31,7 +31,7 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
 
   Future<void> _loadOwnerData() async {
     try {
-      final user = await us.getUserData(uid: widget.product.owner);
+      final user = await us.getUserData(uid: widget.material.owner);
       setState(() {
         ownerUser = user;
         isLoading = false;
@@ -42,7 +42,7 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
   }
 
   void sendMessage() {
-    debugPrint('Mesaj gönder: ${widget.product.owner}');
+    debugPrint('Mesaj gönder: ${widget.material.owner}');
   }
 
   @override
@@ -55,7 +55,7 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
         _buildTitleRow(),
         const SizedBox(height: 10),
         Text(
-          widget.product.description,
+          widget.material.description,
           style: AppTextStyles.body1,
         ),
         const SizedBox(height: 15),
@@ -71,7 +71,7 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
           thickness: 0.5,
           height: 30,
         ),
-        widget.product.isSold
+        widget.material.isSold
             ? _buildSoldContainer(size: size, context: context)
             : CustomElevatedButton(
                 text: 'Mesaj Gönder',
@@ -88,12 +88,12 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          widget.product.title,
+          widget.material.title,
           style: AppTextStyles.h2.copyWith(
             color: AppColors.wine,
           ),
         ),
-        widget.product.price == '0'
+        widget.material.price == '0'
             ? Text(
                 'Ücretsiz',
                 style: AppTextStyles.h3.copyWith(
@@ -103,7 +103,7 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
             : Row(
                 children: [
                   Text(
-                    widget.product.price,
+                    widget.material.price,
                     style: AppTextStyles.h2.copyWith(
                       color: AppColors.orange,
                     ),
@@ -122,7 +122,7 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
   GestureDetector _buildCategory() {
     return GestureDetector(
       onTap: () {
-        debugPrint('Kategoriye git: ${widget.product.department}');
+        debugPrint('Kategoriye git: ${widget.material.department}');
       },
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -138,7 +138,7 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
               ),
             ),
             child: Center(
-              child: Text(widget.product.department,
+              child: Text(widget.material.department,
                   style: AppTextStyles.body3.copyWith(color: AppColors.wine)),
             ),
           ),
@@ -150,7 +150,7 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
   GestureDetector _buildOwnerRow() {
     return GestureDetector(
       onTap: () {
-        context.push('/user-detail/${ownerUser!.uuid}');
+        context.push('/user-detail/${ownerUser!.uid}');
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,

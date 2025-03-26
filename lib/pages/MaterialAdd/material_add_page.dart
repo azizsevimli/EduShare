@@ -1,38 +1,38 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import '../../models/associate_model.dart';
 import '../../models/bachelor_model.dart';
+import '../../services/user_service.dart';
 import '../../services/uni_and_dep_service.dart';
-import '../../services/new_product_service.dart';
+import '../../services/new_material_service.dart';
 import '../../core/constants/constants.dart';
 import '../../core/widgets/custom_text_fields.dart';
 import '../../core/widgets/custom_button.dart';
 import '../../core/widgets/school_dropdown_menu.dart';
-import '../../core/widgets/product_image_picker.dart';
+import '../../core/widgets/material_image_picker.dart';
 import '../../core/utils/show_snackbar.dart';
 import '../../core/utils/generate_uuid.dart';
 
-class ProductAddPage extends StatefulWidget {
-  const ProductAddPage({super.key});
+class MaterialAddPage extends StatefulWidget {
+  const MaterialAddPage({super.key});
 
   @override
-  State<ProductAddPage> createState() => _ProductAddPageState();
+  State<MaterialAddPage> createState() => _MaterialAddPageState();
 }
 
 // TODO: Ürün için kategori seçme eklenecek
 
-class _ProductAddPageState extends State<ProductAddPage> {
-  String uid = FirebaseAuth.instance.currentUser!.uid;
+class _MaterialAddPageState extends State<MaterialAddPage> {
+  final UserServices us = UserServices();
   final UniAndDepService uniAndDepService = UniAndDepService();
-  TextEditingController productTitleController = TextEditingController();
-  TextEditingController productDescriptionController = TextEditingController();
-  TextEditingController productCostController = TextEditingController();
-  TextEditingController productDepController = TextEditingController();
-  TextEditingController productClassController = TextEditingController();
+  TextEditingController materialTitleController = TextEditingController();
+  TextEditingController materialDescriptionController = TextEditingController();
+  TextEditingController materialCostController = TextEditingController();
+  TextEditingController materialDepController = TextEditingController();
+  TextEditingController materialSubjectController = TextEditingController();
 
   List<File?> _images = [null, null, null, null];
-  bool? isPaid;
+  bool isPaid = false;
   List<Object> departments = [];
   List<AssociateModel> associates = [];
   List<BachelorModel> bachelors = [];
@@ -43,7 +43,7 @@ class _ProductAddPageState extends State<ProductAddPage> {
     });
   }
 
-  Future<void> loadData() async {
+  Future<void> _loadData() async {
     associates = await uniAndDepService.loadAssociates();
     bachelors = await uniAndDepService.loadBachelors();
     setState(() {
@@ -54,37 +54,37 @@ class _ProductAddPageState extends State<ProductAddPage> {
   @override
   void initState() {
     super.initState();
-    loadData();
+    _loadData();
   }
 
   @override
   void dispose() {
-    productTitleController.dispose();
-    productDescriptionController.dispose();
-    productCostController.dispose();
-    productDepController.dispose();
-    productClassController.dispose();
+    materialTitleController.dispose();
+    materialDescriptionController.dispose();
+    materialCostController.dispose();
+    materialDepController.dispose();
+    materialSubjectController.dispose();
     super.dispose();
   }
 
-  void addProductBtn() {
+  // TODO: Validation güncellenecek
+  void addMaterial() {
     if (_images[0] == null ||
-        productTitleController.text.isEmpty ||
-        productDescriptionController.text.isEmpty ||
-        productDepController.text.isEmpty ||
-        productClassController.text.isEmpty) {
-      ShowSnackBar.showSnackBar(context, 'Lütfen tüm alanları doldurun!');
+        materialTitleController.text.isEmpty ||
+        materialDescriptionController.text.isEmpty ||
+        materialDepController.text.isEmpty ||
+        materialSubjectController.text.isEmpty) {
+      ShowSnackBar.showSnackBar(context, 'Lütfen tüm alanları doldurun!',);
     } else {
-      uploadProduct(
-        id: generateProductId(),
-        owner: uid,
-        title: productTitleController.text.trim(),
-        description: productDescriptionController.text.trim(),
-        cost: productCostController.text.trim(),
-        department: productDepController.text.trim(),
-        subject: productClassController.text.trim(),
+      uploadMaterial(
+        id: generateMaterialId(),
+        owner: us.getUserId()!,
+        title: materialTitleController.text.trim(),
+        description: materialDescriptionController.text.trim(),
+        cost: isPaid ? materialCostController.text.trim() : '0',
+        department: materialDepController.text.trim(),
+        subject: materialSubjectController.text.trim(),
         images: _images,
-        isSold: false,
       );
     }
   }
@@ -104,7 +104,7 @@ class _ProductAddPageState extends State<ProductAddPage> {
               subtitle: 'En az bir ürün görseli yükleyin',
             ),
             const SizedBox(height: 5),
-            ProductImagePicker(
+            MaterialImagePicker(
               selectedImages: _images,
               onImagesChanged: _updateImages,
             ),
@@ -115,7 +115,7 @@ class _ProductAddPageState extends State<ProductAddPage> {
             ),
             const SizedBox(height: 5),
             CustomTextField(
-              controller: productTitleController,
+              controller: materialTitleController,
               hint: 'Örn: Hesap Makinesi',
               ml: false,
             ),
@@ -126,7 +126,7 @@ class _ProductAddPageState extends State<ProductAddPage> {
             ),
             const SizedBox(height: 5),
             CustomTextField(
-              controller: productDescriptionController,
+              controller: materialDescriptionController,
               hint: 'Marka model bilgisi, kullanım durumu, vb.',
               ml: true,
             ),
@@ -147,7 +147,7 @@ class _ProductAddPageState extends State<ProductAddPage> {
             const SizedBox(height: 5),
             if (isPaid == true)
               OnlyCostField(
-                controller: productCostController,
+                controller: materialCostController,
                 hint: 'Ücret',
               ),
             const SizedBox(height: 20),
@@ -156,7 +156,7 @@ class _ProductAddPageState extends State<ProductAddPage> {
               subtitle: 'Ürünün kullanıldığı bölümü seçin',
             ),
             const SizedBox(height: 5),
-            AllDepartmentBottomSheet(controller: productDepController),
+            AllDepartmentBottomSheet(controller: materialDepController),
             const SizedBox(height: 20),
             const InputTitleSubtitle(
               title: 'İlgili Ders',
@@ -164,14 +164,14 @@ class _ProductAddPageState extends State<ProductAddPage> {
             ),
             const SizedBox(height: 5),
             CustomTextField(
-              controller: productClassController,
+              controller: materialSubjectController,
               hint: 'Örn: Mühendislik Matematiği',
               ml: false,
             ),
             const SizedBox(height: 20),
             CustomElevatedButton(
               text: 'Ürünü Ekle',
-              onPressed: addProductBtn,
+              onPressed: addMaterial,
               width: width,
             ),
             const SizedBox(height: 30),

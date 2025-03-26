@@ -1,10 +1,10 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../../models/product_model.dart';
-import '../../services/upload_image_service.dart';
+import './upload_image_service.dart';
+import '../models/material_model.dart';
 
-Future<void> uploadProduct({
+Future<void> uploadMaterial({
   required String id,
   required String owner,
   required String title,
@@ -13,17 +13,17 @@ Future<void> uploadProduct({
   required String department,
   required String subject,
   required List<File?> images,
-  required bool isSold,
+  bool? isSold = false,
 }) async {
   try {
-    FirebaseFirestore ffs = FirebaseFirestore.instance;
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
     List<String> imageUrls = [];
 
     for (int i = 0; i < images.length; i++) {
       if (images[i] != null) {
         String? imageUrl = await uploadImageToStorage(
           image: images[i]!,
-          document: "products",
+          document: "materials",
           owner: owner,
           id: id,
           index: i,
@@ -34,7 +34,7 @@ Future<void> uploadProduct({
       }
     }
 
-    ProductModel product = ProductModel(
+    MaterialModel material = MaterialModel(
       id: id,
       owner: owner,
       title: title,
@@ -43,19 +43,21 @@ Future<void> uploadProduct({
       department: department,
       subject: subject,
       imageUrls: imageUrls,
-      isSold: isSold,
+      isSold: isSold!,
     );
 
-    await ffs
-        .collection('products')
+    await firestore
+        .collection('materials')
         .doc('${owner}_$id')
-        .set(product.toMap());
-    await ffs
+        .set(material.toMap());
+
+    await firestore
         .collection('users')
         .doc(owner)
-        .collection('products')
+        .collection('materials')
         .doc('${id}_$owner')
-        .set(product.toMap());
+        .set(material.toMap());
+
     debugPrint("Ürün Firestore'a kaydedildi.");
   } catch (e) {
     debugPrint("Ürün kaydedilirken hata oluştu: $e");

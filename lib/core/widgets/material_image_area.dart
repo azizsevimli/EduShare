@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../constants/constants.dart';
 import './favorite_button.dart';
+import '../constants/constants.dart';
 
 class MaterialImageArea extends StatelessWidget {
-  final List<String> imageUrls;
   final String id;
-  const MaterialImageArea(
-      {super.key, required this.imageUrls, required this.id});
+  final List<String> imageUrls;
+
+  const MaterialImageArea({
+    super.key,
+    required this.id,
+    required this.imageUrls,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,20 +23,10 @@ class MaterialImageArea extends StatelessWidget {
       height: size.height * 0.3,
       child: Stack(
         children: [
-          PageView.builder(
-            controller: pageController,
-            itemCount: imageUrls.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Image.network(
-                imageUrls[index],
-                fit: BoxFit.cover,
-              );
-            },
-          ),
+          _buildImageArea(pageController: pageController),
           Positioned(
             top: 0,
-            left: 0,
-            child: _buildIconRow(context, size: size),
+            child: _buildIconRow(context: context, size: size),
           ),
           Positioned(
             bottom: 10,
@@ -45,7 +39,24 @@ class MaterialImageArea extends StatelessWidget {
     );
   }
 
-  Center _buildIndicator({required PageController pageController}) {
+  PageView _buildImageArea({
+    required PageController pageController,
+  }) {
+    return PageView.builder(
+      controller: pageController,
+      itemCount: imageUrls.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Image.network(
+          imageUrls[index],
+          fit: BoxFit.cover,
+        );
+      },
+    );
+  }
+
+  Center _buildIndicator({
+    required PageController pageController,
+  }) {
     return Center(
       child: SmoothPageIndicator(
         controller: pageController,
@@ -61,7 +72,10 @@ class MaterialImageArea extends StatelessWidget {
     );
   }
 
-  Widget _buildIconRow(BuildContext context, {required Size size}) {
+  Widget _buildIconRow({
+    required BuildContext context,
+    required Size size,
+  }) {
     return SizedBox(
       width: size.width,
       child: Row(

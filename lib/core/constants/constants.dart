@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+String appName = 'eduShare';
+
+String defaultProfileImageUrl = 'https://firebasestorage.googleapis.com/v0/b/edushare-cfca8.firebasestorage.app/o/users%2Fdefault_image.jpg?alt=media&token=6590c09a-04b4-4bc2-a205-e7e5b6b0873a';
+
 class AppColors {
   static const Color lightVanilla = Color(0xFFF4EFD7);
   static const Color vanilla = Color(0xFFE9DFAE);
@@ -18,6 +22,7 @@ class AppColors {
   static const Color darkWine = Color(0xFF36141C);
   static const Color white = Color(0xFFFFFFFF);
   static const Color grey = Color(0xFF7E7E7E);
+  static const Color red = Color(0xFFD32F2F);
   static const Color black = Color(0xFF000000);
 }
 

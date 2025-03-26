@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../models/product_model.dart';
 import '../models/user_model.dart';
+import '../models/material_model.dart';
+import '../core/constants/constants.dart';
 
 class UserServices {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -22,11 +23,14 @@ class UserServices {
     required Function(UserCredential userCredential) onSuccess,
   }) async {
     try {
-      UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: mail, password: password);
+      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+        email: mail,
+        password: password,
+      );
       String userId = userCredential.user!.uid;
 
       UserModel user = UserModel(
-        uuid: userId,
+        uid: userId,
         name: name,
         surname: surname,
         mail: mail,
@@ -35,7 +39,7 @@ class UserServices {
         grade: grade,
         university: university,
         department: department,
-        imageUrl:'https://firebasestorage.googleapis.com/v0/b/edushare-cfca8.firebasestorage.app/o/users%2Fdefault_image.jpg?alt=media&token=6590c09a-04b4-4bc2-a205-e7e5b6b0873a',
+        imageUrl: defaultProfileImageUrl,
       );
 
       await FirebaseFirestore.instance
@@ -57,21 +61,42 @@ class UserServices {
     }
   }
 
-  Future<void> logoutUser({required Function onSuccess, required Function(String message) onError,}) async {
-    try{
-      await FirebaseAuth.instance.signOut();
+  void checkUser({
+    required Function() onUserFound,
+    required Function() onUserNotFound,
+  }) async {
+    final User? user = _auth.currentUser;
+    if (user != null) {
+      onUserFound();
+    } else {
+      onUserNotFound();
+    }
+  }
+
+  Future<void> logoutUser({
+    required Function onSuccess,
+    required Function(String message) onError,
+  }) async {
+    try {
+      await _auth.signOut();
       onSuccess();
-    }catch(e){
+    } catch (e) {
       onError('$e');
     }
+  }
+
+  String? getUserId() {
+    return _auth.currentUser?.uid;
   }
 
   Future<UserModel?> getUserData({String? uid}) async {
     UserModel? user;
 
     uid ??= _auth.currentUser?.uid;
-    DocumentSnapshot snapshot =
-        await _firestore.collection('users').doc(uid).get();
+    DocumentSnapshot snapshot = await _firestore
+            .collection('users')
+            .doc(uid)
+            .get();
 
     if (snapshot.exists) {
       user = UserModel.fromMap(snapshot.data() as Map<String, dynamic>);
@@ -80,42 +105,46 @@ class UserServices {
     return user;
   }
 
-  Future<List<ProductModel>> getUserProducts({String? uid}) async {
-    List<ProductModel> products = [];
+  Future<List<MaterialModel>> getUserMaterials({String? uid}) async {
+    List<MaterialModel> materials = [];
 
     uid ??= _auth.currentUser?.uid;
     QuerySnapshot snapshot = await _firestore
         .collection('users')
         .doc(uid)
-        .collection('products')
+        .collection('materials')
         .get();
 
     for (QueryDocumentSnapshot<Object?> doc in snapshot.docs) {
-      products.add(ProductModel.fromMap(doc.data() as Map<String, dynamic>));
+      materials.add(MaterialModel.fromMap(doc.data() as Map<String, dynamic>));
     }
 
-    return products;
+    return materials;
   }
 
-  Future<List<ProductModel>> getFavoriteProducts() async {
+  Future<List<MaterialModel>> getFavoriteMaterials() async {
     final String? uid = _auth.currentUser?.uid;
     if (uid == null) return [];
 
-    DocumentSnapshot<Map<String, dynamic>> snapshot =
-        await _firestore.collection('users').doc(uid).get();
+    DocumentSnapshot<Map<String, dynamic>> snapshot = await _firestore
+        .collection('users')
+        .doc(uid)
+        .get();
 
     final favorites = snapshot.data()?['favoriteMaterials'];
 
+    if (favorites == null || favorites.isEmpty) return [];
+
     QuerySnapshot<Map<String, dynamic>> querySnapshot = await _firestore
-        .collection('products')
+        .collection('materials')
         .where('id', whereIn: favorites)
         .get();
 
-    final List<ProductModel> products = querySnapshot.docs
-        .map((doc) => ProductModel.fromMap(doc.data()))
+    final List<MaterialModel> materials = querySnapshot.docs
+        .map((doc) => MaterialModel.fromMap(doc.data()))
         .toList();
 
-    return products;
+    return materials;
   }
 
   Future<void> updateUser({required Map<String, dynamic> updatedData}) async {

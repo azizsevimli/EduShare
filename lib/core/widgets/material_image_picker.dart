@@ -3,21 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import '../constants/constants.dart';
 
-class ProductImagePicker extends StatefulWidget {
+class MaterialImagePicker extends StatefulWidget {
   final List<File?> selectedImages;
   final ValueChanged<List<File?>> onImagesChanged;
 
-  const ProductImagePicker({
+  const MaterialImagePicker({
     super.key,
     required this.selectedImages,
     required this.onImagesChanged,
   });
 
   @override
-  State<ProductImagePicker> createState() => _ProductImagePickerState();
+  State<MaterialImagePicker> createState() => _MaterialImagePickerState();
 }
 
-class _ProductImagePickerState extends State<ProductImagePicker> {
+class _MaterialImagePickerState extends State<MaterialImagePicker> {
   late List<File?> _images;
 
   @override

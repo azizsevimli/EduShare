@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import '../../models/university_model.dart';
-import '../../models/associate_model.dart';
-import '../../models/bachelor_model.dart';
+import '../models/university_model.dart';
+import '../models/associate_model.dart';
+import '../models/bachelor_model.dart';
 
 class UniAndDepService {
   Future<List<UniversityModel>> loadUniversities() async {

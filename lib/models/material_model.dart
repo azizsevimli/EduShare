@@ -1,4 +1,4 @@
-class ProductModel {
+class MaterialModel {
   final String id;
   final String owner;
   final String title;
@@ -9,7 +9,7 @@ class ProductModel {
   final List<String> imageUrls;
   final bool isSold;
 
-  ProductModel({
+  MaterialModel({
     required this.id,
     required this.owner,
     required this.title,
@@ -35,8 +35,8 @@ class ProductModel {
     };
   }
 
-  factory ProductModel.fromMap(Map<String, dynamic> map) {
-    return ProductModel(
+  factory MaterialModel.fromMap(Map<String, dynamic> map) {
+    return MaterialModel(
       id: map['id'] ?? '',
       owner: map['owner'] ?? '',
       title: map['title'] ?? '',
@@ -45,7 +45,7 @@ class ProductModel {
       department: map['department'] ?? '',
       subject: map['subject'] ?? '',
       imageUrls: List<String>.from(map['imageUrl'] ?? []),
-      isSold: map['isSold'] ?? false,
+      isSold: map['isSold'],
     );
   }
 }

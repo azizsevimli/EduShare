@@ -25,17 +25,17 @@ class _FavoriteButtonState extends State<FavoriteButton> {
   bool isFavorite = false;
 
   void _checkIfFavorite() async {
-    final bool result = await _favoriteService.isFavorite(widget.id);
+    final bool result = await _favoriteService.isFavorite(materialId: widget.id);
     setState(() {
       isFavorite = result;
     });
   }
 
-  void addFavorite() async {
+  void onChangeFavorite() async {
     if (isFavorite) {
-      await _favoriteService.removeFavoriteProduct(widget.id);
+      await _favoriteService.removeFavoriteMaterial(materialId: widget.id);
     } else {
-      await _favoriteService.addFavoriteProduct(widget.id);
+      await _favoriteService.addFavoriteMaterial(materialId: widget.id);
     }
     setState(() {
       isFavorite = !isFavorite;
@@ -51,7 +51,7 @@ class _FavoriteButtonState extends State<FavoriteButton> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        onPressed: addFavorite,
+        onPressed: onChangeFavorite,
         icon: Icon(
           isFavorite ? Icons.favorite : Icons.favorite_border,
           color: isFavorite

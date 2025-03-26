@@ -1,40 +1,37 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FavoriteService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  /// Favorilere ürün ekler
-  Future<void> addFavoriteProduct(String productId) async {
+  Future<void> addFavoriteMaterial({required String materialId}) async {
     final userId = _auth.currentUser?.uid;
     if (userId == null) return;
 
-    final userDoc = _firestore.collection('users').doc(userId);
-
-    await userDoc.update({
-      'favoriteMaterials': FieldValue.arrayUnion([productId])
+    await _firestore.collection('users').doc(userId).update({
+      'favoriteMaterials': FieldValue.arrayUnion([materialId])
     });
   }
 
-  /// Favorilerden ürün çıkarır
-  Future<void> removeFavoriteProduct(String productId) async {
+  Future<void> removeFavoriteMaterial({required String materialId}) async {
     final userId = _auth.currentUser?.uid;
     if (userId == null) return;
 
-    final userDoc = _firestore.collection('users').doc(userId);
-
-    await userDoc.update({
-      'favoriteMaterials': FieldValue.arrayRemove([productId])
+    await _firestore.collection('users').doc(userId).update({
+      'favoriteMaterials': FieldValue.arrayRemove([materialId])
     });
   }
 
-  /// Kullanıcının favori ürünlerini getirir
-  Future<List<String>> getFavoriteProducts() async {
+  Future<List<String>> getFavoriteMaterials() async {
     final userId = _auth.currentUser?.uid;
     if (userId == null) return [];
 
-    final docSnapshot = await _firestore.collection('users').doc(userId).get();
+    final DocumentSnapshot<Map<String, dynamic>> docSnapshot = await _firestore
+        .collection('users')
+        .doc(userId)
+        .get();
+
     final favorites = docSnapshot.data()?['favoriteMaterials'];
 
     if (favorites is List<dynamic>) {
@@ -44,9 +41,20 @@ class FavoriteService {
     }
   }
 
-  /// Ürün favori mi kontrolü
-  Future<bool> isFavorite(String productId) async {
-    final favorites = await getFavoriteProducts();
-    return favorites.contains(productId);
+  Future<bool> isFavorite({required String materialId}) async {
+    final favorites = await getFavoriteMaterials();
+    return favorites.contains(materialId);
+  }
+
+  Future<void> removeFromAllFavorites(String id) async {
+    final usersSnapshot = await _firestore.collection('users').get();
+
+    for (final userDoc in usersSnapshot.docs) {
+      final userRef = userDoc.reference;
+
+      await userRef.update({
+        'favoriteMaterials': FieldValue.arrayRemove([id])
+      });
+    }
   }
 }

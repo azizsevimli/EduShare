@@ -20,16 +20,37 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController passwordController = TextEditingController();
 
   void signUpBtn() {
+    
+    // TODO: Daha iyi bir validation yapısı oluşturulacak
     if (nameController.text.isEmpty || nameController.text.length < 3) {
-      ShowSnackBar.showSnackBar(context, 'Lütfen geçerli bir ad girin (Min. 3 karakter)');
-    } else if(surnameController.text.isEmpty || surnameController.text.length < 3){
-      ShowSnackBar.showSnackBar(context, 'Lütfen geçerli bir soyad girin (Min. 3 karakter)');
-    } else if (emailController.text.isEmpty || !Validation.isValidEmail(emailController.text.trim())) {
-      ShowSnackBar.showSnackBar(context, 'Lütfen geçerli bir mail adresi girin');
-    } else if (phoneController.text.isEmpty || !Validation.isValidTurkishPhoneNumber(phoneController.text.trim())) {
-      ShowSnackBar.showSnackBar(context, 'Lütfen geçerli bir telefon numarası girin');
-    } else if (passwordController.text.isEmpty || !Validation.isValidPassword(passwordController.text.trim())) {
-      ShowSnackBar.showSnackBar(context, 'Lütfen geçerli bir şifre girin');
+      ShowSnackBar.showSnackBar(
+        context,
+        'Lütfen geçerli bir ad girin (Min. 3 karakter)',
+      );
+    } else if (surnameController.text.isEmpty ||
+        surnameController.text.length < 3) {
+      ShowSnackBar.showSnackBar(
+        context,
+        'Lütfen geçerli bir soyad girin (Min. 3 karakter)',
+      );
+    } else if (emailController.text.isEmpty ||
+        !Validation.isValidEmail(emailController.text.trim())) {
+      ShowSnackBar.showSnackBar(
+        context,
+        'Lütfen geçerli bir mail adresi girin',
+      );
+    } else if (phoneController.text.isEmpty ||
+        !Validation.isValidTurkishPhoneNumber(phoneController.text.trim())) {
+      ShowSnackBar.showSnackBar(
+        context,
+        'Lütfen geçerli bir telefon numarası girin',
+      );
+    } else if (passwordController.text.isEmpty ||
+        !Validation.isValidPassword(passwordController.text.trim())) {
+      ShowSnackBar.showSnackBar(
+        context,
+        'Lütfen geçerli bir şifre girin',
+      );
     } else {
       context.push(
         '/signup/profile-info',
@@ -110,7 +131,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   const SizedBox(height: 5.0),
                   Text(
                     'Şifreniz büyük harf, küçük harf rakam ve özel karakter içermeli (Min. 8 karakter)',
-                    style: AppTextStyles.caption.copyWith(color: AppColors.brown),
+                    style:
+                        AppTextStyles.caption.copyWith(color: AppColors.brown),
                   ),
                   const SizedBox(height: 20.0),
                   SizedBox(
@@ -124,7 +146,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text("Zaten hesabınız var mı?", style: AppTextStyles.body2),
+                      const Text("Zaten hesabınız var mı?",
+                          style: AppTextStyles.body2),
                       TextButton(
                         onPressed: goLogInPage,
                         child: const Text("Giriş yapın"),

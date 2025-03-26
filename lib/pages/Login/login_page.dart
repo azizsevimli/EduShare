@@ -19,27 +19,32 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
   bool isPasswordVisible = true;
 
-  Future<void> logInBtn() async {
+  Future<void> loginBtn() async {
     await authService.signInUser(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
         onError: (String message) => ShowSnackBar.showSnackBar(context, message),
-        onSuccess: (UserCredential userCredential) {
-          ShowSnackBar.showSnackBar(context, 'Giriş başarılı: ${userCredential.user?.email}');
-          context.push('/home');
-        });
+        onSuccess: loginOnSuccess,
+    );
   }
 
   Future<void> resetPasswordBtn() async {
     await authService.resetPassword(
       email: emailController.text.trim(),
       onError: (String message) => ShowSnackBar.showSnackBar(context, message),
-      onSuccess: () {
-        ShowSnackBar.showSnackBar(context, 'Şifre sıfırlama maili gönderildi!');
-        emailController.clear();
-        passwordController.clear();
-      },
+      onSuccess: resetOnSuccess,
     );
+  }
+
+  void loginOnSuccess(UserCredential userCredential) {
+    ShowSnackBar.showSnackBar(context, 'Giriş başarılı: ${userCredential.user?.email}');
+    context.go('/home');
+  }
+
+  void resetOnSuccess() {
+    ShowSnackBar.showSnackBar(context, 'Şifre sıfırlama maili gönderildi!');
+    emailController.clear();
+    passwordController.clear();
   }
 
   void passwordVisibility() {
@@ -94,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 width: width * 0.4,
                 child: ElevatedButton(
-                  onPressed: logInBtn,
+                  onPressed: loginBtn,
                   child: const Text('Giriş Yap'),
                 ),
               ),

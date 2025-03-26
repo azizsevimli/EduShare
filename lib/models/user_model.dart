@@ -1,5 +1,5 @@
 class UserModel {
-  String uuid;
+  String uid;
   String name;
   String surname;
   String mail;
@@ -12,7 +12,7 @@ class UserModel {
   List<String> favoriteMaterials;
 
   UserModel({
-    required this.uuid,
+    required this.uid,
     required this.name,
     required this.surname,
     required this.mail,
@@ -27,7 +27,7 @@ class UserModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'uuid': uuid,
+      'uid': uid,
       'name': name,
       'surname': surname,
       'mail': mail,
@@ -43,7 +43,7 @@ class UserModel {
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
-      uuid: map['uuid'] ?? '',
+      uid: map['uid'] ?? '',
       name: map['name'] ?? '',
       surname: map['surname'] ?? '',
       mail: map['mail'] ?? '',

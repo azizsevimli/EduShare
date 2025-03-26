@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
-  final FirebaseAuth auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<void> signInUser({
     required String email,
@@ -15,7 +15,7 @@ class AuthService {
     }
 
     try {
-      UserCredential userCredential = await auth.signInWithEmailAndPassword(
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -44,7 +44,7 @@ class AuthService {
     }
 
     try {
-      await auth.sendPasswordResetEmail(email: email);
+      await _auth.sendPasswordResetEmail(email: email);
       onSuccess();
     } on FirebaseAuthException catch (e) {
       onError('Bir hata oluştu: ${e.message}');
