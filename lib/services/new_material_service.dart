@@ -10,7 +10,8 @@ Future<void> uploadMaterial({
   required String title,
   required String description,
   required String cost,
-  required String department,
+  required String category,
+  required String subcategory,
   required String subject,
   required List<File?> images,
   bool? isSold = false,
@@ -40,10 +41,12 @@ Future<void> uploadMaterial({
       title: title,
       price: cost,
       description: description,
-      department: department,
+      category: category,
+      subcategory: subcategory,
       subject: subject,
       imageUrls: imageUrls,
       isSold: isSold!,
+      createdAt: DateTime.now(),
     );
 
     await firestore

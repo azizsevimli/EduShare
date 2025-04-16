@@ -19,7 +19,7 @@ class SplashPage extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.orange,
+        backgroundColor: AppColors.tiffany,
         body: Center(
           child: Text(
             appName,

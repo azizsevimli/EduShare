@@ -42,8 +42,8 @@ class CardImageArea extends StatelessWidget {
               controller: pageController,
               count: urls.length,
               effect: const ExpandingDotsEffect(
-                activeDotColor: AppColors.vanilla,
-                dotColor: AppColors.vanilla,
+                activeDotColor: AppColors.rose,
+                dotColor: AppColors.rose,
                 dotHeight: 6,
                 dotWidth: 6,
                 expansionFactor: 2,

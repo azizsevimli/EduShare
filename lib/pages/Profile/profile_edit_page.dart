@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../../services/upload_image_service.dart';
 import '../../core/constants/constants.dart';
+import '../../core/utils/image_source_options.dart';
+import '../../core/widgets/app_card.dart';
+import '../../core/widgets/custom_app_bar.dart';
+import '../../core/widgets/personal_info_inputs.dart';
+import '../../core/widgets/university_info_inputs.dart';
+import '../../services/upload_image_service.dart';
 import '../../core/widgets/custom_button.dart';
-import '../../core/widgets/custom_text_fields.dart';
-import '../../core/widgets/school_dropdown_menu.dart';
 
 class ProfileEditPage extends StatefulWidget {
   final Map<String, dynamic> data;
@@ -20,6 +23,7 @@ class ProfileEditPage extends StatefulWidget {
 
 class _ProfileEditPageState extends State<ProfileEditPage> {
   final FirebaseFirestore ffs = FirebaseFirestore.instance;
+  final _formKey = GlobalKey<FormState>();
   final ImagePicker _picker = ImagePicker();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController surnameController = TextEditingController();
@@ -32,9 +36,8 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
   File? _image;
   String? imageUrl;
 
-  // TODO: Kamera ile resim seçme eklenecek
-  Future<void> _pickImage() async {
-    final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+  Future<void> _pickImage({required ImageSource source}) async {
+    final pickedFile = await _picker.pickImage(source: source);
 
     if (pickedFile != null) {
       setState(() {
@@ -43,8 +46,8 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     }
   }
 
-  // TODO: Güncelleme  için giden verilerin doğruluğunu kontrol et ve UserService fonksiyonunu kullan
-  Future<void> _updateProfile({required BuildContext ctx}) async {
+  // TODO: 6. Formkey ile verilerin doğruluğunu kontrol et ve UserService fonksiyonunu kullan
+  Future<void> _updateProfile({required BuildContext context}) async {
     if (_image != null) {
       imageUrl = await uploadProfileImageToStorage(
         image: _image!,
@@ -62,7 +65,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
       'grade': gradeController.text,
       'imageUrl': imageUrl ?? widget.data['imageUrl'],
     });
-    ctx.mounted ? ctx.go('/profile') : null;
+    context.mounted ? context.go('/profile') : null;
   }
 
   @override
@@ -86,74 +89,109 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.vanilla,
-        foregroundColor: AppColors.orange,
-        title: const Text(
-          'Profile Edit',
-          style: TextStyle(color: AppColors.orange),
-        ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => context.pop(),
+      appBar: customAppBar(
+        context: context,
+        title: 'Profili Düzenle',
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 5.0),
+            child: CustomElevatedButton(
+              onPressed: () => _updateProfile(context: context),
+              text: 'Kaydet',
+              width: 90.0,
+              bgColor: AppColors.lightTiffany,
+            ),
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(10, 20, 10, 30),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                radius: 50,
+                backgroundImage: _image != null
+                    ? FileImage(_image!)
+                    : NetworkImage(widget.data['imageUrl']),
+              ),
+              CustomTextButton(
+                text: 'Resmi güncelle',
+                onPressed: () => showImageSourceOptions(
+                  context: context,
+                  image: _image,
+                  onImageFromGallery: () {
+                    Navigator.of(context).pop();
+                    _pickImage(source: ImageSource.gallery);
+                  },
+                  onImageFromCamera: () {
+                    Navigator.of(context).pop();
+                    _pickImage(source: ImageSource.camera);
+                  },
+                  onRemoveImage: () {
+                    Navigator.of(context).pop();
+                    setState(() {
+                      _image = null;
+                    });
+                  },
+                ),
+              ),
+              Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    buildHeader('Kişisel Bilgiler'),
+                    const SizedBox(height: 10.0),
+                    AppCard(
+                      width: size.width,
+                      child: PersonalInfoInputs(
+                        nameController: nameController,
+                        surnameController: surnameController,
+                        emailController: emailController,
+                        phoneController: phoneController,
+                      ),
+                    ),
+                    const SizedBox(height: 15.0),
+                    buildHeader('Üniversite Bilgileri'),
+                    const SizedBox(height: 10.0),
+                    AppCard(
+                      width: size.width,
+                      child: UniversityInfoInputs(
+                        uniController: uniController,
+                        depController: depController,
+                        degreeController: degreeController,
+                        gradeController: gradeController,
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 20, 10, 30),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              children: [
-                CircleAvatar(
-                  radius: 50,
-                  backgroundImage: _image != null
-                      ? FileImage(_image!)
-                      : NetworkImage(widget.data['imageUrl']),
-                ),
-                CustomTextButton(onPressed: _pickImage, text: 'Resmi güncelle'),
-              ],
+    );
+  }
+
+  Row buildHeader(String text) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 10.0),
+          child: Text(
+            text,
+            style: AppTextStyles.body1.copyWith(
+              color: AppColors.darkTiffany,
+              fontWeight: FontWeight.w500,
             ),
-            Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: CustomTextField(
-                    controller: nameController,
-                    label: 'Ad',
-                    hint: 'Adınızı girin',
-                    ml: false,
-                  ),
-                ),
-                const SizedBox(width: 5.0),
-                Expanded(
-                  flex: 1,
-                  child: CustomTextField(
-                    controller: surnameController,
-                    label: 'Soyad',
-                    hint: 'Soyadınızı girin',
-                    ml: false,
-                  ),
-                ),
-              ],
-            ),
-            EmailField(controller: emailController, enabled: false),
-            PhoneField(controller: phoneController, enabled: false),
-            UniversityModalBottomSheet(controller: uniController),
-            DepartmentModalBottomSheet(controller: depController, degree: degreeController.text),
-            DegreeDropdownMenu(controller: degreeController),
-            GradeDropdownMenu(controller: gradeController),
-            CustomElevatedButton(
-              text: 'Değişiklikleri Kaydet',
-              onPressed: () => _updateProfile(ctx: context),
-              width: width,
-              icon: Icons.save_outlined,
-            ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }

@@ -4,23 +4,27 @@ import '../constants/constants.dart';
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.white,
+    /*---APPBAR---*/
     appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.orange,
+      backgroundColor: AppColors.tiffany,
       foregroundColor: AppColors.white,
       titleTextStyle: AppTextStyles.h2,
     ),
+    /*---ICON---*/
     iconTheme: const IconThemeData(
       color: AppColors.black,
       size: 20,
     ),
+    /*---INPUT---*/
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: AppColors.white,
-      prefixIconColor: AppColors.orange,
+      prefixIconColor: AppColors.tiffany,
       labelStyle: AppTextStyles.body1.copyWith(color: AppColors.black),
       border: const OutlineInputBorder(),
-      focusedBorder: focusedOIB(),
-      enabledBorder: enabledOIB(),
+      focusedBorder: focusedBorder(),
+      enabledBorder: enabledBorder(),
+      disabledBorder: disabledBorder(),
     ),
     /*---ELEVATED-BUTTON---*/
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -63,6 +67,7 @@ class AppTheme {
         splashFactory: InkRipple.splashFactory,
       ),
     ),
+    /*---DROPDOWN-MENU---*/
     dropdownMenuTheme: DropdownMenuThemeData(
       menuStyle: const MenuStyle(
         minimumSize: WidgetStatePropertyAll(Size(double.infinity, 50)),
@@ -73,34 +78,36 @@ class AppTheme {
         fillColor: AppColors.white,
         labelStyle: AppTextStyles.body1.copyWith(color: AppColors.black),
         border: const OutlineInputBorder(),
-        focusedBorder: focusedOIB(),
-        enabledBorder: enabledOIB(),
-        disabledBorder: disabledOIB(),
+        focusedBorder: focusedBorder(),
+        enabledBorder: enabledBorder(),
+        disabledBorder: disabledBorder(),
         outlineBorder: const BorderSide(
           width: 1.0,
           color: AppColors.black,
         ),
       ),
     ),
+    /*---BOTTOM-APPBAR---*/
     bottomAppBarTheme: const BottomAppBarTheme(
       padding: EdgeInsets.symmetric(horizontal: 10.0),
       shape: CircularNotchedRectangle(),
       height: 60.0,
-      color: AppColors.vanilla,
+      color: AppColors.tiffany,
       shadowColor: AppColors.black,
       surfaceTintColor: AppColors.white,
     ),
+    /*---FLOATING-BUTTON---*/
     floatingActionButtonTheme: FloatingActionButtonThemeData(
-      backgroundColor: AppColors.orange,
+      backgroundColor: AppColors.tiffany,
       foregroundColor: AppColors.white,
-      splashColor: AppColors.lightOrange,
+      splashColor: AppColors.lightTiffany,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(100.0),
       ),
     ),
   );
 
-  static OutlineInputBorder disabledOIB() {
+  static OutlineInputBorder disabledBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(15.0),
       borderSide: const BorderSide(
@@ -110,22 +117,22 @@ class AppTheme {
     );
   }
 
-  static OutlineInputBorder enabledOIB() {
+  static OutlineInputBorder enabledBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(15.0),
       borderSide: const BorderSide(
-        width: 1.2,
+        width: 1.0,
         color: AppColors.black,
       ),
     );
   }
 
-  static OutlineInputBorder focusedOIB() {
+  static OutlineInputBorder focusedBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(15.0),
       borderSide: const BorderSide(
-        width: 1.5,
-        color: AppColors.orange,
+        width: 1.0,
+        color: AppColors.tiffany,
       ),
     );
   }

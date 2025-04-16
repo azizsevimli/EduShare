@@ -47,7 +47,7 @@ class _UniversityModalBottomSheet extends State<UniversityModalBottomSheet> {
                   padding: const EdgeInsets.symmetric(vertical: 15.0),
                   child: Text(
                     'Üniversite seçiniz',
-                    style: AppTextStyles.h3.copyWith(color: AppColors.orange),
+                    style: AppTextStyles.h3.copyWith(color: AppColors.tiffany),
                   ),
                 ),
                 Expanded(
@@ -145,7 +145,7 @@ class _DepartmentModalBottomSheet extends State<DepartmentModalBottomSheet> {
                   padding: const EdgeInsets.symmetric(vertical: 15.0),
                   child: Text(
                     'Bölüm seçiniz',
-                    style: AppTextStyles.h3.copyWith(color: AppColors.orange),
+                    style: AppTextStyles.h3.copyWith(color: AppColors.tiffany),
                   ),
                 ),
                 Expanded(
@@ -241,7 +241,7 @@ class _AllDepartmentBottomSheet extends State<AllDepartmentBottomSheet> {
                   padding: const EdgeInsets.symmetric(vertical: 15.0),
                   child: Text(
                     'Bölüm seçiniz',
-                    style: AppTextStyles.h3.copyWith(color: AppColors.orange),
+                    style: AppTextStyles.h3.copyWith(color: AppColors.tiffany),
                   ),
                 ),
                 Expanded(
@@ -314,7 +314,7 @@ class DegreeDropdownMenu extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 15.0),
                   child: Text(
                     'Derece seçiniz',
-                    style: AppTextStyles.h3.copyWith(color: AppColors.orange),
+                    style: AppTextStyles.h3.copyWith(color: AppColors.tiffany),
                   ),
                 ),
                 Expanded(
@@ -378,7 +378,7 @@ class GradeDropdownMenu extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 15.0),
                   child: Text(
                     'Sınıf seçiniz',
-                    style: AppTextStyles.h3.copyWith(color: AppColors.orange),
+                    style: AppTextStyles.h3.copyWith(color: AppColors.tiffany),
                   ),
                 ),
                 Expanded(

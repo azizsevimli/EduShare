@@ -65,8 +65,8 @@ class MaterialImageArea extends StatelessWidget {
           dotWidth: 8,
           dotHeight: 8,
           expansionFactor: 2,
-          dotColor: AppColors.vanilla,
-          activeDotColor: AppColors.orange,
+          dotColor: AppColors.rose,
+          activeDotColor: AppColors.tiffany,
         ),
       ),
     );

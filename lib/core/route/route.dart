@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../app.dart';
 import '../../pages/MaterialManagement/material_edit_page.dart';
+import '../../pages/Profile/favorites_page.dart';
+import '../../pages/Profile/notifications_page.dart';
+import '../../pages/Settings/settings_page.dart';
 import '../../pages/Splash/splash_page.dart';
 import '../../pages/Login/login_page.dart';
 import '../../pages/Signup/signup_page.dart';
@@ -92,6 +95,18 @@ class AppRouter {
         },
       ),
       GoRoute(
+        path: '/profile/favorites',
+        builder: (BuildContext context, GoRouterState state) {
+          return const FavoritesPage();
+        },
+      ),
+      GoRoute(
+        path: '/profile/notifications',
+        builder: (BuildContext context, GoRouterState state) {
+          return const NotificationsPage();
+        },
+      ),
+      GoRoute(
         path: '/messages',
         builder: (BuildContext context, GoRouterState state) {
           return const MessagesPage();
@@ -116,6 +131,12 @@ class AppRouter {
         builder: (BuildContext context, GoRouterState state) {
           final materialId = state.pathParameters['id']!;
           return MaterialEditPage(materialId: materialId);
+        },
+      ),
+      GoRoute(
+        path: '/settings',
+        builder: (BuildContext context, GoRouterState state) {
+          return const SettingsPage();
         },
       ),
     ],

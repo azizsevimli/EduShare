@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import '../constants/constants.dart';
+import '../utils/image_source_options.dart';
 
 class MaterialImagePicker extends StatefulWidget {
   final List<File?> selectedImages;
@@ -19,6 +20,32 @@ class MaterialImagePicker extends StatefulWidget {
 
 class _MaterialImagePickerState extends State<MaterialImagePicker> {
   late List<File?> _images;
+
+  Future<void> _pickImage(ImageSource source, int index) async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: source);
+    if (pickedFile != null) {
+      setState(() {
+        _images[index] = File(pickedFile.path);
+        widget.onImagesChanged(_images);
+      });
+    }
+  }
+
+  void _removeImage({required int index}) {
+    setState(() {
+      List<File?> newImages = List.from(_images);
+
+      for (int i = index; i < newImages.length - 1; i++) {
+        newImages[i] = newImages[i + 1];
+      }
+
+      newImages[newImages.length - 1] = null;
+
+      _images = newImages;
+      widget.onImagesChanged(_images);
+    });
+  }
 
   @override
   void initState() {
@@ -45,9 +72,24 @@ class _MaterialImagePickerState extends State<MaterialImagePicker> {
     );
   }
 
-  GestureDetector _buildImageBox(BuildContext context, double width, File? selectedImage, int index) {
+  GestureDetector _buildImageBox(
+      BuildContext context, double width, File? selectedImage, int index) {
     return GestureDetector(
-      onTap: () => _showImageSourceOptions(context, selectedImage, index),
+      onTap: () => showImageSourceOptions(
+        context: context,
+        onImageFromGallery: () {
+          Navigator.of(context).pop();
+          _pickImage(ImageSource.gallery, index);
+        },
+        onImageFromCamera: () {
+          Navigator.of(context).pop();
+          _pickImage(ImageSource.camera, index);
+        },
+        onRemoveImage: () {
+          Navigator.of(context).pop();
+          _removeImage(index: index);
+        },
+      ),
       child: SizedBox(
         width: width * 0.2,
         height: width * 0.2,
@@ -55,82 +97,26 @@ class _MaterialImagePickerState extends State<MaterialImagePicker> {
           borderRadius: BorderRadius.circular(20),
           clipBehavior: Clip.antiAlias,
           child: selectedImage != null
-              ? Image.file(selectedImage, width: 100, height: 100, fit: BoxFit.cover)
+              ? Image.file(
+                  selectedImage,
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.cover,
+                )
               : Container(
-            width: 120,
-            height: 120,
-            color: AppColors.periwinkle.withValues(alpha: 0.4),
-            child: Center(
-              child: Icon(
-                Icons.add_photo_alternate_outlined,
-                size: width * 0.075,
-                color: AppColors.periwinkle,
-              ),
-            ),
-          ),
+                  width: 120,
+                  height: 120,
+                  color: AppColors.lightPeriwinkle,
+                  child: Center(
+                    child: Icon(
+                      Icons.add_photo_alternate_outlined,
+                      size: width * 0.075,
+                      color: AppColors.periwinkle,
+                    ),
+                  ),
+                ),
         ),
       ),
     );
-  }
-
-  void _showImageSourceOptions(BuildContext context, File? selectedImage, int index) {
-    showModalBottomSheet(
-      context: context,
-      builder: (ctx) => Wrap(
-        children: [
-          ListTile(
-            leading: const Icon(Icons.photo_library),
-            title: const Text("Galeriden seç"),
-            onTap: () {
-              Navigator.of(ctx).pop();
-              _pickImage(ImageSource.gallery, index);
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.camera),
-            title: const Text("Kamera ile çek"),
-            onTap: () {
-              Navigator.of(ctx).pop();
-              _pickImage(ImageSource.camera, index);
-            },
-          ),
-          if (selectedImage != null)
-            ListTile(
-              leading: const Icon(Icons.delete),
-              title: const Text("Resmi sil"),
-              onTap: () {
-                Navigator.of(ctx).pop();
-                _removeImage(index);
-              },
-            ),
-        ],
-      ),
-    );
-  }
-
-  Future<void> _pickImage(ImageSource source, int index) async {
-    final picker = ImagePicker();
-    final pickedFile = await picker.pickImage(source: source);
-    if (pickedFile != null) {
-      setState(() {
-        _images[index] = File(pickedFile.path);
-        widget.onImagesChanged(_images);
-      });
-    }
-  }
-
-  void _removeImage(int index) {
-    setState(() {
-      List<File?> newImages = List.from(_images);
-
-      for (int i = index; i < newImages.length - 1; i++) {
-        newImages[i] = newImages[i + 1];
-      }
-
-      newImages[newImages.length - 1] = null;
-
-      _images = newImages;
-      widget.onImagesChanged(_images);
-    });
   }
 }

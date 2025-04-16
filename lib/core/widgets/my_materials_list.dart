@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './material_management_card.dart';
 import '../../models/material_model.dart';
+import 'custom_circular_indicator.dart';
 
 class MyMaterialsList extends StatelessWidget {
   final Future<List<MaterialModel>> future;
@@ -19,7 +20,7 @@ class MyMaterialsList extends StatelessWidget {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: CustomCircularIndicator(),
           );
         }
         if (snapshot.hasError) {
@@ -51,10 +52,10 @@ class MyMaterialsList extends StatelessWidget {
           itemCount: index == 0
               ? unsoldMaterials.length
               : soldMaterials.length,
-          itemBuilder: (context, index) {
+          itemBuilder: (context, i) {
             final material = index == 0
-                ? unsoldMaterials[index]
-                : soldMaterials[index];
+                ? unsoldMaterials[i]
+                : soldMaterials[i];
             return Padding(
               padding: const EdgeInsets.only(bottom: 10.0),
               child: MaterialManagementCard(material: material),

@@ -109,7 +109,7 @@ class _SignUpInfoPageState extends State<SignUpInfoPage> {
                   padding: const EdgeInsets.only(bottom: 30.0),
                   child: Text(
                     'EduShare',
-                    style: AppTextStyles.h1.copyWith(color: AppColors.orange),
+                    style: AppTextStyles.h1.copyWith(color: AppColors.tiffany),
                   ),
                 ),
                 const Text('Tüm bilgileri doldurun ve kaydolun.',

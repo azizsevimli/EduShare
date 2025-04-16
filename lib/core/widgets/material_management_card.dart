@@ -18,14 +18,14 @@ class MaterialManagementCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    final Size cardSize = Size(size.width, size.height * 0.15,);
 
     void goMaterialEditPage() {
       context.push('/my-materials/edit/${material.id}');
     }
 
     return AppCard(
-      size: cardSize,
+      width: size.width,
+      height: size.height * 0.15,
       child: buildChild(onRoute: goMaterialEditPage),
     );
   }

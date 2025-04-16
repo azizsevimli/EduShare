@@ -43,11 +43,11 @@ class CustomElevatedButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (icon != null) Icon(icon),
-            if (text != null) ...[
+            if (icon != null) ...[
+              Icon(icon),
               const SizedBox(width: 10),
-              Text(text!),
             ],
+            Text(text!),
           ],
         ),
       ),

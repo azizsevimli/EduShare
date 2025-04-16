@@ -22,12 +22,49 @@ class CustomTextField extends StatelessWidget {
       keyboardType: ml ? TextInputType.multiline : TextInputType.text,
       maxLines: ml ? null : 1,
       maxLength: ml ? 300 : null,
-      textCapitalization: ml ? TextCapitalization.sentences : TextCapitalization.words,
+      textCapitalization:
+          ml ? TextCapitalization.sentences : TextCapitalization.words,
       decoration: InputDecoration(
         labelText: label ?? '',
         hintText: hint,
       ),
     );
+  }
+}
+
+class CustomTextFormField extends StatelessWidget {
+  final TextEditingController controller;
+  final String hint;
+  final String? label;
+  final bool ml;
+
+  const CustomTextFormField({
+    super.key,
+    required this.controller,
+    required this.hint,
+    this.label,
+    required this.ml,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+        controller: controller,
+        keyboardType: ml ? TextInputType.multiline : TextInputType.text,
+        maxLines: ml ? null : 1,
+        maxLength: ml ? 300 : null,
+        textCapitalization:
+            ml ? TextCapitalization.sentences : TextCapitalization.words,
+        decoration: InputDecoration(
+          labelText: label ?? '',
+          hintText: hint,
+        ),
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Bu alan boş bırakılamaz';
+          }
+          return null;
+        });
   }
 }
 
@@ -43,7 +80,7 @@ class EmailField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       controller: controller,
       enabled: enabled,
       keyboardType: TextInputType.emailAddress,
@@ -52,6 +89,12 @@ class EmailField extends StatelessWidget {
         hintText: 'E-postanızı girin',
         prefixIcon: Icon(Icons.email),
       ),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Bu alan boş bırakılamaz';
+        }
+        return null;
+      },
     );
   }
 }
@@ -68,7 +111,7 @@ class PhoneField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       controller: controller,
       enabled: enabled,
       keyboardType: TextInputType.number,
@@ -78,6 +121,12 @@ class PhoneField extends StatelessWidget {
         prefix: Text('+90'),
         prefixIcon: Icon(Icons.phone),
       ),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Bu alan boş bırakılamaz';
+        }
+        return null;
+      },
     );
   }
 }
@@ -105,7 +154,7 @@ class _PasswordFieldState extends State<PasswordField> {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       controller: widget.controller,
       obscureText: isPasswordVisible,
       keyboardType: TextInputType.visiblePassword,
@@ -120,6 +169,12 @@ class _PasswordFieldState extends State<PasswordField> {
           onPressed: passwordVisibility,
         ),
       ),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Bu alan boş bırakılamaz';
+        }
+        return null;
+      },
     );
   }
 }
@@ -142,7 +197,7 @@ class OnlyCostField extends StatelessWidget {
       decoration: const InputDecoration(
         hintText: '0',
         suffixIcon: Icon(Icons.currency_lira_outlined),
-        suffixIconColor: AppColors.orange,
+        suffixIconColor: AppColors.tiffany,
       ),
     );
   }
@@ -175,7 +230,7 @@ class InputTitleSubtitle extends StatelessWidget {
         Text(
           subtitle!,
           style: AppTextStyles.caption.copyWith(
-            color: AppColors.brown,
+            color: AppColors.xanthous,
           ),
         ),
       ],

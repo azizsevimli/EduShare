@@ -55,7 +55,7 @@ class _FavoriteButtonState extends State<FavoriteButton> {
         icon: Icon(
           isFavorite ? Icons.favorite : Icons.favorite_border,
           color: isFavorite
-              ? (widget.favColor ?? AppColors.orange)
+              ? (widget.favColor ?? AppColors.tiffany)
               : (widget.unfavColor ?? AppColors.grey),
           size: widget.size ?? 28,
         ));

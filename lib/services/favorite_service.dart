@@ -6,30 +6,38 @@ class FavoriteService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<void> addFavoriteMaterial({required String materialId}) async {
-    final userId = _auth.currentUser?.uid;
-    if (userId == null) return;
+    final uid = _auth.currentUser?.uid;
+    if (uid == null) return;
 
-    await _firestore.collection('users').doc(userId).update({
+    await _firestore.collection('users').doc(uid).update({
       'favoriteMaterials': FieldValue.arrayUnion([materialId])
     });
   }
 
   Future<void> removeFavoriteMaterial({required String materialId}) async {
-    final userId = _auth.currentUser?.uid;
-    if (userId == null) return;
+    final uid = _auth.currentUser?.uid;
+    if (uid == null) return;
 
-    await _firestore.collection('users').doc(userId).update({
+    await _firestore.collection('users').doc(uid).update({
       'favoriteMaterials': FieldValue.arrayRemove([materialId])
     });
   }
 
+  Future<void> clearFavorites() async {
+    final uid = _auth.currentUser!.uid;
+
+    await _firestore.collection('users').doc(uid).update({
+      'favoriteMaterials': [],
+    });
+  }
+
   Future<List<String>> getFavoriteMaterials() async {
-    final userId = _auth.currentUser?.uid;
-    if (userId == null) return [];
+    final uid = _auth.currentUser?.uid;
+    if (uid == null) return [];
 
     final DocumentSnapshot<Map<String, dynamic>> docSnapshot = await _firestore
         .collection('users')
-        .doc(userId)
+        .doc(uid)
         .get();
 
     final favorites = docSnapshot.data()?['favoriteMaterials'];
@@ -46,13 +54,11 @@ class FavoriteService {
     return favorites.contains(materialId);
   }
 
-  Future<void> removeFromAllFavorites(String id) async {
+  Future<void> removeFromAllFavorites({required String id}) async {
     final usersSnapshot = await _firestore.collection('users').get();
 
     for (final userDoc in usersSnapshot.docs) {
-      final userRef = userDoc.reference;
-
-      await userRef.update({
+      await userDoc.reference.update({
         'favoriteMaterials': FieldValue.arrayRemove([id])
       });
     }

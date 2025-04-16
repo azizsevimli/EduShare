@@ -91,7 +91,7 @@ class AppLayout extends StatelessWidget {
   }) {
     return IconButton(
       icon: Icon(currentIndex == index ? selectedIcon : unselectedIcon),
-      color: currentIndex == index ? AppColors.orange : AppColors.brown,
+      color: currentIndex == index ? AppColors.darkPeriwinkle : AppColors.white,
       iconSize: currentIndex == index ? 28 : 24,
       onPressed: () => context.go(route),
     );

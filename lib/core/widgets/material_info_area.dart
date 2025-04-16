@@ -5,6 +5,7 @@ import '../constants/constants.dart';
 import '../../models/user_model.dart';
 import '../../models/material_model.dart';
 import '../../services/user_service.dart';
+import 'custom_circular_indicator.dart';
 
 class MaterialInfoArea extends StatefulWidget {
   final MaterialModel material;
@@ -97,7 +98,7 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
             ? Text(
                 'Ücretsiz',
                 style: AppTextStyles.h3.copyWith(
-                  color: AppColors.orange,
+                  color: AppColors.tiffany,
                 ),
               )
             : Row(
@@ -105,12 +106,12 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
                   Text(
                     widget.material.price,
                     style: AppTextStyles.h2.copyWith(
-                      color: AppColors.orange,
+                      color: AppColors.tiffany,
                     ),
                   ),
                   const Icon(
                     Icons.currency_lira,
-                    color: AppColors.orange,
+                    color: AppColors.tiffany,
                     size: 20,
                   ),
                 ],
@@ -122,7 +123,7 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
   GestureDetector _buildCategory() {
     return GestureDetector(
       onTap: () {
-        debugPrint('Kategoriye git: ${widget.material.department}');
+        debugPrint('Kategoriye git: ${widget.material.category}');
       },
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -133,12 +134,12 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               border: Border.all(
-                color: AppColors.orange,
+                color: AppColors.tiffany,
                 width: 1,
               ),
             ),
             child: Center(
-              child: Text(widget.material.department,
+              child: Text(widget.material.category,
                   style: AppTextStyles.body3.copyWith(color: AppColors.wine)),
             ),
           ),
@@ -156,7 +157,7 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           isLoading
-              ? const CircularProgressIndicator()
+              ? const CustomCircularIndicator()
               : CircleAvatar(
             radius: 20,
             backgroundImage: NetworkImage(ownerUser!.imageUrl),
@@ -177,17 +178,17 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
       width: size.width,
       height: 40,
       decoration: BoxDecoration(
-        color: AppColors.vanilla,
+        color: AppColors.rose,
         borderRadius: BorderRadius.circular(15),
         border: Border.all(
           width: 1,
-          color: AppColors.darkVanilla,
+          color: AppColors.darkRose,
         ),
       ),
       child: Center(
         child: Text(
           'Satıldı',
-          style: AppTextStyles.body2.copyWith(color: AppColors.orange),
+          style: AppTextStyles.body2.copyWith(color: AppColors.tiffany),
         ),
       ),
     );

@@ -56,7 +56,7 @@ class _MaterialCardState extends State<MaterialCard> {
           leftWidget: const Icon(Icons.school_outlined, size: 16),
           rightWidget: Expanded(
             child: Text(
-              material.department,
+              material.category,
               overflow: TextOverflow.ellipsis,
               style: AppTextStyles.body3,
             ),
@@ -97,16 +97,16 @@ class _MaterialCardState extends State<MaterialCard> {
         color: AppColors.white,
         border: Border.all(
           width: 0.5,
-          color: AppColors.vanilla,
+          color: AppColors.rose,
         ),
-        boxShadow: const [
+        /*boxShadow: const [
           BoxShadow(
-            color: AppColors.vanilla,
+            color: AppColors.rose,
             blurRadius: 1,
             spreadRadius: 0.1,
             offset: Offset(2, 2),
           ),
-        ],
+        ],*/
         borderRadius: BorderRadius.circular(15),
       ),
       width: width,

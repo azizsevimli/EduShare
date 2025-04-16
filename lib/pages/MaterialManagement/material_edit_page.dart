@@ -11,7 +11,7 @@ class MaterialEditPage extends StatefulWidget {
   State<MaterialEditPage> createState() => _MaterialEditPageState();
 }
 
-// TODO: Materyal düzenleme sayfası oluşturulacak.
+// TODO: 2. Materyal düzenleme sayfası oluşturulacak.
 class _MaterialEditPageState extends State<MaterialEditPage> {
   @override
   Widget build(BuildContext context) {

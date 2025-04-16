@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.all(60.0),
                 child: Text(
                   'EduShare',
-                  style: AppTextStyles.h1.copyWith(color: AppColors.orange),
+                  style: AppTextStyles.h1.copyWith(color: AppColors.tiffany),
                 ),
               ),
               EmailField(controller: emailController),

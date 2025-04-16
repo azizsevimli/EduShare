@@ -21,7 +21,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
   void signUpBtn() {
     
-    // TODO: Daha iyi bir validation yapısı oluşturulacak
+    // TODO: 7. Daha iyi bir validation yapısı oluşturulacak
     if (nameController.text.isEmpty || nameController.text.length < 3) {
       ShowSnackBar.showSnackBar(
         context,
@@ -96,7 +96,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     padding: const EdgeInsets.all(60.0),
                     child: Text(
                       'EduShare',
-                      style: AppTextStyles.h1.copyWith(color: AppColors.orange),
+                      style: AppTextStyles.h1.copyWith(color: AppColors.tiffany),
                     ),
                   ),
                   Row(
@@ -132,7 +132,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   Text(
                     'Şifreniz büyük harf, küçük harf rakam ve özel karakter içermeli (Min. 8 karakter)',
                     style:
-                        AppTextStyles.caption.copyWith(color: AppColors.brown),
+                        AppTextStyles.caption.copyWith(color: AppColors.xanthous),
                   ),
                   const SizedBox(height: 20.0),
                   SizedBox(

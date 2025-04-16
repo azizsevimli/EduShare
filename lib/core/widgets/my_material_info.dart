@@ -38,15 +38,15 @@ class MyMaterialInfo extends StatelessWidget {
             children: [
               Expanded(
                 child: OutlineLabel(
-                  text: material.department,
-                  color: AppColors.lightOrange,
+                  text: material.category,
+                  color: AppColors.lightTiffany,
                 ),
               ),
               const SizedBox(width: 10.0),
               Text(
                 '${material.price} TL',
                 style: AppTextStyles.body2.copyWith(
-                  color: AppColors.orange,
+                  color: AppColors.tiffany,
                   fontWeight: FontWeight.w500,
                 ),
               ),

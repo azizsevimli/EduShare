@@ -1,5 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import './favorite_service.dart';
 import './delete_image_service.dart';
 import '../models/material_model.dart';
@@ -24,6 +24,23 @@ class MaterialServices {
     }
   }
 
+  Future<List<DocumentSnapshot>> fetchMaterialDocuments({
+    required int limit,
+    DocumentSnapshot? startAfter,
+  }) async {
+    Query query = FirebaseFirestore.instance
+        .collection('materials')
+        .orderBy('createdAt', descending: true)
+        .limit(limit);
+
+    if (startAfter != null) {
+      query = query.startAfterDocument(startAfter);
+    }
+
+    final querySnapshot = await query.get();
+    return querySnapshot.docs;
+  }
+
   Future<void> deleteMaterial({
     required String id,
     required int imageCount,
@@ -41,6 +58,23 @@ class MaterialServices {
     for (int i = 0; i < imageCount; i++) {
       _deleteImageService.deleteImage(path: '$path$i.jpg');
     }
-    await _favoriteService.removeFromAllFavorites(id);
+    await _favoriteService.removeFromAllFavorites(id: id);
+  }
+
+  Future<List<MaterialModel>> fetchSimilarMaterials({
+    required String subcategory,
+    required String id,
+  }) async {
+    QuerySnapshot<Map<String, dynamic>> querySnapshot = await _firestore
+        .collection('materials')
+        .where('subcategory', isEqualTo: subcategory)
+        .where('id', isNotEqualTo: id)
+        .where('isSold', isEqualTo: false)
+        .limit(10).get();
+
+
+    return querySnapshot.docs
+        .map((doc) => MaterialModel.fromMap(doc.data()))
+        .toList();
   }
 }

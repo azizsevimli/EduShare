@@ -1,14 +1,11 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import '../../models/associate_model.dart';
-import '../../models/bachelor_model.dart';
+import '../../core/widgets/category_dropdown_menu.dart';
 import '../../services/user_service.dart';
-import '../../services/uni_and_dep_service.dart';
 import '../../services/new_material_service.dart';
 import '../../core/constants/constants.dart';
 import '../../core/widgets/custom_text_fields.dart';
 import '../../core/widgets/custom_button.dart';
-import '../../core/widgets/school_dropdown_menu.dart';
 import '../../core/widgets/material_image_picker.dart';
 import '../../core/utils/show_snackbar.dart';
 import '../../core/utils/generate_uuid.dart';
@@ -20,22 +17,21 @@ class MaterialAddPage extends StatefulWidget {
   State<MaterialAddPage> createState() => _MaterialAddPageState();
 }
 
-// TODO: Ürün için kategori seçme eklenecek
+// TODO: 3. Ürün için kategori seçme eklenecek
 
 class _MaterialAddPageState extends State<MaterialAddPage> {
-  final UserServices us = UserServices();
-  final UniAndDepService uniAndDepService = UniAndDepService();
-  TextEditingController materialTitleController = TextEditingController();
-  TextEditingController materialDescriptionController = TextEditingController();
-  TextEditingController materialCostController = TextEditingController();
-  TextEditingController materialDepController = TextEditingController();
-  TextEditingController materialSubjectController = TextEditingController();
+  final UserServices _userService = UserServices();
+
+  TextEditingController titleController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+  TextEditingController priceController = TextEditingController();
+  TextEditingController categoryController = TextEditingController();
+  TextEditingController subcategoryController = TextEditingController();
+  TextEditingController subjectController = TextEditingController();
 
   List<File?> _images = [null, null, null, null];
   bool isPaid = false;
-  List<Object> departments = [];
-  List<AssociateModel> associates = [];
-  List<BachelorModel> bachelors = [];
+  String selectedCategory = '';
 
   void _updateImages(List<File?> newImages) {
     setState(() {
@@ -43,47 +39,48 @@ class _MaterialAddPageState extends State<MaterialAddPage> {
     });
   }
 
-  Future<void> _loadData() async {
-    associates = await uniAndDepService.loadAssociates();
-    bachelors = await uniAndDepService.loadBachelors();
-    setState(() {
-      departments = [...associates, ...bachelors];
+  @override
+  void initState() {
+    super.initState();
+    categoryController.addListener(() {
+      setState(() {
+        selectedCategory = categoryController.text;
+        subcategoryController.text = '';
+      });
     });
   }
 
   @override
-  void initState() {
-    super.initState();
-    _loadData();
-  }
-
-  @override
   void dispose() {
-    materialTitleController.dispose();
-    materialDescriptionController.dispose();
-    materialCostController.dispose();
-    materialDepController.dispose();
-    materialSubjectController.dispose();
+    titleController.dispose();
+    descriptionController.dispose();
+    priceController.dispose();
+    categoryController.dispose();
+    subjectController.dispose();
     super.dispose();
   }
 
-  // TODO: Validation güncellenecek
+  // TODO: 3. Validation güncellenecek
   void addMaterial() {
     if (_images[0] == null ||
-        materialTitleController.text.isEmpty ||
-        materialDescriptionController.text.isEmpty ||
-        materialDepController.text.isEmpty ||
-        materialSubjectController.text.isEmpty) {
-      ShowSnackBar.showSnackBar(context, 'Lütfen tüm alanları doldurun!',);
+        titleController.text.isEmpty ||
+        descriptionController.text.isEmpty ||
+        categoryController.text.isEmpty ||
+        subjectController.text.isEmpty) {
+      ShowSnackBar.showSnackBar(
+        context,
+        'Lütfen tüm alanları doldurun!',
+      );
     } else {
       uploadMaterial(
         id: generateMaterialId(),
-        owner: us.getUserId()!,
-        title: materialTitleController.text.trim(),
-        description: materialDescriptionController.text.trim(),
-        cost: isPaid ? materialCostController.text.trim() : '0',
-        department: materialDepController.text.trim(),
-        subject: materialSubjectController.text.trim(),
+        owner: _userService.getUserId()!,
+        title: titleController.text.trim(),
+        description: descriptionController.text.trim(),
+        cost: isPaid ? priceController.text.trim() : '0',
+        category: categoryController.text.trim(),
+        subcategory: subcategoryController.text.trim(),
+        subject: subjectController.text.trim(),
         images: _images,
       );
     }
@@ -100,8 +97,8 @@ class _MaterialAddPageState extends State<MaterialAddPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const InputTitleSubtitle(
-              title: 'Ürün Görselleri',
-              subtitle: 'En az bir ürün görseli yükleyin',
+              title: 'Materyal Görselleri',
+              subtitle: 'En az bir görsel yükleyin',
             ),
             const SizedBox(height: 5),
             MaterialImagePicker(
@@ -110,67 +107,72 @@ class _MaterialAddPageState extends State<MaterialAddPage> {
             ),
             const SizedBox(height: 20),
             const InputTitleSubtitle(
-              title: 'Ürün Adı',
-              subtitle: 'Ürünün adını girin',
+              title: 'Materyal Başlığı',
+              subtitle: 'Bir başlık girin',
             ),
             const SizedBox(height: 5),
             CustomTextField(
-              controller: materialTitleController,
+              controller: titleController,
               hint: 'Örn: Hesap Makinesi',
               ml: false,
             ),
             const SizedBox(height: 20),
             const InputTitleSubtitle(
-              title: 'Ürün Açıklaması',
-              subtitle: 'Ürün hakkında detaylı bilgi verin (En az 30 karakter)',
+              title: 'Materyal Açıklaması',
+              subtitle: 'Materyal hakkında detaylı bilgi verin (En az 30 karakter)',
             ),
             const SizedBox(height: 5),
             CustomTextField(
-              controller: materialDescriptionController,
+              controller: descriptionController,
               hint: 'Marka model bilgisi, kullanım durumu, vb.',
               ml: true,
             ),
             const SizedBox(height: 20),
             const InputTitleSubtitle(
-              title: 'Ürün Fiyatı',
-              subtitle: 'Ürünün fiyatını girin',
+              title: 'Materyal Fiyatı',
+              subtitle: 'Materyal fiyatını girin',
             ),
             const SizedBox(height: 5),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                buildRadio('Ücretsiz', false),
+                buildRadio(title: 'Ücretsiz', v: false),
                 const SizedBox(width: 20),
-                buildRadio('Ücretli', true),
+                buildRadio(title: 'Ücretli', v: true),
               ],
             ),
             const SizedBox(height: 5),
             if (isPaid == true)
               OnlyCostField(
-                controller: materialCostController,
+                controller: priceController,
                 hint: 'Ücret',
               ),
             const SizedBox(height: 20),
             const InputTitleSubtitle(
-              title: 'İlgili Bölüm',
-              subtitle: 'Ürünün kullanıldığı bölümü seçin',
+              title: 'Kategori',
+              subtitle: 'Kategori ve alt kategoriyi seçin',
             ),
-            const SizedBox(height: 5),
-            AllDepartmentBottomSheet(controller: materialDepController),
+            const SizedBox(height: 10),
+            CategoryDropdownMenu(
+              controller: categoryController,
+            ),
+            const SizedBox(height: 20),
+            SubcategoriesDropdownMenu(controller: subcategoryController, category: selectedCategory,),
+            //AllDepartmentBottomSheet(controller: materialDepController),
             const SizedBox(height: 20),
             const InputTitleSubtitle(
-              title: 'İlgili Ders',
-              subtitle: 'Ürünün kullanıldığı dersi seçin',
+              title: 'Ders',
+              subtitle: 'İlgili dersi yazın',
             ),
             const SizedBox(height: 5),
             CustomTextField(
-              controller: materialSubjectController,
-              hint: 'Örn: Mühendislik Matematiği',
+              controller: subjectController,
+              hint: 'Örn: Mobil Programlama',
               ml: false,
             ),
             const SizedBox(height: 20),
             CustomElevatedButton(
-              text: 'Ürünü Ekle',
+              text: 'Materyal Ekle',
               onPressed: addMaterial,
               width: width,
             ),
@@ -181,7 +183,7 @@ class _MaterialAddPageState extends State<MaterialAddPage> {
     );
   }
 
-  Row buildRadio(String title, bool val) {
+  Row buildRadio({required String title, required bool v}) {
     return Row(
       children: [
         Radio<bool>(
@@ -189,7 +191,7 @@ class _MaterialAddPageState extends State<MaterialAddPage> {
           splashRadius: 10,
           fillColor: const WidgetStatePropertyAll(AppColors.periwinkle),
           overlayColor: const WidgetStatePropertyAll(AppColors.periwinkle),
-          value: val,
+          value: v,
           groupValue: isPaid,
           onChanged: (value) {
             setState(() {

@@ -55,13 +55,7 @@ class _DeleteDialogState extends State<DeleteDialog> {
           text: 'İptal',
         ),
         isDeleting
-            ? const CustomCircularIndicator(
-                width: 100,
-                height: 40,
-                size: 30,
-                color: AppColors.white,
-                bgColor: AppColors.red,
-              )
+            ? const CustomCircularIndicator()
             : CustomElevatedButton(
                 onPressed: _handleDelete,
                 text: 'Sil',

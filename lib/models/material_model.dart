@@ -1,13 +1,17 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class MaterialModel {
   final String id;
   final String owner;
   final String title;
   final String description;
   final String price;
-  final String department;
+  final String category;
+  final String subcategory;
   final String subject;
   final List<String> imageUrls;
   final bool isSold;
+  final DateTime createdAt;
 
   MaterialModel({
     required this.id,
@@ -15,10 +19,12 @@ class MaterialModel {
     required this.title,
     required this.description,
     required this.price,
-    required this.department,
+    required this.category,
+    required this.subcategory,
     required this.subject,
     required this.imageUrls,
     required this.isSold,
+    required this.createdAt,
   });
 
   Map<String, dynamic> toMap() {
@@ -28,10 +34,12 @@ class MaterialModel {
       'title': title,
       'description': description,
       'price': price,
-      'department': department,
+      'category': category,
+      'subcategory': subcategory,
       'subject': subject,
       'imageUrl': imageUrls,
       'isSold': isSold,
+      'createdAt': Timestamp.fromDate(createdAt),
     };
   }
 
@@ -42,10 +50,12 @@ class MaterialModel {
       title: map['title'] ?? '',
       description: map['description'] ?? '',
       price: map['price'] ?? 0.0,
-      department: map['department'] ?? '',
+      category: map['category'] ?? '',
+      subcategory: map['subcategory'] ?? '',
       subject: map['subject'] ?? '',
       imageUrls: List<String>.from(map['imageUrl'] ?? []),
       isSold: map['isSold'],
+      createdAt: (map['createdAt'] as Timestamp).toDate(),
     );
   }
 }
