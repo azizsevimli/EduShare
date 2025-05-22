@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   bool _isLoading = false;
   bool _hasMore = true;
   DocumentSnapshot? _lastDocument;
-  static const int _documentLimit = 10;
+  static const int _limit = 10;
 
   @override
   void initState() {
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
     Query query = _firestore
         .collection('materials')
         .orderBy('createdAt', descending: true)
-        .limit(_documentLimit);
+        .limit(_limit);
 
     if (_lastDocument != null) {
       query = query.startAfterDocument(_lastDocument!);
@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
       _materials.addAll(querySnapshot.docs);
     }
 
-    if (querySnapshot.docs.length < _documentLimit) {
+    if (querySnapshot.docs.length < _limit) {
       _hasMore = false;
     }
 

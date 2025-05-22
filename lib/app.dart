@@ -1,3 +1,4 @@
+import 'package:edushare/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import './core/constants/constants.dart';
@@ -25,10 +26,13 @@ class AppLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final  UserServices us = UserServices();
+    String currentUserId = us.getUserId()!;
     int currentIndex = _calculateSelectedIndex(context);
 
+
     return Scaffold(
-      appBar: buildAppBar(context: context, index: currentIndex),
+      appBar: buildAppBar(context: context,currentUserId: currentUserId, index: currentIndex),
       body: child,
       bottomNavigationBar: _buildBottomAppBar(context: context, index: currentIndex),
       floatingActionButton: _buildFloatingActionButton(context, currentIndex),
@@ -64,8 +68,8 @@ class AppLayout extends StatelessWidget {
             context,
             index,
             index: 2,
-            selectedIcon: Icons.list_alt_outlined,
-            unselectedIcon: Icons.format_list_bulleted,
+            selectedIcon: Icons.format_list_bulleted,
+            unselectedIcon: Icons.list_alt_outlined,
             route: '/my-materials',
           ),
           _buildBottomNavigationIcon(

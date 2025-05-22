@@ -5,29 +5,47 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final String hint;
   final String? label;
-  final bool ml;
+  final String? title;
+  final String? subtitle;
+  final bool multiline;
 
   const CustomTextField({
     super.key,
     required this.controller,
     required this.hint,
     this.label,
-    required this.ml,
+    this.title,
+    this.subtitle,
+    required this.multiline,
   });
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,
-      keyboardType: ml ? TextInputType.multiline : TextInputType.text,
-      maxLines: ml ? null : 1,
-      maxLength: ml ? 300 : null,
-      textCapitalization:
-          ml ? TextCapitalization.sentences : TextCapitalization.words,
-      decoration: InputDecoration(
-        labelText: label ?? '',
-        hintText: hint,
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (title != null && subtitle != null)
+          InputTitleSubtitle(
+            title: title,
+            subtitle: subtitle,
+          ),
+        const SizedBox(height: 5),
+        TextField(
+          controller: controller,
+          keyboardType:
+              multiline ? TextInputType.multiline : TextInputType.text,
+          maxLines: multiline ? null : 1,
+          maxLength: multiline ? 300 : null,
+          textCapitalization: multiline
+              ? TextCapitalization.sentences
+              : TextCapitalization.words,
+          decoration: InputDecoration(
+            labelText: label ?? '',
+            hintText: hint,
+          ),
+        ),
+      ],
     );
   }
 }
@@ -36,35 +54,54 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController controller;
   final String hint;
   final String? label;
-  final bool ml;
+  final String? title;
+  final String? subtitle;
+  final bool multiline;
 
   const CustomTextFormField({
     super.key,
     required this.controller,
     required this.hint,
     this.label,
-    required this.ml,
+    this.title,
+    this.subtitle,
+    required this.multiline,
   });
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-        controller: controller,
-        keyboardType: ml ? TextInputType.multiline : TextInputType.text,
-        maxLines: ml ? null : 1,
-        maxLength: ml ? 300 : null,
-        textCapitalization:
-            ml ? TextCapitalization.sentences : TextCapitalization.words,
-        decoration: InputDecoration(
-          labelText: label ?? '',
-          hintText: hint,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (title != null && subtitle != null)
+          InputTitleSubtitle(
+            title: title,
+            subtitle: subtitle,
+          ),
+        const SizedBox(height: 5),
+        TextFormField(
+          controller: controller,
+          keyboardType:
+              multiline ? TextInputType.multiline : TextInputType.text,
+          maxLines: multiline ? null : 1,
+          maxLength: multiline ? 300 : null,
+          textCapitalization: multiline
+              ? TextCapitalization.sentences
+              : TextCapitalization.words,
+          decoration: InputDecoration(
+            labelText: label ?? '',
+            hintText: hint,
+          ),
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Bu alan boş bırakılamaz';
+            }
+            return null;
+          },
         ),
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return 'Bu alan boş bırakılamaz';
-          }
-          return null;
-        });
+      ],
+    );
   }
 }
 
@@ -182,23 +219,46 @@ class _PasswordFieldState extends State<PasswordField> {
 class OnlyCostField extends StatelessWidget {
   final TextEditingController controller;
   final String hint;
+  final String? title;
+  final String? subtitle;
 
   const OnlyCostField({
     super.key,
     required this.controller,
     required this.hint,
+    this.title,
+    this.subtitle,
   });
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,
-      keyboardType: TextInputType.number,
-      decoration: const InputDecoration(
-        hintText: '0',
-        suffixIcon: Icon(Icons.currency_lira_outlined),
-        suffixIconColor: AppColors.tiffany,
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (title != null && subtitle != null) ...[
+          InputTitleSubtitle(
+            title: title,
+            subtitle: subtitle,
+          ),
+          const SizedBox(height: 5),
+        ],
+        TextFormField(
+          controller: controller,
+          keyboardType: TextInputType.number,
+          decoration: const InputDecoration(
+            hintText: '0',
+            suffixIcon: Icon(Icons.currency_lira_outlined),
+            suffixIconColor: AppColors.tiffany,
+          ),
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Bu alan boş bırakılamaz';
+            }
+            return null;
+          },
+        ),
+      ],
     );
   }
 }

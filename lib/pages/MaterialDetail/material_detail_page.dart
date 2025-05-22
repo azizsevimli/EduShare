@@ -47,7 +47,7 @@ class _MaterialDetailPageState extends State<MaterialDetailPage> {
               return Text("Hata oluştu: ${snapshot.error}");
             }
             if (!snapshot.hasData || snapshot.data == null) {
-              return const Text("Ürün bulunamadı");
+              return const Text("Materyal bulunamadı");
             }
             material = snapshot.data!;
 

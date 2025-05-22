@@ -28,7 +28,7 @@ class UserInfoCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 
-                // TODO: 4. Taşmalar engellenecek
+                // TODO: Taşmalar engellenecek
                 Text(
                   '${user.name}  ${user.surname}',
                   style: AppTextStyles.body1.copyWith(fontWeight: FontWeight.w500),

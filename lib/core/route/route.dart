@@ -2,7 +2,9 @@ import 'package:edushare/pages/MaterialManagement/my_materials_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../app.dart';
+import '../../models/user_model.dart';
 import '../../pages/MaterialManagement/material_edit_page.dart';
+import '../../pages/Messages/chat_page.dart';
 import '../../pages/Profile/favorites_page.dart';
 import '../../pages/Profile/notifications_page.dart';
 import '../../pages/Settings/settings_page.dart';
@@ -44,7 +46,8 @@ class AppRouter {
           GoRoute(
             path: 'profile-info',
             builder: (BuildContext context, GoRouterState state) {
-              final Map<String, dynamic> data = state.extra as Map<String, dynamic>;
+              final Map<String, dynamic> data =
+                  state.extra as Map<String, dynamic>;
               return SignUpInfoPage(data: data);
             },
           ),
@@ -81,7 +84,8 @@ class AppRouter {
           ),
           GoRoute(
             path: '/profile',
-            pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                const NoTransitionPage(
               child: ProfilePage(),
             ),
           ),
@@ -107,9 +111,25 @@ class AppRouter {
         },
       ),
       GoRoute(
-        path: '/messages',
+        path: '/messages/:currentUserId',
         builder: (BuildContext context, GoRouterState state) {
-          return const MessagesPage();
+          final currentUserId = state.pathParameters['currentUserId']!;
+          return MessagesPage(currentUserId: currentUserId);
+        },
+      ),
+      GoRoute(
+        path: '/messages/chat/:materialId/:currentUserId/:targetUserId',
+        builder: (BuildContext context, GoRouterState state) {
+          final UserModel user = state.extra as UserModel;
+          final materialId = state.pathParameters['materialId']!;
+          final currentUserId = state.pathParameters['currentUserId']!;
+          final targetUserId = state.pathParameters['targetUserId']!;
+          return ChatPage(
+            user: user,
+            materialId: materialId,
+            currentUserId: currentUserId,
+            targetUserId: targetUserId,
+          );
         },
       ),
       GoRoute(
@@ -130,7 +150,7 @@ class AppRouter {
         path: '/my-materials/edit/:id',
         builder: (BuildContext context, GoRouterState state) {
           final materialId = state.pathParameters['id']!;
-          return MaterialEditPage(materialId: materialId);
+          return MaterialEditPage(id: materialId);
         },
       ),
       GoRoute(

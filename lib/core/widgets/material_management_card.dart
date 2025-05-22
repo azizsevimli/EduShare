@@ -43,10 +43,12 @@ class MaterialManagementCard extends StatelessWidget {
           flex: 5,
           child: MyMaterialInfo(material: material),
         ),
-        Flexible(
-          flex: 1,
-          child: buildButtons(onRoute: onRoute),
-        ),
+        if (!material.isSold) ...[
+          Flexible(
+            flex: 1,
+            child: buildButtons(onRoute: onRoute),
+          ),
+        ]
       ],
     );
   }

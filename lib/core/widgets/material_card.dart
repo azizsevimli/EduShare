@@ -64,9 +64,18 @@ class _MaterialCardState extends State<MaterialCard> {
           alignment: MainAxisAlignment.start,
         ),
         _buildRow(
-          leftWidget: Text(material.price, style: AppTextStyles.body1),
-          rightWidget: const Icon(Icons.currency_lira, size: 16),
-          alignment: MainAxisAlignment.end,
+          leftWidget: material.isSold
+              ? null
+              : Text(material.price, style: AppTextStyles.body1),
+          rightWidget: material.isSold
+              ? Text(
+                  "SATILDI",
+                  style: AppTextStyles.h3.copyWith(color: AppColors.red),
+                )
+              : const Icon(Icons.currency_lira, size: 16),
+          alignment: material.isSold
+              ? MainAxisAlignment.center
+              : MainAxisAlignment.end,
         ),
       ],
     );
@@ -95,19 +104,11 @@ class _MaterialCardState extends State<MaterialCard> {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.white,
+        borderRadius: BorderRadius.circular(15),
         border: Border.all(
           width: 0.5,
           color: AppColors.rose,
         ),
-        /*boxShadow: const [
-          BoxShadow(
-            color: AppColors.rose,
-            blurRadius: 1,
-            spreadRadius: 0.1,
-            offset: Offset(2, 2),
-          ),
-        ],*/
-        borderRadius: BorderRadius.circular(15),
       ),
       width: width,
       height: height,

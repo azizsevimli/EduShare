@@ -96,7 +96,7 @@ class _SubcategoriesDropdownMenuState extends State<SubcategoriesDropdownMenu> {
     }
   }
 
-  void _showDepPicker(BuildContext context) {
+  void _showDepPicker({required BuildContext context}) {
     if (widget.category != '') {
       loadSubcategories(category: widget.category!).then((_) {
         showModalBottomSheet(
@@ -118,7 +118,7 @@ class _SubcategoriesDropdownMenuState extends State<SubcategoriesDropdownMenu> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _showDepPicker(context),
+      onTap: () => _showDepPicker(context: context),
       child: AbsorbPointer(
         child: TextField(
           controller: widget.controller,

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import './custom_button.dart';
+import './custom_circular_indicator.dart';
 import '../constants/constants.dart';
 import '../../models/user_model.dart';
 import '../../models/material_model.dart';
 import '../../services/user_service.dart';
-import 'custom_circular_indicator.dart';
 
 class MaterialInfoArea extends StatefulWidget {
   final MaterialModel material;
@@ -22,11 +22,14 @@ class MaterialInfoArea extends StatefulWidget {
 class _MaterialInfoAreaState extends State<MaterialInfoArea> {
   final UserServices us = UserServices();
   UserModel? ownerUser;
+  late String? currentUid;
+  late String? targetUid;
   bool isLoading = true;
 
   @override
   void initState() {
     super.initState();
+    currentUid = us.getUserId();
     _loadOwnerData();
   }
 
@@ -35,6 +38,7 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
       final user = await us.getUserData(uid: widget.material.owner);
       setState(() {
         ownerUser = user;
+        targetUid = ownerUser!.uid;
         isLoading = false;
       });
     } catch (e) {
@@ -42,8 +46,11 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
     }
   }
 
-  void sendMessage() {
-    debugPrint('Mesaj gönder: ${widget.material.owner}');
+  void sendMessage({required UserModel user}) {
+    context.push(
+      '/messages/chat/${widget.material.id}/$currentUid/$targetUid',
+      extra: user,
+    );
   }
 
   @override
@@ -76,7 +83,7 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
             ? _buildSoldContainer(size: size, context: context)
             : CustomElevatedButton(
                 text: 'Mesaj Gönder',
-                onPressed: sendMessage,
+                onPressed: () => sendMessage(user: ownerUser!),
                 icon: Icons.message_outlined,
                 width: size.width,
               ),
@@ -139,8 +146,12 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
               ),
             ),
             child: Center(
-              child: Text(widget.material.category,
-                  style: AppTextStyles.body3.copyWith(color: AppColors.wine)),
+              child: Text(
+                widget.material.category,
+                style: AppTextStyles.body3.copyWith(
+                  color: AppColors.wine,
+                ),
+              ),
             ),
           ),
         ],
@@ -157,11 +168,15 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           isLoading
-              ? const CustomCircularIndicator()
+              ? const CustomCircularIndicator(
+                  width: 40,
+                  height: 40,
+                  bgColor: AppColors.white,
+                )
               : CircleAvatar(
-            radius: 20,
-            backgroundImage: NetworkImage(ownerUser!.imageUrl),
-          ),
+                  radius: 20,
+                  backgroundImage: NetworkImage(ownerUser!.imageUrl),
+                ),
           const SizedBox(width: 15),
           Text(
             ownerUser == null ? '' : '${ownerUser!.name} ${ownerUser!.surname}',
@@ -172,23 +187,27 @@ class _MaterialInfoAreaState extends State<MaterialInfoArea> {
     );
   }
 
-  Container _buildSoldContainer(
-      {required Size size, required BuildContext context}) {
+  Container _buildSoldContainer({
+    required Size size,
+    required BuildContext context,
+  }) {
     return Container(
       width: size.width,
       height: 40,
       decoration: BoxDecoration(
-        color: AppColors.rose,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(15),
         border: Border.all(
           width: 1,
-          color: AppColors.darkRose,
+          color: AppColors.rose,
         ),
       ),
       child: Center(
         child: Text(
           'Satıldı',
-          style: AppTextStyles.body2.copyWith(color: AppColors.tiffany),
+          style: AppTextStyles.body1.copyWith(
+            color: AppColors.rose,
+          ),
         ),
       ),
     );

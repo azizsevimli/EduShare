@@ -54,6 +54,7 @@ class _MyMaterialsPageState extends State<MyMaterialsPage> {
             MyMaterialsList(
               future: materialFuture,
               index: _selectedIndex,
+              type: "my",
             ),
           ],
         ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-AppBar buildAppBar({required BuildContext context, int? index}) {
+AppBar buildAppBar({required BuildContext context,required String currentUserId, int? index}) {
   switch (index) {
     case 0:
       return AppBar(
@@ -10,7 +10,7 @@ AppBar buildAppBar({required BuildContext context, int? index}) {
           IconButton(
             icon: const Icon(Icons.mail_outline_outlined),
             color: Colors.white,
-            onPressed: () => context.push('/messages'),
+            onPressed: () => context.push('/messages/$currentUserId'),
           ),
         ],
       );

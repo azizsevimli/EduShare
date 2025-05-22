@@ -9,6 +9,22 @@ class UserServices {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  String? getUserId() {
+    return _auth.currentUser?.uid;
+  }
+
+  void checkUser({
+    required Function() onUserFound,
+    required Function() onUserNotFound,
+  }) async {
+    final User? user = _auth.currentUser;
+    if (user != null) {
+      onUserFound();
+    } else {
+      onUserNotFound();
+    }
+  }
+
   Future<void> registerUser({
     required String name,
     required String surname,
@@ -61,15 +77,18 @@ class UserServices {
     }
   }
 
-  void checkUser({
-    required Function() onUserFound,
-    required Function() onUserNotFound,
-  }) async {
-    final User? user = _auth.currentUser;
-    if (user != null) {
-      onUserFound();
-    } else {
-      onUserNotFound();
+  Future<void> updateUser({required UserModel user}) async {
+    final String? uid = _auth.currentUser?.uid;
+    if (uid == null) return;
+    try {
+      await _firestore.collection('users').doc(uid).update(user.toMap());
+      debugPrint("Veriler başarıyla güncellendi");
+    } on FirebaseException catch (e) {
+      debugPrint("Firebase hatası: ${e.message}");
+      rethrow;
+    } catch (e) {
+      debugPrint("Bilinmeyen bir hata oluştu: $e");
+      rethrow;
     }
   }
 
@@ -83,10 +102,6 @@ class UserServices {
     } catch (e) {
       onError('$e');
     }
-  }
-
-  String? getUserId() {
-    return _auth.currentUser?.uid;
   }
 
   Future<UserModel?> getUserData({String? uid}) async {
@@ -145,20 +160,5 @@ class UserServices {
         .toList();
 
     return materials;
-  }
-
-  Future<void> updateUser({required Map<String, dynamic> updatedData}) async {
-    final String? uid = _auth.currentUser?.uid;
-    if (uid == null) return;
-    try {
-      await _firestore.collection('users').doc(uid).update(updatedData);
-      debugPrint("Veriler başarıyla güncellendi");
-    } on FirebaseException catch (e) {
-      debugPrint("Firebase hatası: ${e.message}");
-      rethrow;
-    } catch (e) {
-      debugPrint("Bilinmeyen bir hata oluştu: $e");
-      rethrow;
-    }
   }
 }

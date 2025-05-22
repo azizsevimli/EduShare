@@ -1,16 +1,17 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../core/constants/constants.dart';
 import '../../core/utils/image_source_options.dart';
+import '../../core/utils/show_snackbar.dart';
 import '../../core/widgets/app_card.dart';
 import '../../core/widgets/custom_app_bar.dart';
 import '../../core/widgets/personal_info_inputs.dart';
 import '../../core/widgets/university_info_inputs.dart';
+import '../../models/user_model.dart';
 import '../../services/upload_image_service.dart';
 import '../../core/widgets/custom_button.dart';
+import '../../services/user_service.dart';
 
 class ProfileEditPage extends StatefulWidget {
   final Map<String, dynamic> data;
@@ -22,9 +23,10 @@ class ProfileEditPage extends StatefulWidget {
 }
 
 class _ProfileEditPageState extends State<ProfileEditPage> {
-  final FirebaseFirestore ffs = FirebaseFirestore.instance;
-  final _formKey = GlobalKey<FormState>();
+  final UserServices _userService = UserServices();
   final ImagePicker _picker = ImagePicker();
+  final _formKey = GlobalKey<FormState>();
+
   final TextEditingController nameController = TextEditingController();
   final TextEditingController surnameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -46,7 +48,6 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     }
   }
 
-  // TODO: 6. Formkey ile verilerin doğruluğunu kontrol et ve UserService fonksiyonunu kullan
   Future<void> _updateProfile({required BuildContext context}) async {
     if (_image != null) {
       imageUrl = await uploadProfileImageToStorage(
@@ -54,18 +55,32 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
         owner: widget.data['uid'],
       );
     }
-    await ffs.collection('users').doc(widget.data['uid']).update({
-      'name': nameController.text,
-      'surname': surnameController.text,
-      'mail': emailController.text,
-      'phone': phoneController.text,
-      'university': uniController.text,
-      'department': depController.text,
-      'degree': degreeController.text,
-      'grade': gradeController.text,
-      'imageUrl': imageUrl ?? widget.data['imageUrl'],
-    });
-    context.mounted ? context.go('/profile') : null;
+    final UserModel user = UserModel(
+      uid: widget.data['uid'],
+      name: nameController.text,
+      surname: surnameController.text,
+      mail: widget.data['mail'],
+      phone: widget.data['phone'],
+      university: uniController.text,
+      department: depController.text,
+      degree: degreeController.text,
+      grade: gradeController.text,
+      imageUrl: imageUrl ?? widget.data['imageUrl'],
+      favoriteMaterials: widget.data['favoriteMaterials'],
+    );
+    await _userService.updateUser(user: user);
+    context.mounted ? Navigator.pop(context) : null;
+  }
+
+  void _validateAndSubmit({required BuildContext context}) {
+    if (_formKey.currentState!.validate()) {
+      _updateProfile(context: context);
+    } else {
+      ShowSnackBar.showSnackBar(
+        context,
+        'Lütfen tüm alanları doğru şekilde doldurun!',
+      );
+    }
   }
 
   @override
@@ -88,6 +103,19 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    nameController.dispose();
+    surnameController.dispose();
+    emailController.dispose();
+    phoneController.dispose();
+    uniController.dispose();
+    depController.dispose();
+    gradeController.dispose();
+    degreeController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -98,7 +126,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
           Padding(
             padding: const EdgeInsets.only(right: 5.0),
             child: CustomElevatedButton(
-              onPressed: () => _updateProfile(context: context),
+              onPressed: () => _validateAndSubmit(context: context),
               text: 'Kaydet',
               width: 90.0,
               bgColor: AppColors.lightTiffany,

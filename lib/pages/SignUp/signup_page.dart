@@ -21,7 +21,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
   void signUpBtn() {
     
-    // TODO: 7. Daha iyi bir validation yapısı oluşturulacak
+    // TODO: Daha iyi bir validation yapısı oluşturulacak
     if (nameController.text.isEmpty || nameController.text.length < 3) {
       ShowSnackBar.showSnackBar(
         context,
@@ -107,7 +107,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           controller: nameController,
                           label: 'Ad',
                           hint: 'Adınızı girin',
-                          ml: false,
+                          multiline: false,
                         ),
                       ),
                       const SizedBox(width: 5.0),
@@ -117,7 +117,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           controller: surnameController,
                           label: 'Soyad',
                           hint: 'Soyadınızı girin',
-                          ml: false,
+                          multiline: false,
                         ),
                       ),
                     ],
