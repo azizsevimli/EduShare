@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import '../../services/auth_services.dart';
 import '../../core/utils/show_snackbar.dart';
 import '../../core/constants/constants.dart';
@@ -23,8 +23,8 @@ class _LoginPageState extends State<LoginPage> {
     await authService.signInUser(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
+        context: context,
         onError: (String message) => ShowSnackBar.showSnackBar(context, message),
-        onSuccess: loginOnSuccess,
     );
   }
 
@@ -34,11 +34,6 @@ class _LoginPageState extends State<LoginPage> {
       onError: (String message) => ShowSnackBar.showSnackBar(context, message),
       onSuccess: resetOnSuccess,
     );
-  }
-
-  void loginOnSuccess(UserCredential userCredential) {
-    ShowSnackBar.showSnackBar(context, 'Giriş başarılı: ${userCredential.user?.email}');
-    context.go('/home');
   }
 
   void resetOnSuccess() {
@@ -67,7 +62,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-
     return SafeArea(
       child: Scaffold(
         body: Padding(

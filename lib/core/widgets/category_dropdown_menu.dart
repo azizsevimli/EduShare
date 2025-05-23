@@ -21,7 +21,7 @@ class _CategoryDropdownMenuState extends State<CategoryDropdownMenu> {
   late List<CategoryModel> _categories;
 
   Future<void> loadCategories() async {
-    _categories = await _service.fetchCategories();
+    _categories = await _service.getCategories();
   }
 
   @override
@@ -99,18 +99,20 @@ class _SubcategoriesDropdownMenuState extends State<SubcategoriesDropdownMenu> {
   void _showDepPicker({required BuildContext context}) {
     if (widget.category != '') {
       loadSubcategories(category: widget.category!).then((_) {
-        showModalBottomSheet(
-          context: context,
-          builder: (BuildContext context) {
-            return draggableScrollable(
-              title: 'Alt kategori seçiniz',
-              list: _subcategories,
-              controller: widget.controller,
-              context: context,
-              isSubcategory: true,
-            );
-          },
-        );
+        if (context.mounted) {
+          showModalBottomSheet(
+            context: context,
+            builder: (BuildContext context) {
+              return draggableScrollable(
+                title: 'Alt kategori seçiniz',
+                list: _subcategories,
+                controller: widget.controller,
+                context: context,
+                isSubcategory: true,
+              );
+            },
+          );
+        }
       });
     }
   }
@@ -162,7 +164,8 @@ Widget draggableScrollable({
                 return ListTile(
                   title: Text(isSubcategory! ? list[index] : list[index].name),
                   onTap: () {
-                    controller.text = isSubcategory ? list[index] : list[index].name;
+                    controller.text =
+                        isSubcategory ? list[index] : list[index].name;
                     Navigator.pop(context);
                   },
                 );

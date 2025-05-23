@@ -1,16 +1,18 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+
 import '../../core/constants/constants.dart';
 import '../../core/utils/image_source_options.dart';
 import '../../core/utils/show_snackbar.dart';
 import '../../core/widgets/app_card.dart';
 import '../../core/widgets/custom_app_bar.dart';
+import '../../core/widgets/custom_button.dart';
 import '../../core/widgets/personal_info_inputs.dart';
 import '../../core/widgets/university_info_inputs.dart';
 import '../../models/user_model.dart';
 import '../../services/upload_image_service.dart';
-import '../../core/widgets/custom_button.dart';
+import '../../services/url_to_file_service.dart';
 import '../../services/user_service.dart';
 
 class ProfileEditPage extends StatefulWidget {
@@ -36,7 +38,9 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
   final TextEditingController gradeController = TextEditingController();
   final TextEditingController degreeController = TextEditingController();
   File? _image;
+  File? _defaultImage;
   String? imageUrl;
+  bool isLoading = false;
 
   Future<void> _pickImage({required ImageSource source}) async {
     final pickedFile = await _picker.pickImage(source: source);
@@ -49,11 +53,13 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
   }
 
   Future<void> _updateProfile({required BuildContext context}) async {
-    if (_image != null) {
+    if (_image != null && _image != _defaultImage) {
       imageUrl = await uploadProfileImageToStorage(
         image: _image!,
         owner: widget.data['uid'],
       );
+    } else {
+      imageUrl = defaultProfileImageUrl;
     }
     final UserModel user = UserModel(
       uid: widget.data['uid'],
@@ -83,9 +89,25 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     }
   }
 
+  Future<void> _imageUrlToFile() async {
+    setState(() {
+      isLoading = true;
+    });
+    if (widget.data['imageUrl'] != null) {
+      if (widget.data['imageUrl'] != defaultProfileImageUrl) {
+        _image = await urlToFile(imageUrl: widget.data['imageUrl']);
+      }
+      _defaultImage = await urlToFile(imageUrl: defaultProfileImageUrl);
+    }
+    setState(() {
+      isLoading = false;
+    });
+  }
+
   @override
   void initState() {
     super.initState();
+    _imageUrlToFile();
     nameController.text = widget.data['name'];
     surnameController.text = widget.data['surname'];
     emailController.text = widget.data['mail'];
@@ -143,15 +165,17 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
             children: [
               CircleAvatar(
                 radius: 50,
-                backgroundImage: _image != null
-                    ? FileImage(_image!)
-                    : NetworkImage(widget.data['imageUrl']),
+                backgroundImage: isLoading
+                    ? null
+                    : _image != null
+                        ? FileImage(_image!)
+                        : FileImage(_defaultImage!),
               ),
               CustomTextButton(
                 text: 'Resmi güncelle',
                 onPressed: () => showImageSourceOptions(
                   context: context,
-                  image: _image,
+                  image: _image == _defaultImage ? null : _image,
                   onImageFromGallery: () {
                     Navigator.of(context).pop();
                     _pickImage(source: ImageSource.gallery);
@@ -163,7 +187,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                   onRemoveImage: () {
                     Navigator.of(context).pop();
                     setState(() {
-                      _image = null;
+                      _image = _defaultImage;
                     });
                   },
                 ),
@@ -176,6 +200,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                     const SizedBox(height: 10.0),
                     AppCard(
                       width: size.width,
+                      margin: const EdgeInsets.all(0.0),
                       child: PersonalInfoInputs(
                         nameController: nameController,
                         surnameController: surnameController,
@@ -188,6 +213,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                     const SizedBox(height: 10.0),
                     AppCard(
                       width: size.width,
+                      margin: const EdgeInsets.all(0.0),
                       child: UniversityInfoInputs(
                         uniController: uniController,
                         depController: depController,

@@ -5,6 +5,7 @@ class AppCard extends StatelessWidget {
   final Widget child;
   final double width;
   final double? height;
+  final EdgeInsetsGeometry? margin;
   final double? padding;
   final Color? color;
   final Color? borderColor;
@@ -18,13 +19,14 @@ class AppCard extends StatelessWidget {
     required this.child,
     required this.width,
     this.height,
-    this.padding,
-    this.color,
-    this.borderColor,
-    this.borderRadius,
-    this.borderWidth,
-    this.shadowColor,
-    this.blurRadius,
+    this.margin = const EdgeInsets.all(10.0),
+    this.padding = 10.0,
+    this.color = AppColors.white,
+    this.borderColor = AppColors.lightPeriwinkle,
+    this.borderRadius = 15.0,
+    this.borderWidth = 0.5,
+    this.shadowColor = AppColors.lightPeriwinkle,
+    this.blurRadius = 1.0,
   });
 
   @override
@@ -32,18 +34,19 @@ class AppCard extends StatelessWidget {
     return Container(
       width: width,
       height: height,
-      padding: EdgeInsets.all(padding ?? 10.0),
+      margin: margin!,
+      padding: EdgeInsets.all(padding!),
       decoration: BoxDecoration(
-        color: color ?? AppColors.white,
-        borderRadius: BorderRadius.circular(borderRadius ?? 15.0),
+        color: color!,
+        borderRadius: BorderRadius.circular(borderRadius!),
         border: Border.all(
-          width: borderWidth ?? 0.5,
-          color: borderColor ?? AppColors.lightPeriwinkle,
+          width: borderWidth!,
+          color: borderColor!,
         ),
         boxShadow: [
           BoxShadow(
-            color: shadowColor ?? AppColors.lightPeriwinkle,
-            blurRadius: blurRadius ?? 1.0,
+            color: shadowColor!,
+            blurRadius: blurRadius!,
             spreadRadius: 0.1,
             offset: const Offset(2.0, 2.0),
           ),

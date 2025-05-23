@@ -73,10 +73,15 @@ class _MaterialImagePickerState extends State<MaterialImagePicker> {
   }
 
   GestureDetector _buildImageBox(
-      BuildContext context, double width, File? selectedImage, int index) {
+    BuildContext context,
+    double width,
+    File? selectedImage,
+    int index,
+  ) {
     return GestureDetector(
       onTap: () => showImageSourceOptions(
         context: context,
+        image: selectedImage,
         onImageFromGallery: () {
           Navigator.of(context).pop();
           _pickImage(ImageSource.gallery, index);

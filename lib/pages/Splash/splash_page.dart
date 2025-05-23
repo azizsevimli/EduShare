@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../services/user_service.dart';
+import '../../services/auth_services.dart';
 import '../../core/constants/constants.dart';
 
 class SplashPage extends StatelessWidget {
@@ -8,10 +8,11 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final UserServices us = UserServices();
+    final AuthService authService = AuthService();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      us.checkUser(
+      authService.checkUser(
+        onAdminFound: () => context.go('/admin/home'),
         onUserFound: () => context.go('/home'),
         onUserNotFound: () => context.go('/login'),
       );

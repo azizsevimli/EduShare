@@ -31,6 +31,7 @@ class UserInfoCard extends StatelessWidget {
                 // TODO: Taşmalar engellenecek
                 Text(
                   '${user.name}  ${user.surname}',
+                  overflow: TextOverflow.ellipsis,
                   style: AppTextStyles.body1.copyWith(fontWeight: FontWeight.w500),
                 ),
                 buildRow(
@@ -70,6 +71,7 @@ class UserInfoCard extends StatelessWidget {
         Text(
           txt,
           style: ts,
+          overflow: TextOverflow.ellipsis,
         ),
       ],
     );

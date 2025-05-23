@@ -48,19 +48,19 @@ class ProfileMenu extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ProfileListTile(
+        MenuListTile(
           title: 'Favorilerim',
           icon: Icons.favorite_border_outlined,
           onTap: () => context.push('/profile/favorites'),
         ),
         listTileDivider,
-        ProfileListTile(
+        MenuListTile(
           title: 'Bildirimler',
           icon: Icons.notifications_none_outlined,
           onTap: () => context.push('/profile/notifications'),
         ),
         listTileDivider,
-        ProfileListTile(
+        MenuListTile(
           title: 'Profili Düzenle',
           icon: Icons.manage_accounts_outlined,
           onTap: () => context.push(
@@ -69,13 +69,13 @@ class ProfileMenu extends StatelessWidget {
           ),
         ),
         listTileDivider,
-        ProfileListTile(
+        MenuListTile(
           title: 'Ayarlar',
           icon: Icons.settings_outlined,
           onTap: () => context.push('/settings'),
         ),
         listTileDivider,
-        ProfileListTile(
+        MenuListTile(
           title: 'Çıkış Yap',
           icon: Icons.logout_outlined,
           onTap: () => onLogOut(),

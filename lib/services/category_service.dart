@@ -4,7 +4,21 @@ import '../models/category_model.dart';
 class CategoryServices {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<List<CategoryModel>> fetchCategories() async {
+  Future<CategoryModel?> getCategoryById({required String id}) async {
+    CategoryModel? category;
+    DocumentSnapshot snapshot =
+        await _firestore.collection('categories').doc(id).get();
+
+    if (snapshot.exists) {
+      category = CategoryModel.fromMap(
+        map: snapshot.data() as Map<String, dynamic>,
+      );
+    }
+
+    return category;
+  }
+
+  Future<List<CategoryModel>> getCategories() async {
     QuerySnapshot querySnapshot =
         await _firestore.collection('categories').get();
 
@@ -26,22 +40,50 @@ class CategoryServices {
 
     if (querySnapshot.docs.isNotEmpty) {
       final data = querySnapshot.docs.first.data() as Map<String, dynamic>;
-      final List<String> subcategories = List<String>.from(data['subcategories'] ?? []);
+      final List<String> subcategories =
+          List<String>.from(data['subcategories'] ?? []);
       return subcategories;
     } else {
       return [];
     }
   }
 
-  Future<void> addCategory() async {
-    // Yeni kategori ekleme işlemleri bu alanda yapılacak.
+  Future<void> addCategory({
+    required CategoryModel category,
+    required Function(String message) onError,
+    required Function() onSuccess,
+  }) async {
+    try {
+      final DocumentReference docRef =
+          await _firestore.collection('categories').add(category.toMap());
+
+      await docRef.set({
+        'id': docRef.id,
+      }, SetOptions(merge: true));
+
+      onSuccess();
+    } catch (e) {
+      onError('Kategori eklenirken hata oluştu: $e');
+    }
   }
 
-  Future<void> updateCategory() async {
-    // Kategori güncelleme işlemleri burada yapılacak
+  Future<void> updateCategory({
+    required CategoryModel category,
+  }) async {
+    try {
+      await _firestore.collection('categories').doc(category.id).update(category.toMap());
+    } catch (e) {
+      throw Exception('Kategori güncellenirken hata oluştu: $e');
+    }
   }
 
-  Future<void> deleteCategory() async {
-    // Kategori silme işlemleri buradan yapılacak
+  Future<void> deleteCategory({required String id, required Function(String message) onError,
+    required Function() onSuccess,}) async {
+    try {
+      await _firestore.collection('categories').doc(id).delete();
+      onSuccess();
+    } catch (e) {
+      onError('Kategori silinirken hata oluştu: $e');
+    }
   }
 }

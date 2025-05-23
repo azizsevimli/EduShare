@@ -1,5 +1,6 @@
 import 'package:algolia/algolia.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 
 import '../models/material_model.dart';
 
@@ -29,7 +30,7 @@ class AlgoliaService {
           materials.add(MaterialModel.fromMap(doc.data()!));
         }
       } catch (e) {
-        print("Firestore'dan veri çekilirken hata: $e");
+        debugPrint("Firestore'dan veri çekilirken hata: $e");
       }
     }
 

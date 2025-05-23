@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../app.dart';
 import '../../models/user_model.dart';
+import '../../pages/Admin/add_new_admin.dart';
+import '../../pages/Admin/admin_home.dart';
+import '../../pages/Admin/edit_category.dart';
+import '../../pages/Admin/users_list.dart';
 import '../../pages/MaterialManagement/material_edit_page.dart';
 import '../../pages/Messages/chat_page.dart';
 import '../../pages/Profile/favorites_page.dart';
@@ -157,6 +161,30 @@ class AppRouter {
         path: '/settings',
         builder: (BuildContext context, GoRouterState state) {
           return const SettingsPage();
+        },
+      ),
+      GoRoute(
+        path: '/admin/home',
+        builder: (BuildContext context, GoRouterState state) {
+          return AdminHomePage();
+        },
+      ),
+      GoRoute(
+        path: '/admin/add-new-admin',
+        builder: (BuildContext context, GoRouterState state) {
+          return AddNewAdminPage();
+        },
+      ),
+      GoRoute(
+        path: '/admin/edit-category',
+        builder: (BuildContext context, GoRouterState state) {
+          return const EditCategoryPage();
+        },
+      ),
+      GoRoute(
+        path: '/admin/users-list',
+        builder: (BuildContext context, GoRouterState state) {
+          return UsersListPage();
         },
       ),
     ],

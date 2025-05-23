@@ -3,7 +3,7 @@ import '../constants/constants.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
-  final String hint;
+  final String? hint;
   final String? label;
   final String? title;
   final String? subtitle;
@@ -12,7 +12,7 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
     required this.controller,
-    required this.hint,
+    this.hint,
     this.label,
     this.title,
     this.subtitle,
@@ -33,8 +33,9 @@ class CustomTextField extends StatelessWidget {
         const SizedBox(height: 5),
         TextField(
           controller: controller,
-          keyboardType:
-              multiline ? TextInputType.multiline : TextInputType.text,
+          keyboardType: multiline
+              ? TextInputType.multiline
+              : TextInputType.text,
           maxLines: multiline ? null : 1,
           maxLength: multiline ? 300 : null,
           textCapitalization: multiline
@@ -42,7 +43,7 @@ class CustomTextField extends StatelessWidget {
               : TextCapitalization.words,
           decoration: InputDecoration(
             labelText: label ?? '',
-            hintText: hint,
+            hintText: hint ?? '',
           ),
         ),
       ],
@@ -52,7 +53,7 @@ class CustomTextField extends StatelessWidget {
 
 class CustomTextFormField extends StatelessWidget {
   final TextEditingController controller;
-  final String hint;
+  final String? hint;
   final String? label;
   final String? title;
   final String? subtitle;
@@ -61,7 +62,7 @@ class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     super.key,
     required this.controller,
-    required this.hint,
+    this.hint,
     this.label,
     this.title,
     this.subtitle,
@@ -82,8 +83,7 @@ class CustomTextFormField extends StatelessWidget {
         const SizedBox(height: 5),
         TextFormField(
           controller: controller,
-          keyboardType:
-              multiline ? TextInputType.multiline : TextInputType.text,
+          keyboardType: multiline ? TextInputType.multiline : TextInputType.text,
           maxLines: multiline ? null : 1,
           maxLength: multiline ? 300 : null,
           textCapitalization: multiline
@@ -91,7 +91,7 @@ class CustomTextFormField extends StatelessWidget {
               : TextCapitalization.words,
           decoration: InputDecoration(
             labelText: label ?? '',
-            hintText: hint,
+            hintText: hint ?? '',
           ),
           validator: (value) {
             if (value == null || value.isEmpty) {

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import '../constants/constants.dart';
 
-class ProfileListTile extends StatelessWidget {
+class MenuListTile extends StatelessWidget {
   final String title;
   final IconData icon;
   final VoidCallback onTap;
   final Color? iconColor;
   final Color? textColor;
 
-  const ProfileListTile({
+  const MenuListTile({
     super.key,
     required this.icon,
     required this.title,

@@ -1,25 +1,39 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   Future<void> signInUser({
     required String email,
     required String password,
+    required BuildContext context,
     required Function(String message) onError,
-    required Function(UserCredential userCredential) onSuccess,
   }) async {
     if (email.isEmpty || password.isEmpty) {
       onError('Lütfen tüm alanları doldurun!');
       return;
     }
-
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
-      onSuccess(userCredential);
+      final uid = userCredential.user!.uid;
+
+      final userDoc = await _firestore.collection('users').doc(uid).get();
+      final isAdmin = userDoc.data()?['isAdmin'] ?? false;
+
+      if (context.mounted) {
+        if (isAdmin) {
+          context.go('/admin/home');
+        } else {
+          context.go('/home');
+        }
+      }
     } on FirebaseAuthException catch (e) {
       String errorMessage;
       if (e.code == 'user-not-found') {
@@ -30,6 +44,32 @@ class AuthService {
         errorMessage = 'Bir hata oluştu: ${e.message}';
       }
       onError(errorMessage);
+    }
+  }
+
+  void checkUser({
+    required VoidCallback onAdminFound,
+    required VoidCallback onUserFound,
+    required VoidCallback onUserNotFound,
+  }) async {
+    final User? user = _auth.currentUser;
+
+    if (user != null) {
+      final doc = await _firestore.collection('users').doc(user.uid).get();
+
+      if (doc.exists) {
+        final isAdmin = doc.data()?['isAdmin'] ?? false;
+
+        if (isAdmin) {
+          onAdminFound();
+        } else {
+          onUserFound();
+        }
+      } else {
+        onUserNotFound();
+      }
+    } else {
+      onUserNotFound();
     }
   }
 

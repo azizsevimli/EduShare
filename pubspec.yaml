@@ -45,6 +45,9 @@ dependencies:
   smooth_page_indicator: ^1.2.1
   algoliasearch: ^1.32.0
   algolia: ^1.1.2
+  http: ^0.13.0
+  path: ^1.9.0
+  path_provider: ^2.1.5
 
 dev_dependencies:
   flutter_test:

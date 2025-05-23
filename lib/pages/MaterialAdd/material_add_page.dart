@@ -67,6 +67,12 @@ class _MaterialAddPageState extends State<MaterialAddPage> {
       );
       setState(() {
         _isLoading = false;
+        _images = [null, null, null, null];
+        titleController.clear();
+        descriptionController.clear();
+        priceController.clear();
+        categoryController.clear();
+        subjectController.clear();
       });
     } else {
       ShowSnackBar.showSnackBar(
@@ -145,7 +151,6 @@ class _MaterialAddPageState extends State<MaterialAddPage> {
         children: [
           CustomTextFormField(
             controller: titleController,
-            hint: 'Örn: Hesap Makinesi',
             title: 'Materyal Başlığı',
             subtitle: 'Bir başlık girin',
             multiline: false,
@@ -153,7 +158,6 @@ class _MaterialAddPageState extends State<MaterialAddPage> {
           const SizedBox(height: 20),
           CustomTextFormField(
             controller: descriptionController,
-            hint: 'Marka model bilgisi, kullanım durumu, vb.',
             title: 'Materyal Açıklaması',
             subtitle: 'Materyal hakkında detaylı bilgi verin',
             multiline: true,
@@ -195,7 +199,6 @@ class _MaterialAddPageState extends State<MaterialAddPage> {
           const SizedBox(height: 20),
           CustomTextFormField(
             controller: subjectController,
-            hint: 'Örn: Mobil Programlama',
             title: 'Ders',
             subtitle: 'İlgili dersi yazın',
             multiline: false,

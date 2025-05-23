@@ -13,18 +13,6 @@ class UserServices {
     return _auth.currentUser?.uid;
   }
 
-  void checkUser({
-    required Function() onUserFound,
-    required Function() onUserNotFound,
-  }) async {
-    final User? user = _auth.currentUser;
-    if (user != null) {
-      onUserFound();
-    } else {
-      onUserNotFound();
-    }
-  }
-
   Future<void> registerUser({
     required String name,
     required String surname,

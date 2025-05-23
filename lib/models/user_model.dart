@@ -10,6 +10,7 @@ class UserModel {
   String grade;
   String imageUrl;
   List<String> favoriteMaterials;
+  bool isAdmin;
 
   UserModel({
     required this.uid,
@@ -23,6 +24,7 @@ class UserModel {
     required this.grade,
     required this.imageUrl,
     this.favoriteMaterials = const [],
+    this.isAdmin = false,
   });
 
   Map<String, dynamic> toMap() {
@@ -38,6 +40,7 @@ class UserModel {
       'grade': grade,
       'imageUrl': imageUrl,
       'favoriteMaterials': favoriteMaterials,
+      'isAdmin': isAdmin,
     };
   }
 
@@ -54,6 +57,7 @@ class UserModel {
       grade: map['grade'] ?? '',
       imageUrl: map['imageUrl'] ?? '',
       favoriteMaterials: List<String>.from(map['favoriteMaterials'] ?? []),
+      isAdmin: map['isAdmin'] ?? false,
     );
   }
 }
