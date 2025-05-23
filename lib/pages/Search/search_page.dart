@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+
+import '../../core/constants/constants.dart';
+import '../../core/widgets/custom_circular_indicator.dart';
+import '../../core/widgets/material_card.dart';
 import '../../models/material_model.dart';
-import '../../services/material_service.dart';
+import '../../services/algolia_service.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -10,26 +14,24 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  final MaterialServices _materialServices = MaterialServices();
+  final AlgoliaService _algoliaService = AlgoliaService();
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _searchController = TextEditingController();
 
-  List<MaterialModel> _searchResults = [];
-  bool isSearching = false;
+  List<MaterialModel> _results = [];
+  bool _isLoading = false;
 
-  void _onSearchChanged(String query) async {
-    if (query.trim().isEmpty) {
-      setState(() => _searchResults = []);
+  void _onSearch(String query) async {
+    if (query.trim().length < 3) {
+      setState(() {
+        _results = [];
+      });
       return;
     }
 
-    setState(() => isSearching = true);
-    final results = await _materialServices.searchMaterial(query: query);
-
-    setState(() {
-      _searchResults = results;
-      isSearching = false;
-    });
+    setState(() => _isLoading = true);
+    _results = await _algoliaService.searchMaterials(query: query);
+    setState(() => _isLoading = false);
   }
 
   @override
@@ -39,7 +41,6 @@ class _SearchPageState extends State<SearchPage> {
     _scrollController.dispose();
   }
 
-  // TODO: Sonuçları düzgün bir şekilde listele
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -48,30 +49,54 @@ class _SearchPageState extends State<SearchPage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TextField(
-            // Search bar
-            controller: _searchController,
-            onChanged: _onSearchChanged,
-            decoration: const InputDecoration(
-              prefixIcon: Icon(Icons.search),
+          buildSearchBar(),
+          const SizedBox(height: 20),
+          if (_isLoading) const CustomCircularIndicator(),
+          Expanded(
+            child: SingleChildScrollView(
+              child: GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.65,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                ),
+                itemCount: _results.length,
+                itemBuilder: (context, index) {
+                  final material = _results[index];
+                  return MaterialCard(material: material);
+                },
+              ),
             ),
           ),
-          const SizedBox(height: 20),
-          Expanded(
-            child: _searchResults.isEmpty
-                ? const Center(child: Text("Sonuç bulunamadı"))
-                : ListView.builder(
-                    itemCount: _searchResults.length,
-                    itemBuilder: (context, index) {
-                      final material = _searchResults[index];
-                      return ListTile(
-                        title: Text(material.title),
-                        subtitle: Text(material.description),
-                      );
-                    },
-                  ),
-          )
         ],
+      ),
+    );
+  }
+
+  TextField buildSearchBar() {
+    return TextField(
+      controller: _searchController,
+      onChanged: _onSearch,
+      decoration: InputDecoration(
+        hintText: 'Arama için en az 3 karakter girin',
+        prefixIcon: const Icon(Icons.search),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20.0),
+          borderSide: const BorderSide(
+            color: AppColors.tiffany,
+            width: 1.0,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20.0),
+          borderSide: const BorderSide(
+            color: AppColors.tiffany,
+            width: 1.5,
+          ),
+        ),
       ),
     );
   }

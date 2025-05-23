@@ -16,7 +16,7 @@ AppBar buildAppBar({required BuildContext context,required String currentUserId,
       );
     case 1:
       return AppBar(
-        title: const Text('Search'),
+        title: const Text('Keşfet'),
       );
     case 2:
       return AppBar(
