@@ -4,10 +4,9 @@ import '../models/message_model.dart';
 class MessageService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  String generateChatId({required String userId1, required String userId2}) {
-    return userId1.compareTo(userId2) < 0
-        ? '${userId1}_$userId2'
-        : '${userId2}_$userId1';
+  String generateChatId({required String userId1, required String userId2, required String materialId}) {
+    final sortedUserIds = [userId1, userId2]..sort();
+    return '${sortedUserIds[0]}_${sortedUserIds[1]}_$materialId';
   }
 
   Future<void> sendMessage({
@@ -16,7 +15,7 @@ class MessageService {
     required String materialId,
     required String text,
   }) async {
-    final chatId = generateChatId(userId1: senderId, userId2: receiverId);
+    final chatId = generateChatId(userId1: senderId, userId2: receiverId, materialId: materialId);
     final message = MessageModel(
       senderId: senderId,
       materialId: materialId,
@@ -34,6 +33,7 @@ class MessageService {
 
     await _firestore.collection('chats').doc(chatId).set({
       'users': [senderId, receiverId],
+      'materialId': materialId,
       'lastMessage': text,
       'timestamp': DateTime.now().toIso8601String(),
     }, SetOptions(merge: true));
@@ -42,8 +42,9 @@ class MessageService {
   Stream<List<MessageModel>> getMessages({
     required String userId1,
     required String userId2,
+    required String materialId,
   }) {
-    final chatId = generateChatId(userId1: userId1, userId2: userId2);
+    final chatId = generateChatId(userId1: userId1, userId2: userId2, materialId: materialId);
     return _firestore
         .collection('chats')
         .doc(chatId)
@@ -72,6 +73,7 @@ class MessageService {
       return {
         'chatId': doc.id,
         'targetUserId': targetUserId,
+        'materialId': data['materialId'],
         'lastMessage': data['lastMessage'] ?? '',
         'timestamp': data['timestamp'],
       };

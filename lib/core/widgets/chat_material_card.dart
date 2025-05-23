@@ -81,7 +81,7 @@ class ChatMaterialCard extends StatelessWidget {
       color: AppColors.white,
       border: Border(
         bottom: BorderSide(
-          color: AppColors.black,
+          color: AppColors.periwinkle,
           width: 1.0,
         ),
       ),

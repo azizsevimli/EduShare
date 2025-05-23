@@ -29,11 +29,14 @@ AppBar customAppBar({
 
 AppBar chatPageAppBar({required BuildContext context, required UserModel user}) {
   return AppBar(
+    backgroundColor: AppColors.periwinkle,
+    foregroundColor: AppColors.wine,
     leading: IconButton(
       icon: const Icon(Icons.arrow_back),
       onPressed: () => context.pop(),
     ),
     leadingWidth: 30.0,
+    titleTextStyle: AppTextStyles.appBar.copyWith(color: AppColors.wine,),
     title: Row(
       children: [
         CircleAvatar(

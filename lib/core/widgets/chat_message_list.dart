@@ -10,6 +10,7 @@ class ChatMessageList extends StatelessWidget {
   final ScrollController scrollController;
   final String currentUserId;
   final String targetUserId;
+  final String materialId;
 
   const ChatMessageList({
     super.key,
@@ -17,12 +18,13 @@ class ChatMessageList extends StatelessWidget {
     required this.scrollController,
     required this.currentUserId,
     required this.targetUserId,
+    required this.materialId,
   });
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<MessageModel>>(
-      stream: messageService.getMessages(userId1: currentUserId, userId2: targetUserId),
+      stream: messageService.getMessages(userId1: currentUserId, userId2: targetUserId, materialId: materialId),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(

@@ -79,6 +79,7 @@ class _ChatPageState extends State<ChatPage> {
               scrollController: scrollController,
               currentUserId: widget.currentUserId,
               targetUserId: widget.targetUserId,
+              materialId: widget.materialId,
             ),
           ),
           buildMessageInput(),
@@ -97,6 +98,20 @@ class _ChatPageState extends State<ChatPage> {
               controller: messageController,
               decoration: InputDecoration(
                 hintText: "Mesaj yaz...",
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                  borderSide: const BorderSide(
+                    color: AppColors.periwinkle,
+                    width: 1.5,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                  borderSide: const BorderSide(
+                    color: AppColors.periwinkle,
+                    width: 1.0,
+                  ),
+                ),
                 suffixIcon: IconButton(
                   icon: const Icon(Icons.send),
                   color: AppColors.xanthous,
